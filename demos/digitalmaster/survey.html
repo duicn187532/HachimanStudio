@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>課程回饋問卷（示範）</title>
+<style>body{margin:0;font-family:system-ui,'PingFang TC','Noto Sans TC',sans-serif;background:#fffdf3;color:#333;padding:20px}
+h1{font-size:20px}fieldset{border:1px solid #eee;border-radius:12px;margin:0 0 14px;background:#fff;padding:12px 14px}legend{font-weight:700}
+label{display:block;margin:6px 0}textarea{width:100%;box-sizing:border-box;min-height:70px;border:1px solid #ddd;border-radius:8px;padding:8px}
+button{background:#ffb74d;color:#fff;border:0;border-radius:24px;padding:12px 28px;font-weight:700;font-size:16px}p.note{color:#999;font-size:13px}</style></head>
+<body><h1>課程回饋問卷</h1><p class="note">作品集示範版：送出後不會傳到任何地方。</p>
+<form onsubmit="event.preventDefault();this.innerHTML='<h2>感謝你的回饋！</h2><p class=note>示範版不會保存答案。</p>'">
+<fieldset><legend>1. 這堂課對你的工作有幫助嗎？</legend><label><input type="radio" name="q1" required> 非常有幫助</label><label><input type="radio" name="q1"> 有幫助</label><label><input type="radio" name="q1"> 普通</label></fieldset>
+<fieldset><legend>2. 你最想再深入的主題</legend><label><input type="checkbox"> 生成式 AI</label><label><input type="checkbox"> 行動銀行</label><label><input type="checkbox"> 資料分析</label></fieldset>
+<fieldset><legend>3. 其他建議</legend><textarea></textarea></fieldset><button>送出</button></form></body></html>

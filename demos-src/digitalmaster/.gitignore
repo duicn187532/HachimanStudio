@@ -1,0 +1,34 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+<<<<<<< HEAD
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+=======
+
+# 忽略 Windows 系統自動生成的檔案
+Thumbs.db
+
+# 忽略某些依賴或臨時檔案
+package-lock.json
+yarn.lock
+>>>>>>> 50cdca42214e65afc270fb769fe419e456f3b674

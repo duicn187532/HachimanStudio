@@ -1,2 +1,54 @@
-# HachimanStudio
-Brand Website
+# HACHIMAN STUDIO 八萬工作室 · 品牌形象網站
+
+八萬工作室的品牌形象網站：首頁（關於、吉祥物、服務、精選作品、合作流程、歷程、聯絡與 FAQ）、作品集頁（可依類別篩選、點開看詳細內容），以及 404 頁。
+
+純靜態網站，不需要建置，也沒有任何後端或第三方追蹤。
+
+## 本機預覽
+
+```bash
+python3 -m http.server 8000   # 打開 http://localhost:8000
+```
+
+## 部署（GitHub Pages）
+
+Settings → Pages → Build and deployment → Source 選「Deploy from a branch」，Branch 選 `main`、資料夾 `/ (root)`。
+網址會是 `https://duicn187532.github.io/HachimanStudio/`。
+
+改用自訂網域時，把 `404.html` 裡的 `<base href="/HachimanStudio/">` 改成 `<base href="/">`。
+
+## 常見修改
+
+| 想改什麼 | 改哪裡 |
+| --- | --- |
+| 新增／修改作品 | `assets/js/works.js`（每件作品一筆資料；`featured: true` 會出現在首頁） |
+| 公開 Email | `assets/js/site.js` 最上方的 `SITE.email`（留空時只顯示 GitHub） |
+| 文案 | `index.html`、`works.html` |
+| 顏色、字體 | `assets/css/style.css` 最上方的 `:root` |
+| 作品封面 | `python3 tools/gen_covers.py` 重新產生 `assets/img/works/*.svg`；`*-shot.webp` 是示範版截圖 |
+
+## 線上示範（demos/）
+
+不能公開正式入口或原始碼的作品，提供「原本介面＋虛構資料」的離線示範版。示範版都不發出任何 API 請求，資料只存在瀏覽者自己的瀏覽器。
+
+| 示範 | 來源 | 做法 |
+| --- | --- | --- |
+| `demos/meetbook/` | MeetBook 前端（`demos-src/meetbook`） | 複製原本的 React 前端；`src/api/meetingApi.ts` 換成瀏覽器內的虛構預約資料，`backend.ts` 改為一律拒絕連線 |
+| `demos/avalon/` | avalon（私人 repo，`demos-src/avalon`） | 複製原本的頁面與遊戲邏輯；`src/mockServer.ts` 在瀏覽器內模擬 `/api/*`，只能開單人測試房 |
+| `demos/digitalmaster/` | DigitalMaster 前端（`demos-src/digitalmaster`） | 複製原本的前端；`src/api/api.ts` 回傳虛構的「示範達人」，問卷改為本機頁面 |
+| `demos/tongling/` | tongling-prototype v16 | 靜態原型直接複製 |
+
+重新建置某個示範（輸出會覆蓋 `demos/<名稱>/`）：
+
+```bash
+cd demos-src/meetbook && npm ci && npx vite build
+```
+
+### 關於 MeetBook（正式營運中）
+
+MeetBook 是正式營運中的系統，本網站**不使用任何正式環境資源**：不放正式站網址、不嵌入、不呼叫正式 API，也沒有正式站截圖。示範版的封面截圖來自上面的離線示範，會議與預約者都是虛構的。
+
+## 素材授權
+
+- 八萬、歐雷角色、標誌與插圖：© HACHIMAN STUDIO / 八萬工作室，未經同意請勿重製（來源：AutoML repo 的 `src/assets/brand/`）。
+- Lato 字型：SIL Open Font License 1.1（`assets/fonts/OFL-Lato.txt`）。

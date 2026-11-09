@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes loading-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-loading-progress {
+  animation: loading-progress 2s linear infinite;
+}
+
+/* LIVE 設計稿字型：英數字用 DM Sans，中文用各平台的系統字型 */
+.font-live {
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-feature-settings: "tnum" 0;
+}
+/* LIVE 綠燈：小顆亮綠色，不帶光暈 */
+.live-dot {
+  background: #55FF3F;
+}
+/* LIVE 摘要條：微凹陷效果（上緣內陰影、下緣亮邊） */
+.live-pill {
+  box-shadow: inset 0 1.5px 2px rgb(150 125 20 / 0.30), inset 0 -1px 0 rgb(255 255 255 / 0.55);
+}
+/* 日期用系統字型（iPhone 為蘋方），與設計稿相同 */
+.font-system {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+}
+
+/* 背景更新的細進度線：延遲 0.4 秒才淡入，避免短暫更新時閃一下 */
+.refresh-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  animation: refresh-bar-in 0.3s ease 0.4s forwards;
+}
+.refresh-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 35%;
+  border-radius: 1px;
+  background: rgb(60 151 255 / 0.55);
+  animation: refresh-bar-slide 1.4s ease-in-out infinite;
+}
+/* 手動重新整理（點目前所在的分頁）：不延遲，立即顯示 */
+.refresh-bar.refresh-bar-now {
+  opacity: 1;
+  animation: none;
+}
+@keyframes refresh-bar-in {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes refresh-bar-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(290%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .refresh-bar::before {
+    width: 100%;
+    animation: none;
+    background: rgb(60 151 255 / 0.3);
+  }
+}
+
+.animation-delay-500 {
+  animation-delay: -0.5s;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* 沒有指定字級的文字也跟著文字大小設定（--text-scale）放大 */
+  font-size: calc(1rem * var(--text-scale, 1));
+}
+
+.MuiMultiSectionDigitalClockSection-item.Mui-disabled {
+  display: none !important;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform 80ms ease, filter 120ms ease;
+  will-change: transform;
+}
+
+button:active {
+  transform: scale(0.96);
+  filter: brightness(0.96);
+}
+
+/* 行事曆左右滑動換頁：新的一頁從另一側滑入（hooks/useSwipe.ts） */
+@keyframes swipe-in-next {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes swipe-in-prev {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* 顯示設定的字體風格（config/display.ts）：選用時套用到整個網站，數字與英文也一起換 */
+html[data-font="sans"] body,
+html[data-font="sans"] body * {
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+}
+html[data-font="round"] body,
+html[data-font="round"] body * {
+  font-family: "Huninn", "Yuanti TC", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+}
+html[data-font="serif"] body,
+html[data-font="serif"] body * {
+  font-family: "Noto Serif TC", "Songti TC", "PMingLiU", "MingLiU", serif !important;
+}
+html[data-font="kai"] body,
+html[data-font="kai"] body * {
+  font-family: "LXGW WenKai TC", "Kaiti TC", "DFKai-SB", "BiauKai", serif !important;
+}
+/* 顯示設定視窗中，風格按鈕以各自的字體呈現 */
+html body .font-style-sans {
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+}
+html body .font-style-round {
+  font-family: "Huninn", "Yuanti TC", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+}
+html body .font-style-serif {
+  font-family: "Noto Serif TC", "Songti TC", "PMingLiU", "MingLiU", serif !important;
+}
+html body .font-style-kai {
+  font-family: "LXGW WenKai TC", "Kaiti TC", "DFKai-SB", "BiauKai", serif !important;
+}
+
+/* 顯示設定的字體粗細（config/display.ts）：整體加粗，原本較粗的文字仍比內文粗
+   粗：一般 400→600、medium 500→700、semibold／bold→800
+   特粗：一般 400→700、medium 500→800、semibold／bold→900 */
+html[data-weight="bold"] body { font-weight: 600; }
+html[data-weight="bold"] body .font-normal { font-weight: 600 !important; }
+html[data-weight="bold"] body .font-medium { font-weight: 700 !important; }
+html[data-weight="bold"] body .font-semibold,
+html[data-weight="bold"] body .font-bold { font-weight: 800 !important; }
+html[data-weight="heavy"] body { font-weight: 700; }
+html[data-weight="heavy"] body .font-normal { font-weight: 700 !important; }
+html[data-weight="heavy"] body .font-medium { font-weight: 800 !important; }
+html[data-weight="heavy"] body .font-semibold,
+html[data-weight="heavy"] body .font-bold { font-weight: 900 !important; }
