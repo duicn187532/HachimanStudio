@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="2024政見的選擇">
+    <meta name="description" content="你支持的政見，與你支持的人一樣嗎？（作品集示範版，候選人匿名）">
+    <meta name="robots" content="noindex">
+    <title>2024政見的選擇｜VoteRight 示範版</title>
+    <link rel="stylesheet" type="text/css" href="static/mainCss.css">
+</head>
+<body>
+    <!-- 作品集示範版：原本的 Flask 頁面改為靜態版。題庫取自原專案，候選人以 A／B／C 匿名；
+         不載入廣告與 Facebook SDK，作答結果不會送出或儲存。 -->
+    <div class="demo-bar">作品集示範版：候選人以 A／B／C 匿名，作答不會送出或儲存。<a href="../../works.html#work-voteright">回作品集</a></div>
+    <img id="backgroundimg" src="static/background2.webp" alt="">
+
+    <script src="static/chart.umd.js"></script>
+
+    <section id="mainPage">
+        <div class="header">
+            <div class="container"><img id="topicImg" src="static/topicimg2.webp" alt="2024 VOTE RIGHT"></div>
+        </div>
+        <div class="container topic" style="display: block;">
+            <div class="heading">
+                <div class="topicInfon">
+                    <div class="topicType">你的2024選擇是</div>
+                    <div class="topicNum progress-bar">
+                        <div class="progress-text"> 0 / 10</div>
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <i style="width: 10%;"></i>
+                </div>
+            </div>
+            <div class="topic-box">
+                <div class="topic-title">
+                    <div class="content">如果明天就要投票，你會投給誰?</div>
+                </div>
+                <div class="topic-list">
+                    <ul style="padding: 0;">
+                        <li class="select" id="select1" onclick="selectOnClick(1)">候選人 A</li>
+                        <li class="select" id="select2" onclick="selectOnClick(2)">候選人 C</li>
+                        <li class="select" id="select3" onclick="selectOnClick(3)">候選人 B</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="Pagination" style="display: flex;">
+                <div id="previous" class="switch_btn" onclick="lastOnClick()" style="display : none">前一題 </div>
+                <div id="next" class="switch_btn" onclick="nextOnClick()">下一題 </div>
+            </div>
+        </div>
+    </section>
+    <div style="display: flex;justify-content: space-around;;">
+        <canvas id="myPieChart" width="300" height="300" style="display: none;"></canvas>
+    </div>
+    <div class="demo-share">（原版此處為 Facebook 分享按鈕）</div>
+    <!-- 最後結果 -->
+    <div class="endBox"></div>
+
+    <script src="static/questions.js"></script>
+    <script src="static/mainController.js"></script>
+    <script>
+        let counter = 0;
+        let ansList = [0,0,0,0,0,0,0,0,0,0,0];
+        let ans=0;
+        let finAns={"choose":0,"Q1":0,"Q2":0,"Q3":0,"Q4":0,"Q5":0,"Q6":0,"Q7":0,"Q8":0,"Q9":0,"Q10":0}
+        // 原版由 Flask 產生：每題把三個選項隨機排到三個位置
+        let place = makePlace();
+        renderEnd();
+    </script>
+</body>
+</html>

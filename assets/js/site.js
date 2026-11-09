@@ -4,7 +4,7 @@
 
   /* 聯絡設定：想公開 Email 時填入，例如 'hello@example.com'；留空則只顯示 GitHub。 */
   var SITE = {
-    email: '',
+    email: 'duicn187532@gmail.com',
     github: 'https://github.com/duicn187532',
     /* 訪客統計（GoatCounter）：填入在 goatcounter.com 註冊的代碼，例如 'hachiman'（對應 https://hachiman.goatcounter.com）。
        留空就不統計、頁尾也不顯示瀏覽數。頁尾的累計瀏覽數需要在 GoatCounter 設定中開啟
@@ -171,12 +171,12 @@
       }).join('') + '</div>' : '') +
       '<div class="dlg-body">' +
       '<h2 id="dlg-title">' + esc(w.title) + '</h2>' +
-      '<div class="meta"><span class="' + statusClass(w) + '">' + esc(w.status) + '</span><span>' + esc(CATS[w.category] || '') + '</span><span>' + esc(w.year) + '</span><span>角色：' + esc(w.role) + '</span></div>' +
+      '<div class="meta"><span class="' + statusClass(w) + '">' + esc(w.status) + '</span><span>' + esc(CATS[w.category] || '') + '</span><span>' + esc(w.year) + '</span><span>我的角色：' + esc(w.role) + '</span></div>' +
       badges(w) +
       '<p>' + esc(w.summary) + '</p>' +
       '<h3>重點</h3><ul class="points">' + w.highlights.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>' +
       '<h3>技術</h3><ul class="tags">' + w.stack.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
-      (hasNote ? '<div class="dlg-note"><img src="assets/img/brand/orei-portrait.webp" alt=""><span>' + esc(w.note) + '</span></div>' : '') +
+      (hasNote ? '<div class="dlg-note"><img src="assets/img/brand/olleh-portrait.webp" alt=""><span>' + esc(w.note) + '</span></div>' : '') +
       (w.links.length ? '<div class="dlg-links">' + w.links.map(function (l, i) {
         return '<a class="btn ' + (i === 0 ? 'btn-primary' : 'btn-ghost') + ' btn-sm" href="' + esc(l.href) + '" target="_blank" rel="noopener">' + esc(l.label) + ' ↗</a>';
       }).join('') + '</div>' : '<div class="dlg-note"><img src="assets/img/brand/hachiman-peek.webp" alt=""><span>此專案為非公開專案，歡迎來信詢問細節。</span></div>') +
@@ -214,10 +214,10 @@
   var ERAS = {
     '2026': { title: 'AI 工具與產品化', text: '把 AI 接進真實流程，同時把作品做成別人也能用的產品：本機優先、可追溯、可維運。' },
     '2025': { title: '走進辦公室', text: '開始替同事解決每天的麻煩：預約、活動、學習激勵，第一次有人每天在用我做的東西。' },
-    '2023': { title: '從零開始自學', text: '一支爬蟲、一個 Flask 網站、一個計時器——寫程式的起點。' }
+    '2023': { title: '從零開始自學', text: '一支爬蟲、一個 Flask 網站、一個計時器——寫程式的起點；年底第一次和夥伴分工，做出選前上線的政見測驗。' }
   };
   var MILESTONES = [
-    { date: '2026-11', title: 'HACHIMAN STUDIO 成立', text: '以八萬與歐雷為品牌，整理三年來的作品，開始對外介紹。', icon: 'brand' }
+    { date: '2026-11', title: 'HACHIMAN STUDIO 成立', text: '以家裡的兩隻貓八萬與歐雷為品牌，整理三年來個人與合作的作品，也開始提供概念諮詢。', icon: 'brand' }
   ];
   function monthLabel(d) { var p = d.split('-'); return p[0] + ' 年 ' + Number(p[1]) + ' 月'; }
   function renderTimeline() {

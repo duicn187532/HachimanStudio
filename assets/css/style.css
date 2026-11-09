@@ -1,6 +1,6 @@
 /* HACHIMAN STUDIO 八萬工作室 — brand site
    Palette from the studio brand pack:
-   Ginger #C86A2D · Cream #F6E7D6 · Charcoal #3B312A · Orei White #FDFDFC · Sage #9BA487 */
+   Ginger #C86A2D · Cream #F6E7D6 · Charcoal #3B312A · Olleh White #FDFDFC · Sage #9BA487 */
 
 @font-face { font-family: 'Lato'; font-weight: 400; font-display: swap; src: url('../fonts/lato-latin-400-normal.woff2') format('woff2'); }
 @font-face { font-family: 'Lato'; font-weight: 700; font-display: swap; src: url('../fonts/lato-latin-700-normal.woff2') format('woff2'); }
@@ -139,7 +139,7 @@ section { padding: 96px 0; }
 .cat-card h3 { font-size: 22px; margin-bottom: 4px; }
 .cat-card .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; margin-bottom: 8px; }
 .cat-card.hachiman .tag { background: #F7DCC6; color: var(--ginger-dark); }
-.cat-card.orei .tag { background: var(--sage-soft); color: #556043; }
+.cat-card.olleh .tag { background: var(--sage-soft); color: #556043; }
 .cat-card p { color: var(--muted); font-size: 15px; margin: 0; }
 @media (max-width: 760px) { .cats { grid-template-columns: 1fr; } .cat-card { grid-template-columns: 88px 1fr; padding: 20px; } .cat-card .avatar { width: 88px; height: 88px; border-radius: 22px; } .cat-card .avatar img { width: 84px; } }
 
@@ -154,6 +154,11 @@ section { padding: 96px 0; }
 .service li { font-size: 12px; padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, .08); color: var(--cream); }
 @media (max-width: 1000px) { .services { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .services { grid-template-columns: 1fr; } }
+.scope { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.scope li { border-left: 3px solid var(--ginger); padding: 4px 0 4px 18px; }
+.scope strong { display: block; color: var(--cream); font-size: 17px; margin-bottom: 6px; }
+.scope span { color: #CFC3B6; font-size: 15px; }
+@media (max-width: 860px) { .scope { grid-template-columns: 1fr; } }
 
 /* ---------- works ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }

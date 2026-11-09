@@ -282,6 +282,74 @@ window.HS_WORKS = [
     links: [{ label: '原始碼', href: 'https://github.com/duicn187532/newsStorage' }]
   },
   {
+    id: 'sentiment',
+    date: '2025-01',
+    access: 'none',
+    growth: '同一個產品做了三個階段：從單機搜尋，到申請表單，再到自動蒐集新聞的資料庫。',
+    title: '輿情分析儀表板',
+    year: '2025',
+    category: 'ai',
+    status: '內部專案',
+    featured: false,
+    summary: '分三個階段打造的輿情分析工具：從單機版的關鍵字情緒分析，到熱搜關鍵字與報告申請表單，再到自動蒐集各大新聞的輿情資料庫。',
+    role: '團隊合作：負責全端工程',
+    stack: ['Python', 'FastAPI', '地端情感模型', 'GPT API', '新聞資料庫'],
+    highlights: [
+      '第一階段（2025 年 1 月）：單機版，使用者輸入關鍵字搜尋，串接地端情感模型與 GPT API 做分析。',
+      '第二階段（2025 年 6 月）：加入熱搜關鍵字與輿情報告申請表單。',
+      '第三階段（2025 年 7 月）：建立輿情資料庫，依設定的關鍵字自動蒐集各大新聞。'
+    ],
+    note: '團隊的內部專案，原始碼不公開，也不提供試用入口。封面是示意畫面，數字與關鍵字均為虛構。',
+    cover: 'assets/img/works/sentiment.svg',
+    links: []
+  },
+  {
+    id: 'lottery',
+    date: '2025-03',
+    access: 'none',
+    growth: '和同事各做一個版本、共用同一套 UI：第一次體會到介面與資料層分開的好處。',
+    title: '園遊會抽獎',
+    year: '2025',
+    category: 'fun',
+    status: '私人專案',
+    featured: false,
+    summary: '園遊會用的抽獎工具：在後台輸入獎品後，就可以在前台抽獎。有純前端與前後端兩個版本，共用同一套介面。',
+    role: '純前端版本的開發（前後端版本由同事開發，兩版共用同一套 UI）',
+    stack: ['純前端版', '前後端版（同事）', '共用 UI'],
+    highlights: [
+      '後台輸入獎品，前台直接抽獎，攤位現場不用另外準備籤筒。',
+      '雙版本：純前端版打開就能用、不需要伺服器；前後端版由同事開發，搭配伺服器運作。兩版共用同一套 UI。'
+    ],
+    note: '原始碼放在合作夥伴的私人 repo，不公開；封面是示意畫面，獎品為虛構。',
+    cover: 'assets/img/works/lottery.svg',
+    links: []
+  },
+  {
+    id: 'voteright',
+    date: '2023-12',
+    access: 'demo',
+    growth: '第一次和夥伴分工、用 Git 協作，兩週內在選前上線，給陌生人使用。',
+    title: 'VoteRight 2024 政見的選擇',
+    year: '2023 – 2024',
+    category: 'fun',
+    status: '開源',
+    featured: false,
+    summary: '2024 總統大選的政見配對測驗：10 個議題、三位候選人的政見隨機排序，選完後用圓餅圖看看你支持的政見偏向誰。',
+    role: '與夥伴合作：Flask 後端、MongoDB 題庫、結果圖表與介面',
+    stack: ['Python', 'Flask', 'MongoDB', 'Chart.js', 'Render'],
+    highlights: [
+      '政見選項不顯示候選人、每題隨機排序，降低先入為主的影響。',
+      '作答結果存進 MongoDB，最後以圓餅圖與完整政見對照呈現。'
+    ],
+    note: '「線上示範」是原本頁面的靜態版：題庫取自原專案，候選人改以 A／B／C 匿名，不載入廣告與 Facebook，作答不會送出或儲存。',
+    cover: 'assets/img/works/voteright-shot.webp',
+    gallery: ['assets/img/works/voteright-shot.webp', 'assets/img/works/voteright-shot-2.webp', 'assets/img/works/voteright-shot-1.webp'],
+    links: [
+      { label: '線上示範', href: 'demos/voteright/' },
+      { label: '原始碼', href: 'https://github.com/Magenga/VoteRight' }
+    ]
+  },
+  {
     id: 'crawler',
     date: '2023-08',
     access: 'none',
@@ -294,7 +362,7 @@ window.HS_WORKS = [
     summary: '從爬蟲出發：抓取股價、用 Flask 發 API、前端 AJAX 排版，再加上 MongoDB 會員與員工後台。',
     role: '自學專案',
     stack: ['Python', 'Flask', 'MongoDB', 'AJAX'],
-    highlights: ['完整記錄從 0 開始的開發歷程，是工作室的起點。'],
+    highlights: ['完整記錄從 0 開始的開發歷程，是我寫程式的起點。'],
     cover: 'assets/img/works/crawler.svg',
     links: [
       { label: 'Crawler', href: 'https://github.com/duicn187532/Crawler' },
