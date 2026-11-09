@@ -49,6 +49,7 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 | `demos/meetbook/` | MeetBook 前端（`demos-src/meetbook`） | 複製原本的 React 前端；會議室名稱、照片、部門改為通用的虛構內容；`src/api/meetingApi.ts` 換成瀏覽器內的虛構預約資料，`backend.ts` 改為一律拒絕連線 |
 | `demos/avalon/` | avalon（私人 repo） | 只放建置結果，不放原始碼。以原本的頁面與遊戲邏輯建置，`/api/*` 在瀏覽器內模擬，只能開單人測試房 |
 | `demos/digitalmaster/` | DigitalMaster 前端（`demos-src/digitalmaster`） | 複製原本的前端；`src/api/api.ts` 回傳虛構的「示範達人」，問卷改為本機頁面 |
+| `demos/voteright/` | VoteRight（Magenga/VoteRight，公開 repo） | 原本的 Flask 頁面改為靜態版；題庫取自原專案，候選人以 A／B／C 匿名，不載入廣告與 Facebook，作答不送出 |
 | `demos/tongling/` | tongling-alpha 正式版前端（`demos-src/tongling`） | 前端程式碼未改動；`src/demo/` 重播在本機用正式版後端載入虛構範例專案後錄下的回應，不執行 AI、不儲存 |
 
 重新建置某個示範（輸出會覆蓋 `demos/<名稱>/`）：

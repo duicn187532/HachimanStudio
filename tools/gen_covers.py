@@ -339,11 +339,46 @@ def skuld():
     return frame("timer · python", "".join(b))
 
 
+def lottery():
+    # Booth lottery: prizes set up in an admin page, drawn on the front page. Prizes are made up.
+    b = [text(90, 116, "園遊會抽獎", 22, CHAR, 900)]
+    b.append(rect(90, 140, 250, 300, "#FBF5EE", 14) + text(110, 172, "後台 · 獎品設定", 14, CHAR, 900))
+    for i, (n, q) in enumerate([("頭獎 · 拍立得", "1"), ("二獎 · 藍牙耳機", "2"), ("三獎 · 保溫瓶", "5"), ("參加獎 · 貼紙", "50")]):
+        y = 192 + i * 56
+        b.append(rect(110, y, 210, 44, WHITE, 10, f'stroke="{CREAM_D}"') + text(124, y + 28, n, 13, CHAR, 700)
+                 + text(306, y + 28, "×" + q, 13, GINGER, 900, "end"))
+    b.append(f'<path d="M352 290 h40" stroke="{CHAR_L}" stroke-width="3" stroke-dasharray="6 6"/>')
+    b.append(f'<path d="M392 282 l10 8 -10 8z" fill="{CHAR_L}"/>')
+    b.append(rect(420, 140, 296, 300, CHAR, 14) + text(568, 176, "前台 · 抽獎", 14, WHITE, 700, "middle"))
+    b.append(f'<circle cx="568" cy="282" r="78" fill="{GINGER}"/>' + f'<circle cx="568" cy="282" r="60" fill="{GINGER_L}"/>')
+    b.append(text(568, 276, "二獎", 24, CHAR, 900, "middle") + text(568, 302, "藍牙耳機", 14, CHAR, 700, "middle"))
+    b.append(rect(488, 380, 160, 40, GINGER, 20) + text(568, 406, "抽！", 16, WHITE, 900, "middle"))
+    return frame("lottery · fair", "".join(b))
+
+
+def sentiment():
+    # Opinion dashboard sketch: keywords, counts and trends are invented for illustration only.
+    b = [text(90, 116, "輿情儀表板", 22, CHAR, 900), text(220, 116, "示意畫面 · 非實際資料", 12, CHAR_L, 400)]
+    for i, (lab, val, col) in enumerate([("正面", "62%", SAGE), ("中立", "27%", CREAM_D), ("負面", "11%", GINGER)]):
+        x = 90 + i * 140
+        b.append(rect(x, 136, 126, 74, "#FBF5EE", 12) + text(x + 16, 162, lab, 13, CHAR_L, 700)
+                 + text(x + 16, 196, val, 26, CHAR, 900) + rect(x + 96, 150, 16, 16, col, 8))
+    b.append(rect(90, 226, 406, 214, "#FBF5EE", 12) + text(108, 254, "情緒趨勢（近一個月）", 13, CHAR, 900))
+    b.append(line([(110, 400), (160, 380), (210, 390), (260, 340), (310, 350), (360, 310), (410, 320), (470, 290)], SAGE, 3, 420))
+    b.append(line([(110, 410), (160, 405), (210, 380), (260, 400), (310, 395), (360, 405), (410, 385), (470, 395)], GINGER, 3))
+    b.append(rect(516, 136, 200, 304, CHAR, 12) + text(534, 166, "熱門關鍵字", 14, WHITE, 900))
+    for i, (k, w) in enumerate([("數位帳戶", 140), ("App 改版", 110), ("客服", 90), ("利率", 70), ("活動", 50)]):
+        y = 186 + i * 48
+        b.append(text(534, y + 14, k, 13, WHITE, 700) + rect(534, y + 22, w, 8, GINGER_L, 4))
+    return frame("sentiment · fastapi", "".join(b))
+
+
 COVERS = {
     "meetbook": meetbook, "automl": automl, "tongling": tongling, "cslab": cslab,
     "research": research, "walk": walk, "garmin": garmin, "avalon": avalon,
     "digitalmaster": digitalmaster, "seatdraw": seatdraw, "classhat": classhat,
     "news": news, "crawler": crawler, "skuld": skuld,
+    "lottery": lottery, "sentiment": sentiment,
 }
 
 if __name__ == "__main__":

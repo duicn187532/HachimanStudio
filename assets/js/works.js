@@ -282,6 +282,70 @@ window.HS_WORKS = [
     links: [{ label: '原始碼', href: 'https://github.com/duicn187532/newsStorage' }]
   },
   {
+    id: 'sentiment',
+    date: '2025-06',
+    access: 'none',
+    growth: '和團隊一起把情緒分析模型做成服務：關鍵字進來、輿情儀表板出去。',
+    title: '輿情分析儀表板',
+    year: '2025',
+    category: 'ai',
+    status: '內部專案',
+    featured: false,
+    summary: '蒐集新聞與社群上的相關文章，做正負面情緒分析，整理成趨勢、關鍵字與報告的輿情儀表板。',
+    role: '團隊合作：FastAPI 後端與分析服務',
+    stack: ['Python', 'FastAPI', 'NLP 情緒分析'],
+    highlights: [
+      '依關鍵字與期間蒐集文章，統計正面／中立／負面比例與趨勢。',
+      '以 FastAPI 提供分析 API，給儀表板與報告使用。'
+    ],
+    note: '團隊的內部專案，原始碼不公開，也不提供試用入口。封面是示意畫面，數字與關鍵字均為虛構。',
+    cover: 'assets/img/works/sentiment.svg',
+    links: []
+  },
+  {
+    id: 'lottery',
+    date: '2024-10',
+    access: 'none',
+    growth: '第一次做給現場活動用的系統：後台設定、前台抽獎，要經得起排隊的人潮。',
+    title: '園遊會抽獎',
+    year: '2024',
+    category: 'fun',
+    status: '私人專案',
+    featured: false,
+    summary: '園遊會用的抽獎工具：在後台輸入獎品後，就可以在前台抽獎。',
+    role: '與夥伴合作開發',
+    stack: ['網頁前台', '管理後台'],
+    highlights: ['後台輸入獎品，前台直接抽獎，攤位現場不用另外準備籤筒。'],
+    note: '原始碼放在合作夥伴的私人 repo，不公開；封面是示意畫面，獎品為虛構。',
+    cover: 'assets/img/works/lottery.svg',
+    links: []
+  },
+  {
+    id: 'voteright',
+    date: '2023-12',
+    access: 'demo',
+    growth: '第一次和夥伴分工、用 Git 協作，兩週內在選前上線，給陌生人使用。',
+    title: 'VoteRight 2024 政見的選擇',
+    year: '2023 – 2024',
+    category: 'fun',
+    status: '開源',
+    featured: false,
+    summary: '2024 總統大選的政見配對測驗：10 個議題、三位候選人的政見隨機排序，選完後用圓餅圖看看你支持的政見偏向誰。',
+    role: '與夥伴合作：Flask 後端、MongoDB 題庫、結果圖表與介面',
+    stack: ['Python', 'Flask', 'MongoDB', 'Chart.js', 'Render'],
+    highlights: [
+      '政見選項不顯示候選人、每題隨機排序，降低先入為主的影響。',
+      '作答結果存進 MongoDB，最後以圓餅圖與完整政見對照呈現。'
+    ],
+    note: '「線上示範」是原本頁面的靜態版：題庫取自原專案，候選人改以 A／B／C 匿名，不載入廣告與 Facebook，作答不會送出或儲存。',
+    cover: 'assets/img/works/voteright-shot.webp',
+    gallery: ['assets/img/works/voteright-shot.webp', 'assets/img/works/voteright-shot-2.webp', 'assets/img/works/voteright-shot-1.webp'],
+    links: [
+      { label: '線上示範', href: 'demos/voteright/' },
+      { label: '原始碼', href: 'https://github.com/Magenga/VoteRight' }
+    ]
+  },
+  {
     id: 'crawler',
     date: '2023-08',
     access: 'none',
