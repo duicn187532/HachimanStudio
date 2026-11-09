@@ -5,7 +5,11 @@
   /* 聯絡設定：想公開 Email 時填入，例如 'hello@example.com'；留空則只顯示 GitHub。 */
   var SITE = {
     email: '',
-    github: 'https://github.com/duicn187532'
+    github: 'https://github.com/duicn187532',
+    /* 訪客統計（GoatCounter）：填入在 goatcounter.com 註冊的代碼，例如 'hachiman'（對應 https://hachiman.goatcounter.com）。
+       留空就不統計、頁尾也不顯示瀏覽數。頁尾的累計瀏覽數需要在 GoatCounter 設定中開啟
+       「Allow adding visitor counts on your website」。 */
+    goatcounter: 'duicn187532'
   };
 
   document.documentElement.classList.remove('no-js');
@@ -35,6 +39,29 @@
   });
   document.querySelectorAll('[data-contact="github"]').forEach(function (el) { el.href = SITE.github; });
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+
+  /* ---------- 訪客統計（GoatCounter：不使用 cookie，不需要同意視窗） ---------- */
+  var GC_CODE = /^[a-z0-9-]+$/i.test(SITE.goatcounter) ? SITE.goatcounter.toLowerCase() : '';
+  var isLocal = /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname) || location.protocol === 'file:';
+  if (GC_CODE && !isLocal) {
+    var gc = document.createElement('script');
+    gc.async = true;
+    gc.src = 'https://gc.zgo.at/count.js';
+    gc.setAttribute('data-goatcounter', 'https://' + GC_CODE + '.goatcounter.com/count');
+    document.head.appendChild(gc);
+  }
+  // 頁尾的累計瀏覽數（全站總計）；讀不到時保持隱藏
+  document.querySelectorAll('[data-visits]').forEach(function (el) {
+    if (!GC_CODE || !window.fetch) return;
+    fetch('https://' + GC_CODE + '.goatcounter.com/counter/TOTAL.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || !d.count) return;
+        el.querySelector('[data-visits-count]').textContent = String(d.count).replace(/\s/g, ',');
+        el.hidden = false;
+      })
+      .catch(function () { /* 統計服務暫時無法連線時不顯示 */ });
+  });
 
   /* ---------- works ---------- */
   var WORKS = window.HS_WORKS || [];
