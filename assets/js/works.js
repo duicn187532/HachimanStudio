@@ -2,7 +2,8 @@
  * 作品集資料。新增或修改作品只需要改這個檔案。
  *
  *  id        唯一代號（也用於網址 #work-<id>）
- *  cover     封面圖（assets/img/works/<id>.svg 由 tools/gen_covers.py 產生，可換成真實截圖）
+ *  cover     封面圖（assets/img/works/<id>.svg 由 tools/gen_covers.py 產生；*-shot*.webp 是實際畫面截圖）
+ *  gallery   （選填）詳細視窗中的多張實際畫面，點縮圖切換
  *  category  product | ai | edu | fun | early
  *  links     [{ label, href }]，留空陣列就不顯示連結；連到 github.com 的連結會自動標示「附原始碼」
  *  date      開始時間 YYYY-MM（成長時間線依此排序，新的在上）
@@ -108,7 +109,8 @@ window.HS_WORKS = [
       'CPU 排程、分頁與 TLB、銀行家演算法、磁碟排程等都能動手操作。',
       'NET LAB 擴充至 28 章、27 種互動實驗與四語言程式挑戰。'
     ],
-    cover: 'assets/img/works/cslab.svg',
+    cover: 'assets/img/works/cslab-shot-1.webp',
+    gallery: ['assets/img/works/cslab-shot-1.webp', 'assets/img/works/cslab-shot-2.webp', 'assets/img/works/cslab-shot-3.webp'],
     links: [
       { label: '開啟課程', href: 'https://duicn187532.github.io/os-lab/' },
       { label: '原始碼', href: 'https://github.com/duicn187532/os-lab' }
@@ -132,7 +134,8 @@ window.HS_WORKS = [
       '每節附自我檢測、筆記欄與閱讀進度，搭配遊戲化任務。',
       '附原文核對卡與來源清單，清楚標示推導與作者結論的界線。'
     ],
-    cover: 'assets/img/works/research.svg',
+    cover: 'assets/img/works/research-shot-1.webp',
+    gallery: ['assets/img/works/research-shot-1.webp', 'assets/img/works/research-shot-2.webp'],
     links: [
       { label: '開啟網站', href: 'https://duicn187532.github.io/self-research/' },
       { label: '原始碼', href: 'https://github.com/duicn187532/self-research' }
@@ -141,7 +144,7 @@ window.HS_WORKS = [
   {
     id: 'walk',
     date: '2026-10',
-    access: 'none',
+    access: 'demo',
     growth: '把單檔 mockup 重構成可完整操作的全端 MVP，第一次用 ADR 記錄架構決策。',
     title: 'Walk 我可遛',
     year: '2026',
@@ -156,8 +159,13 @@ window.HS_WORKS = [
       'AI 推薦理由與照片判讀；沒有 AI 時自動改用規則模板。',
       '附架構決策紀錄（ADR）與一鍵啟動腳本，方便實際體驗測試。'
     ],
-    cover: 'assets/img/works/walk.svg',
-    links: [{ label: '原始碼', href: 'https://github.com/duicn187532/walk6' }]
+    cover: 'assets/img/works/walk-shot-1.webp',
+    gallery: ['assets/img/works/walk-shot-1.webp', 'assets/img/works/walk-shot-2.webp', 'assets/img/works/walk-shot-3.webp'],
+    note: '「線上示範」是放在 GitHub Pages 的互動原型（UI Concept），資料皆為示範用；完整的全端 MVP（React＋Express＋SQLite）需要在本機啟動。',
+    links: [
+      { label: '線上示範', href: 'https://duicn187532.github.io/walk6/' },
+      { label: '原始碼', href: 'https://github.com/duicn187532/walk6' }
+    ]
   },
   {
     id: 'garmin',
