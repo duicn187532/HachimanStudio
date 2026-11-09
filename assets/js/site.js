@@ -138,7 +138,10 @@
     if (!w || !dlg) return;
     var hasNote = !!w.note;
     dlg.querySelector('.dlg-content').innerHTML =
-      '<div class="dlg-cover"><img src="' + esc(w.cover) + '" alt="' + esc(w.title) + ' 示意圖"></div>' +
+      '<div class="dlg-cover"><img data-dlg-main src="' + esc(w.cover) + '" alt="' + esc(w.title) + ' 畫面"></div>' +
+      (w.gallery && w.gallery.length > 1 ? '<div class="dlg-gallery" role="group" aria-label="更多畫面">' + w.gallery.map(function (g, i) {
+        return '<button type="button" class="dlg-thumb" data-src="' + esc(g) + '" aria-pressed="' + (i === 0) + '" aria-label="第 ' + (i + 1) + ' 張畫面"><img src="' + esc(g) + '" alt="" loading="lazy"></button>';
+      }).join('') + '</div>' : '') +
       '<div class="dlg-body">' +
       '<h2 id="dlg-title">' + esc(w.title) + '</h2>' +
       '<div class="meta"><span class="' + statusClass(w) + '">' + esc(w.status) + '</span><span>' + esc(CATS[w.category] || '') + '</span><span>' + esc(w.year) + '</span><span>角色：' + esc(w.role) + '</span></div>' +
@@ -166,6 +169,12 @@
       if (lastFocus) lastFocus.focus();
     });
     dlg.addEventListener('click', function (e) {
+      var t = e.target.closest('.dlg-thumb');
+      if (t) {
+        dlg.querySelector('[data-dlg-main]').src = t.getAttribute('data-src');
+        dlg.querySelectorAll('.dlg-thumb').forEach(function (b) { b.setAttribute('aria-pressed', String(b === t)); });
+        return;
+      }
       if (e.target === dlg || e.target.closest('.dlg-close')) closeWork();
     });
   }
