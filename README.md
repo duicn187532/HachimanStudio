@@ -28,6 +28,16 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 | 顏色、字體 | `assets/css/style.css` 最上方的 `:root` |
 | 作品封面 | `python3 tools/gen_covers.py` 重新產生 `assets/img/works/*.svg`；`*-shot.webp` 是示範版截圖 |
 
+## 訪客統計（GoatCounter）
+
+使用 [GoatCounter](https://www.goatcounter.com/)：免費、不使用 cookie，不需要隱私同意視窗。統計首頁、作品集、成長時間線與 404 頁；線上示範（`demos/`）不統計。
+
+1. 到 goatcounter.com 註冊，設定一個代碼（例如 `hachiman`，後台網址就是 `https://hachiman.goatcounter.com`）。
+2. 把代碼填進 `assets/js/site.js` 最上方的 `SITE.goatcounter`。
+3. 要在頁尾顯示「累計瀏覽 N 次」：GoatCounter 後台 → Settings → 勾選「Allow adding visitor counts on your website」。沒開啟時頁尾不會顯示數字，但統計照常進行。
+
+留空代碼時完全不統計。本機預覽（localhost）不會被計入。
+
 ## 線上示範（demos/）
 
 不能公開正式入口或原始碼的作品，提供「原本介面＋虛構資料」的離線示範版。示範版都不發出任何 API 請求，資料只存在瀏覽者自己的瀏覽器。
