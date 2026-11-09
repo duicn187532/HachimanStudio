@@ -49,7 +49,7 @@ const BookingModal = ({
             type="text"
             value={bookingForm.user}
             onChange={(e) => setBookingForm((prev) => ({ ...prev, user: e.target.value }))}
-            placeholder="請輸入您的不含檢查碼行編"
+            placeholder="請輸入您的員工編號"
             className="border border-gray-300 rounded w-full px-3 py-2 text-sm focus:outline-none"
           />
         </div>
@@ -71,9 +71,9 @@ const BookingModal = ({
               className="border border-gray-300 rounded w-full px-3 py-2 text-sm focus:outline-none"
             >
               <option value="">請選取會議室</option>
-              <option value="A101">Alpha</option>
-              <option value="A102">Beta</option>
-              <option value="A103">StartUp</option>
+              <option value="A101">Sky</option>
+              <option value="A102">Forest</option>
+              <option value="A103">Ocean</option>
             </select>
 
             <button
@@ -119,9 +119,9 @@ const BookingModal = ({
           <div className="mb-3">
             <div className="flex flex-wrap gap-2">
               {[
-                { value: "A101", label: "Alpha" },
-                { value: "A102", label: "Beta" },
-                { value: "A103", label: "StartUp" },
+                { value: "A101", label: "Sky" },
+                { value: "A102", label: "Forest" },
+                { value: "A103", label: "Ocean" },
               ].map(({ value, label }) => {
                 const isMain = bookingForm.room?.[0] === value;
                 const isSelected = bookingForm.room?.includes(value);

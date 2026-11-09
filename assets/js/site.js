@@ -48,24 +48,49 @@
   }
   function statusClass(w) { return w.status === '營運中' ? 'status live' : 'status'; }
 
+  /* 可用性標示：可實際使用／線上示範／僅介紹，以及是否附原始碼 */
+  var ACCESS = {
+    live: { label: '可實際使用', tip: '公開上線，任何人都能直接使用' },
+    demo: { label: '線上示範', tip: '原本的介面搭配虛構資料，可以操作但不會儲存' },
+    none: { label: '僅介紹', tip: '目前沒有公開的試用入口' }
+  };
+  function hasSource(w) { return w.links.some(function (l) { return /github\.com/.test(l.href); }); }
+  function badges(w) {
+    var a = ACCESS[w.access] || ACCESS.none;
+    return '<ul class="avail" aria-label="可用性">' +
+      '<li class="av av-' + esc(w.access || 'none') + '" title="' + esc(a.tip) + '">' + esc(a.label) + '</li>' +
+      (hasSource(w) ? '<li class="av av-src" title="可以在 GitHub 看到原始碼">附原始碼</li>' : '<li class="av av-nosrc" title="原始碼不公開">原始碼未公開</li>') +
+      '</ul>';
+  }
+  window.HS_BADGES = { badges: badges, hasSource: hasSource, ACCESS: ACCESS, esc: esc };
+
   function card(w) {
     return '<li><button type="button" class="work reveal" data-id="' + esc(w.id) + '" aria-haspopup="dialog">' +
       '<div class="thumb"><img src="' + esc(w.cover) + '" alt="" loading="lazy" width="800" height="500"></div>' +
       '<div class="body">' +
       '<div class="meta"><span>' + esc(CATS[w.category] || '') + ' · ' + esc(w.year) + '</span><span class="' + statusClass(w) + '">' + esc(w.status) + '</span></div>' +
       '<h3>' + esc(w.title) + '</h3>' +
+      badges(w) +
       '<p>' + esc(w.summary) + '</p>' +
       '<ul class="tags">' + w.stack.slice(0, 4).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
       '</div></button></li>';
   }
 
-  function render(filter) {
+  var state = { cat: 'all', avail: 'all' };
+  function matchAvail(w, f) {
+    if (f === 'live' || f === 'demo') return w.access === f;
+    if (f === 'source') return hasSource(w);
+    return true;
+  }
+  function render() {
     if (!grid) return;
     var mode = grid.getAttribute('data-works');
     var list = WORKS.filter(function (w) {
       if (mode === 'featured') return w.featured;
-      return filter === 'all' || !filter || w.category === filter;
+      return (state.cat === 'all' || w.category === state.cat) && matchAvail(w, state.avail);
     });
+    var empty = document.querySelector('[data-works-empty]');
+    if (empty) empty.hidden = list.length > 0;
     grid.innerHTML = list.map(card).join('');
     observe(grid.querySelectorAll('.reveal'));
   }
@@ -82,7 +107,26 @@
       var b = e.target.closest('[data-filter]');
       if (!b) return;
       filters.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === b)); });
-      render(b.getAttribute('data-filter'));
+      state.cat = b.getAttribute('data-filter');
+      render();
+    });
+  }
+  var availFilters = document.querySelector('[data-avail-filters]');
+  if (availFilters) {
+    var opts = [['all', '全部', WORKS.length],
+      ['live', '可實際使用', WORKS.filter(function (w) { return w.access === 'live'; }).length],
+      ['demo', '線上示範', WORKS.filter(function (w) { return w.access === 'demo'; }).length],
+      ['source', '附原始碼', WORKS.filter(hasSource).length]];
+    availFilters.innerHTML = opts.map(function (o) {
+      return '<button type="button" class="chip chip-' + o[0] + '" data-avail="' + o[0] + '" aria-pressed="' + (o[0] === 'all') + '">' +
+        esc(o[1]) + '<span class="count">' + o[2] + '</span></button>';
+    }).join('');
+    availFilters.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-avail]');
+      if (!b) return;
+      availFilters.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === b)); });
+      state.avail = b.getAttribute('data-avail');
+      render();
     });
   }
 
@@ -98,6 +142,7 @@
       '<div class="dlg-body">' +
       '<h2 id="dlg-title">' + esc(w.title) + '</h2>' +
       '<div class="meta"><span class="' + statusClass(w) + '">' + esc(w.status) + '</span><span>' + esc(CATS[w.category] || '') + '</span><span>' + esc(w.year) + '</span><span>角色：' + esc(w.role) + '</span></div>' +
+      badges(w) +
       '<p>' + esc(w.summary) + '</p>' +
       '<h3>重點</h3><ul class="points">' + w.highlights.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>' +
       '<h3>技術</h3><ul class="tags">' + w.stack.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
@@ -125,9 +170,66 @@
     });
   }
   document.addEventListener('click', function (e) {
-    var b = e.target.closest('.work[data-id]');
+    var b = e.target.closest('.work[data-id], .work-link[data-id]');
     if (b) openWork(b.getAttribute('data-id'));
   });
+
+  /* ---------- growth timeline（新的在上，往下滑越舊） ---------- */
+  var ERAS = {
+    '2026': { title: 'AI 工具與產品化', text: '把 AI 接進真實流程，同時把作品做成別人也能用的產品：本機優先、可追溯、可維運。' },
+    '2025': { title: '走進辦公室', text: '開始替同事解決每天的麻煩：預約、活動、學習激勵，第一次有人每天在用我做的東西。' },
+    '2023': { title: '從零開始自學', text: '一支爬蟲、一個 Flask 網站、一個計時器——寫程式的起點。' }
+  };
+  var MILESTONES = [
+    { date: '2026-11', title: 'HACHIMAN STUDIO 成立', text: '以八萬與歐雷為品牌，整理三年來的作品，開始對外介紹。', icon: 'brand' }
+  ];
+  function monthLabel(d) { var p = d.split('-'); return p[0] + ' 年 ' + Number(p[1]) + ' 月'; }
+  function renderTimeline() {
+    var root = document.querySelector('[data-timeline]');
+    if (!root) return;
+    var items = WORKS.map(function (w) { return { kind: 'work', date: w.date, w: w }; })
+      .concat(MILESTONES.map(function (m) { return { kind: 'milestone', date: m.date, m: m }; }))
+      .sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+    var html = ''; var year = '';
+    items.forEach(function (it, i) {
+      var y = it.date.slice(0, 4);
+      if (y !== year) {
+        year = y; var era = ERAS[y] || { title: '', text: '' };
+        html += '<li class="tl-year reveal"><div class="tl-year-badge">' + y + '</div><div class="tl-era"><h2>' + esc(era.title) + '</h2><p>' + esc(era.text) + '</p></div></li>';
+      }
+      if (it.kind === 'milestone') {
+        html += '<li class="tl-item tl-milestone reveal"><span class="tl-dot"><img src="assets/img/brand/logo-icon.webp" alt=""></span>' +
+          '<div class="tl-card"><time>' + monthLabel(it.date) + '</time><h3>' + esc(it.m.title) + '</h3><p>' + esc(it.m.text) + '</p></div></li>';
+        return;
+      }
+      var w = it.w;
+      html += '<li class="tl-item reveal ' + (i % 2 ? 'tl-right' : 'tl-left') + '"><span class="tl-dot"></span>' +
+        '<button type="button" class="tl-card work-link" data-id="' + esc(w.id) + '" aria-haspopup="dialog">' +
+        '<div class="tl-thumb"><img src="' + esc(w.cover) + '" alt="" loading="lazy" width="800" height="500"></div>' +
+        '<div class="tl-body"><time>' + monthLabel(w.date) + '・' + esc(CATS[w.category] || '') + '</time>' +
+        '<h3>' + esc(w.title) + '</h3>' + badges(w) +
+        '<p class="tl-growth"><span>成長</span>' + esc(w.growth || w.summary) + '</p>' +
+        '<ul class="tags">' + w.stack.slice(0, 4).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
+        '</div></button></li>';
+    });
+    root.innerHTML = html;
+    var start = document.querySelector('[data-timeline-start]');
+    if (start) start.textContent = items.length ? monthLabel(items[items.length - 1].date) : '';
+    observe(root.querySelectorAll('.reveal'));
+    // 中間的直線隨捲動填滿
+    var fill = document.querySelector('.tl-fill');
+    var wrap = document.querySelector('.tl-wrap');
+    if (fill && wrap) {
+      var onScroll = function () {
+        var r = wrap.getBoundingClientRect();
+        var p = Math.min(1, Math.max(0, (window.innerHeight * 0.6 - r.top) / r.height));
+        fill.style.transform = 'scaleY(' + p + ')';
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+    }
+  }
 
   /* ---------- reveal on scroll ---------- */
   var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
@@ -137,7 +239,8 @@
     nodes.forEach(function (n) { if (io) io.observe(n); else n.classList.add('in'); });
   }
 
-  render('all');
+  render();
+  renderTimeline();
   observe(document.querySelectorAll('.reveal:not(.work)'));
 
   var m = location.hash.match(/^#work-([\w-]+)$/);

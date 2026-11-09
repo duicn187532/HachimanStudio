@@ -4,7 +4,10 @@
  *  id        唯一代號（也用於網址 #work-<id>）
  *  cover     封面圖（assets/img/works/<id>.svg 由 tools/gen_covers.py 產生，可換成真實截圖）
  *  category  product | ai | edu | fun | early
- *  links     [{ label, href }]，留空陣列就不顯示連結
+ *  links     [{ label, href }]，留空陣列就不顯示連結；連到 github.com 的連結會自動標示「附原始碼」
+ *  date      開始時間 YYYY-MM（成長時間線依此排序，新的在上）
+ *  access    live＝可以實際使用｜demo＝線上示範（原本介面＋虛構資料）｜none＝僅介紹
+ *  growth    成長時間線上的一句話：這件作品讓我學到什麼
  *
  * ⚠ MeetBook 是正式營運中的系統：不放正式站網址、不嵌入、不呼叫任何正式 API。
  *   「線上示範」連到 demos/meetbook/：原本前端 + 瀏覽器內的虛構資料（demos-src/meetbook）。
@@ -12,6 +15,9 @@
 window.HS_WORKS = [
   {
     id: 'meetbook',
+    date: '2025-02',
+    access: 'demo',
+    growth: '第一次把作品交給整個部門每天使用：學會處理真實使用者的回饋、資料遷移與維運，並把同一套預約規則延伸到 LINE 與 AI 助理。',
     title: 'MeetBook 會議室預約系統',
     year: '2025 – 2026',
     category: 'product',
@@ -35,10 +41,13 @@ window.HS_WORKS = [
   },
   {
     id: 'automl',
+    date: '2025-08',
+    access: 'live',
+    growth: '把機器學習流程搬進瀏覽器：WebAssembly、Web Worker 與離線打包，讓沒有環境的人也能訓練模型。',
     title: 'AutoML Workbench',
-    year: '2026',
+    year: '2025 – 2026',
     category: 'ai',
-    status: '公開',
+    status: '開源',
     featured: true,
     summary: '瀏覽器裡的 ML / DL 工作台：無後端、可離線，資料不離開電腦；解壓縮後雙擊 index.html 就能用。',
     role: '設計與開發',
@@ -56,6 +65,9 @@ window.HS_WORKS = [
   },
   {
     id: 'tongling',
+    date: '2026-10',
+    access: 'demo',
+    growth: '從原型到正式版：本機優先的架構、Agent 工作流程與「AI 只給建議、人來決策」的產品原則。',
     title: '彤靈談心 TongLing',
     year: '2026',
     category: 'ai',
@@ -63,26 +75,30 @@ window.HS_WORKS = [
     featured: true,
     summary: '本機優先的金融需求整理與 PRD 工作台：知識檢索、來源追溯、Agent 輔助、人工決策與 IT 交付檢查串成一條流程。',
     role: '產品設計、原型、開發',
-    stack: ['Python', 'FastAPI', 'React', 'Ollama（選用）', 'Windows 一鍵啟動'],
+    stack: ['Python', 'FastAPI', 'SQLite', 'React', 'TypeScript', 'Mermaid', 'Ollama（選用）'],
     highlights: [
-      '九步驟流程：需求說明 → 知識檢索 → 補充資料 → 會議助理 → AI 分析 → 人工確認 → 流程架構 → 預覽 → 下載 PRD。',
-      'AI 產出一律是「待審建議」，每條需求都能追溯到來源文件。',
+      'PM 專案總覽：依待處理程度排序，一眼看到每個需求卡在哪一步。',
+      'Agent 模式自動跑完檢索、分析與 PRD 草稿，只在需要人決策時跳出來；也可隨時切回手動流程。',
+      'AI 產出一律是「待審建議」，每條需求都能追溯到來源文件；PRD 品質檢查、缺口補齊與 IT 交付包。',
       '主機／客戶端分離，資料、模型與金鑰只留在執行主機。'
     ],
-    cover: 'assets/img/works/tongling.svg',
-    note: '「原型示範」為 Prototype v16 靜態原型，AI 分析、知識檢索等皆為情境模擬。',
+    cover: 'assets/img/works/tongling-shot.webp',
+    note: '「線上示範」是正式版（Alpha）介面：在本機用正式版後端載入虛構的範例專案、操作一輪後錄下資料，在瀏覽器內重播。可以瀏覽各頁面與切換 Agent／手動流程，但不會執行 AI 或儲存變更。',
     links: [
-      { label: '原型示範', href: 'demos/tongling/' },
-      { label: 'Alpha 原始碼', href: 'https://github.com/duicn187532/tongling-alpha' },
-      { label: 'Prototype', href: 'https://github.com/duicn187532/tongling-prototype' }
+      { label: '線上示範', href: 'demos/tongling/' },
+      { label: '原始碼', href: 'https://github.com/duicn187532/tongling-alpha' },
+      { label: 'Prototype 原始碼', href: 'https://github.com/duicn187532/tongling-prototype' }
     ]
   },
   {
     id: 'cslab',
+    date: '2026-10',
+    access: 'live',
+    growth: '把自學資工的筆記做成互動教材：用模擬器把抽象機制變成可以操作、可以預測的東西。',
     title: 'CS LAB 資工互動自學',
     year: '2026',
     category: 'edu',
-    status: '公開',
+    status: '開源',
     featured: true,
     summary: '九門資工課的互動教材入口，主課程 OS LAB 有 29 章、29 個專屬模擬器與 174 題測驗。',
     role: '教材設計與開發',
@@ -100,10 +116,13 @@ window.HS_WORKS = [
   },
   {
     id: 'research',
+    date: '2026-10',
+    access: 'none',
+    growth: '建立讀論文的方法：分層解釋、逐符號拆公式，並清楚標示哪些是推導、哪些是作者結論。',
     title: '論文精讀室',
     year: '2026',
     category: 'edu',
-    status: '公開',
+    status: '開源',
     featured: true,
     summary: '幫助精讀論文的靜態網站：同一段內容提供五歲／大學生／研究生三種解釋深度，公式逐符號拆解。',
     role: '設計與開發',
@@ -118,6 +137,9 @@ window.HS_WORKS = [
   },
   {
     id: 'walk',
+    date: '2026-10',
+    access: 'none',
+    growth: '把單檔 mockup 重構成可完整操作的全端 MVP，第一次用 ADR 記錄架構決策。',
     title: 'Walk 我可遛',
     year: '2026',
     category: 'product',
@@ -136,6 +158,9 @@ window.HS_WORKS = [
   },
   {
     id: 'garmin',
+    date: '2026-07',
+    access: 'none',
+    growth: '第一次做 Web＋iOS 的 monorepo，練習讓 AI 回答只根據實際數據。',
     title: 'Garmin Insight',
     year: '2026',
     category: 'ai',
@@ -154,6 +179,9 @@ window.HS_WORKS = [
   },
   {
     id: 'avalon',
+    date: '2026-10',
+    access: 'demo',
+    growth: '即時多人連線、WebRTC 語音與 AI 復盤：把朋友聚會的需求做成完整的線上產品。',
     title: '阿瓦隆 · 手機多人連線',
     year: '2026',
     category: 'fun',
@@ -166,12 +194,15 @@ window.HS_WORKS = [
       '朋友聚會時只要手機就能開局。',
       '語音轉逐字稿，遊戲結束後由 AI 協助復盤。'
     ],
-    note: '原始碼為私人專案。「線上示範」使用原本的介面與遊戲邏輯，後端改在瀏覽器內模擬，只能開「單人測試房」（你＋機器人），沒有連線、登入與語音。',
+    note: '原始碼為私人專案，不公開。「線上示範」使用原本的介面與遊戲邏輯，後端改在瀏覽器內模擬，只能開「單人測試房」（你＋機器人），沒有連線、登入與語音。',
     cover: 'assets/img/works/avalon-shot.webp',
     links: [{ label: '線上示範', href: 'demos/avalon/' }]
   },
   {
     id: 'digitalmaster',
+    date: '2025-03',
+    access: 'demo',
+    growth: '用遊戲化設計推動內部數位學習：等級、徽章與後台管理。',
     title: '數位達人',
     year: '2025 – 2026',
     category: 'product',
@@ -190,10 +221,13 @@ window.HS_WORKS = [
   },
   {
     id: 'seatdraw',
+    date: '2025-04',
+    access: 'none',
+    growth: '第一次用 Go 寫後端，練習用伺服器保證抽籤結果不重複。',
     title: 'SeatDraw 派對抽座位',
     year: '2025',
     category: 'fun',
-    status: '公開',
+    status: '開源',
     featured: false,
     summary: '活動與尾牙用的抽座位小工具，伺服器端確保座位不重複分配。',
     role: '開發',
@@ -204,10 +238,13 @@ window.HS_WORKS = [
   },
   {
     id: 'classhat',
+    date: '2025-08',
+    access: 'none',
+    growth: '小而快的內部活動工具：從問卷到雷達圖，一個週末上線。',
     title: 'ClassHat MBTI 分組',
     year: '2025',
     category: 'fun',
-    status: '公開',
+    status: '開源',
     featured: false,
     summary: '內部活動用的 MBTI 測驗與雷達圖結果，搭配管理頁協助分組。',
     role: '開發',
@@ -218,10 +255,13 @@ window.HS_WORKS = [
   },
   {
     id: 'news',
+    date: '2025-08',
+    access: 'none',
+    growth: '把散落的電子報整理成資料，再做成可以瀏覽的時間軸。',
     title: '新聞時間軸',
     year: '2025',
     category: 'ai',
-    status: '公開',
+    status: '開源',
     featured: false,
     summary: '把電子報新聞整理成可搜尋的時間軸，快速回顧產業與公司動態。',
     role: '資料整理與開發',
@@ -232,6 +272,9 @@ window.HS_WORKS = [
   },
   {
     id: 'crawler',
+    date: '2023-08',
+    access: 'none',
+    growth: '從零開始：第一支爬蟲、第一個 Flask 網站、第一次接資料庫。',
     title: '股價爬蟲 × Flask 網站',
     year: '2023',
     category: 'early',
@@ -249,6 +292,9 @@ window.HS_WORKS = [
   },
   {
     id: 'skuld',
+    date: '2023-08',
+    access: 'none',
+    growth: '寫程式的起點：做一個讓自己生活更順的小工具。',
     title: 'Operation Skuld',
     year: '2023',
     category: 'early',
