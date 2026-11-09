@@ -127,9 +127,9 @@ const EditMeetingModal: React.FC<EditMeetingModalProps> = ({
               onChange={(e) => setRoom(e.target.value)}
               className="border border-gray-300 rounded w-full px-3 py-2 text-sm focus:outline-none"
             >
-              <option value="A101">Alpha</option>
-              <option value="A102">Beta</option>
-              <option value="A103">StartUp</option>
+              <option value="A101">Sky</option>
+              <option value="A102">Forest</option>
+              <option value="A103">Ocean</option>
             </select>
           </div>
 

@@ -404,7 +404,7 @@ const RoomScheduleView = () => {
   const showUserNotFoundAlert = () => {
     setAlertType("error");
     setAlertTitle("無此使用者");
-    setAlertMessage("行編錯囉，請確認輸入4碼行編。");
+    setAlertMessage("員工編號錯囉，請確認輸入 4 碼員工編號。");
     setShowAlertModal(true);
   }
 

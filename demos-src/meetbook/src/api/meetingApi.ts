@@ -31,10 +31,10 @@ const ROOMS = ["A101", "A102", "A103"];
 
 // 示範用的使用者（行編 → 姓名）；畫面上會提示可使用這些行編
 const DEMO_USERS: Record<string, { name: string; extension: string; department: string; group: string }> = {
-  "0001": { name: "王小明", extension: "1001", department: "數位策略部", group: "個人產品" },
-  "0002": { name: "林小美", extension: "1002", department: "金融科技部", group: "創新研發" },
-  "0003": { name: "陳大文", extension: "1003", department: "數位行銷部", group: "行銷推廣" },
-  "1234": { name: "示範帳號", extension: "1234", department: "金融科技部", group: "數據分析" },
+  "0001": { name: "王小明", extension: "1001", department: "產品部", group: "產品設計" },
+  "0002": { name: "林小美", extension: "1002", department: "工程部", group: "前端開發" },
+  "0003": { name: "陳大文", extension: "1003", department: "行銷部", group: "品牌推廣" },
+  "1234": { name: "示範帳號", extension: "1234", department: "營運部", group: "資料分析" },
 };
 
 const SAMPLE_TITLES = ["週會", "需求訪談", "設計審查", "1:1", "專案啟動", "讀書會", "站會", "季度回顧", "廠商簡報", "面試"];
@@ -175,7 +175,7 @@ export async function fetchNoticesApi(): Promise<Notices> {
         title: "歡迎體驗 MeetBook 示範版",
         body:
           "這是 HACHIMAN STUDIO 作品集的離線示範版，畫面與正式版相同，但所有預約都是虛構資料，只存在你的瀏覽器，關閉分頁後就會重置。\n\n" +
-          "預約時可使用示範行編：0001、0002、0003 或 1234。\n示範資料的編輯密碼都是 demo。",
+          "預約時可使用示範員工編號：0001、0002、0003 或 1234。\n示範資料的編輯密碼都是 demo。",
         startDate: today,
         endDate: today,
       },
@@ -244,7 +244,7 @@ export async function submitBookingApi(bookingData: BookingPayload): Promise<Boo
   await wait();
   const uid = bookingData.user.trim().replace(/\D/g, "").slice(0, 4);
   if (!DEMO_USERS[uid]) {
-    return { ok: false, status: 404, body: { error: "找不到這個行編（示範版可用 0001、0002、0003、1234）" } };
+    return { ok: false, status: 404, body: { error: "找不到這個員工編號（示範版可用 0001、0002、0003、1234）" } };
   }
   const start = Date.parse(bookingData.startTime);
   const end = Date.parse(bookingData.endTime);

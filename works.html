@@ -41,7 +41,7 @@
         <li><a href="./#services">服務</a></li>
         <li><a href="works.html" aria-current="true">作品集</a></li>
         <li><a href="./#process">合作流程</a></li>
-        <li><a href="./#journey">歷程</a></li>
+        <li><a href="growth.html">成長時間線</a></li>
         <li><a class="btn btn-primary btn-sm" href="./#contact">聯絡我們</a></li>
       </ul>
     </div>
@@ -60,8 +60,16 @@
     </section>
     <section style="padding-top:56px">
       <div class="wrap">
-        <div class="filters" data-filters role="group" aria-label="依類別篩選"></div>
+        <ul class="legend" aria-label="標示說明">
+          <li><span class="av av-live">可實際使用</span><br>公開上線，任何人都能直接打開來用。</li>
+          <li><span class="av av-demo">線上示範</span><br>原本的介面搭配虛構資料，可以操作，但不會儲存、也不連正式環境。</li>
+          <li><span class="av av-none">僅介紹</span><br>目前沒有公開入口，只有介紹與截圖。</li>
+          <li><span class="av av-src">附原始碼</span><br>可以在 GitHub 看到完整原始碼；<span class="av av-nosrc">原始碼未公開</span> 則否。</li>
+        </ul>
+        <div class="filter-row"><span class="label">可用性</span><div class="filters" data-avail-filters role="group" aria-label="依可用性篩選"></div></div>
+        <div class="filter-row"><span class="label">類別</span><div class="filters" data-filters role="group" aria-label="依類別篩選"></div></div>
         <ul class="works" data-works="all"></ul>
+        <p class="works-empty" data-works-empty hidden>這個條件下沒有作品，換個篩選看看。</p>
         <p class="muted" style="margin-top:32px;font-size:14px;color:var(--muted)">※ 封面為工作室繪製的示意圖或示範版截圖，畫面中的人名、資料與數字均為虛構。標示「線上示範」的作品是原本介面搭配虛構資料的離線版本，不會連到任何正式環境。</p>
       </div>
     </section>
@@ -71,7 +79,7 @@
     <div class="wrap">
       <div class="footer-grid">
         <a class="brand" href="./"><img src="assets/img/brand/logo-icon.webp" alt="" width="44" height="44"><span class="brand-text"><strong>HACHIMAN STUDIO</strong><span>八萬工作室</span></span></a>
-        <nav aria-label="頁尾"><ul><li><a href="./#about">關於</a></li><li><a href="./#services">服務</a></li><li><a href="works.html">作品集</a></li><li><a href="./#process">合作流程</a></li><li><a href="./#contact">聯絡</a></li><li><a data-contact="github" href="https://github.com/duicn187532" target="_blank" rel="noopener">GitHub</a></li></ul></nav>
+        <nav aria-label="頁尾"><ul><li><a href="./#about">關於</a></li><li><a href="./#services">服務</a></li><li><a href="works.html">作品集</a></li><li><a href="growth.html">成長時間線</a></li><li><a href="./#process">合作流程</a></li><li><a href="./#contact">聯絡</a></li><li><a data-contact="github" href="https://github.com/duicn187532" target="_blank" rel="noopener">GitHub</a></li></ul></nav>
       </div>
       <div class="copy"><span>© <span data-year>2026</span> HACHIMAN STUDIO 八萬工作室. 八萬、歐雷角色與標誌為工作室所有。</span><span>Made with 🐾</span></div>
     </div>

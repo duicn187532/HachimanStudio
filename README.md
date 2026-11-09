@@ -1,6 +1,6 @@
 # HACHIMAN STUDIO 八萬工作室 · 品牌形象網站
 
-八萬工作室的品牌形象網站：首頁（關於、吉祥物、服務、精選作品、合作流程、歷程、聯絡與 FAQ）、作品集頁（可依類別篩選、點開看詳細內容），以及 404 頁。
+八萬工作室的品牌形象網站：首頁（關於、吉祥物、服務、精選作品、合作流程、歷程、聯絡與 FAQ）、作品集頁（標示可實際使用／線上示範／僅介紹與是否附原始碼，可篩選）、成長時間線（越往下越早），以及 404 頁。
 
 純靜態網站，不需要建置，也沒有任何後端或第三方追蹤。
 
@@ -21,9 +21,10 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 
 | 想改什麼 | 改哪裡 |
 | --- | --- |
-| 新增／修改作品 | `assets/js/works.js`（每件作品一筆資料；`featured: true` 會出現在首頁） |
+| 新增／修改作品 | `assets/js/works.js`（每件作品一筆資料；`featured: true` 會出現在首頁；`date` 決定在成長時間線的位置；`access` 決定「可實際使用／線上示範／僅介紹」標示） |
+| 成長時間線的年度標題與里程碑 | `assets/js/site.js` 的 `ERAS`、`MILESTONES` |
 | 公開 Email | `assets/js/site.js` 最上方的 `SITE.email`（留空時只顯示 GitHub） |
-| 文案 | `index.html`、`works.html` |
+| 文案 | `index.html`、`works.html`、`growth.html` |
 | 顏色、字體 | `assets/css/style.css` 最上方的 `:root` |
 | 作品封面 | `python3 tools/gen_covers.py` 重新產生 `assets/img/works/*.svg`；`*-shot.webp` 是示範版截圖 |
 
@@ -33,10 +34,10 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 
 | 示範 | 來源 | 做法 |
 | --- | --- | --- |
-| `demos/meetbook/` | MeetBook 前端（`demos-src/meetbook`） | 複製原本的 React 前端；`src/api/meetingApi.ts` 換成瀏覽器內的虛構預約資料，`backend.ts` 改為一律拒絕連線 |
-| `demos/avalon/` | avalon（私人 repo，`demos-src/avalon`） | 複製原本的頁面與遊戲邏輯；`src/mockServer.ts` 在瀏覽器內模擬 `/api/*`，只能開單人測試房 |
+| `demos/meetbook/` | MeetBook 前端（`demos-src/meetbook`） | 複製原本的 React 前端；會議室名稱、照片、部門改為通用的虛構內容；`src/api/meetingApi.ts` 換成瀏覽器內的虛構預約資料，`backend.ts` 改為一律拒絕連線 |
+| `demos/avalon/` | avalon（私人 repo） | 只放建置結果，不放原始碼。以原本的頁面與遊戲邏輯建置，`/api/*` 在瀏覽器內模擬，只能開單人測試房 |
 | `demos/digitalmaster/` | DigitalMaster 前端（`demos-src/digitalmaster`） | 複製原本的前端；`src/api/api.ts` 回傳虛構的「示範達人」，問卷改為本機頁面 |
-| `demos/tongling/` | tongling-prototype v16 | 靜態原型直接複製 |
+| `demos/tongling/` | tongling-alpha 正式版前端（`demos-src/tongling`） | 前端程式碼未改動；`src/demo/` 重播在本機用正式版後端載入虛構範例專案後錄下的回應，不執行 AI、不儲存 |
 
 重新建置某個示範（輸出會覆蓋 `demos/<名稱>/`）：
 
