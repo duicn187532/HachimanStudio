@@ -4,7 +4,7 @@
 
   /* 聯絡設定：想公開 Email 時填入，例如 'hello@example.com'；留空則只顯示 GitHub。 */
   var SITE = {
-    email: '',
+    email: 'duicn187532@gmail.com',
     github: 'https://github.com/duicn187532',
     /* 訪客統計（GoatCounter）：填入在 goatcounter.com 註冊的代碼，例如 'hachiman'（對應 https://hachiman.goatcounter.com）。
        留空就不統計、頁尾也不顯示瀏覽數。頁尾的累計瀏覽數需要在 GoatCounter 設定中開啟
