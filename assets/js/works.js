@@ -6,8 +6,8 @@
  *  category  product | ai | edu | fun | early
  *  links     [{ label, href }]，留空陣列就不顯示連結
  *
- * ⚠ MeetBook 是正式營運中的系統：這裡只放原始碼連結與示意圖，
- *   不放正式站網址、不嵌入、不呼叫任何正式 API。
+ * ⚠ MeetBook 是正式營運中的系統：不放正式站網址、不嵌入、不呼叫任何正式 API。
+ *   「線上示範」連到 demos/meetbook/：原本前端 + 瀏覽器內的虛構資料（demos-src/meetbook）。
  */
 window.HS_WORKS = [
   {
@@ -26,9 +26,12 @@ window.HS_WORKS = [
       '管理後台：使用率、熱門時段、部門統計、使用者名單與公告管理。',
       '從 Deno + MongoDB 平滑遷移到 Cloudflare Workers + D1，並以中繼模式處理公司網路限制。'
     ],
-    note: '此系統為正式營運服務，作品集僅提供示意圖與原始碼，不公開正式站入口。',
-    cover: 'assets/img/works/meetbook.svg',
-    links: [{ label: '原始碼', href: 'https://github.com/duicn187532/MeetBook' }]
+    note: '此系統為正式營運服務，不公開正式站入口。「線上示範」是複製原本前端程式碼、把後端換成瀏覽器內虛構資料的離線版本，不會連到正式環境。',
+    cover: 'assets/img/works/meetbook-shot.webp',
+    links: [
+      { label: '線上示範', href: 'demos/meetbook/' },
+      { label: '原始碼', href: 'https://github.com/duicn187532/MeetBook' }
+    ]
   },
   {
     id: 'automl',
@@ -67,7 +70,9 @@ window.HS_WORKS = [
       '主機／客戶端分離，資料、模型與金鑰只留在執行主機。'
     ],
     cover: 'assets/img/works/tongling.svg',
+    note: '「原型示範」為 Prototype v16 靜態原型，AI 分析、知識檢索等皆為情境模擬。',
     links: [
+      { label: '原型示範', href: 'demos/tongling/' },
       { label: 'Alpha 原始碼', href: 'https://github.com/duicn187532/tongling-alpha' },
       { label: 'Prototype', href: 'https://github.com/duicn187532/tongling-prototype' }
     ]
@@ -156,13 +161,14 @@ window.HS_WORKS = [
     featured: false,
     summary: '手機多人連線的阿瓦隆桌遊：擴充角色、語音通話、逐字稿與 AI 復盤匯出。',
     role: '設計與開發',
-    stack: ['JavaScript', '即時多人連線', '語音通話', 'AI 復盤'],
+    stack: ['React', 'Next.js（vinext）', 'Cloudflare Workers', 'D1', 'WebRTC 語音'],
     highlights: [
       '朋友聚會時只要手機就能開局。',
       '語音轉逐字稿，遊戲結束後由 AI 協助復盤。'
     ],
-    cover: 'assets/img/works/avalon.svg',
-    links: []
+    note: '原始碼為私人專案。「線上示範」使用原本的介面與遊戲邏輯，後端改在瀏覽器內模擬，只能開「單人測試房」（你＋機器人），沒有連線、登入與語音。',
+    cover: 'assets/img/works/avalon-shot.webp',
+    links: [{ label: '線上示範', href: 'demos/avalon/' }]
   },
   {
     id: 'digitalmaster',
@@ -175,8 +181,12 @@ window.HS_WORKS = [
     role: '前後端開發',
     stack: ['React', 'TypeScript', 'Python', 'MongoDB', 'Docker'],
     highlights: ['等級、徽章與兌換機制，前台＋後台管理。'],
+    note: '「線上示範」為原本的前端畫面，資料換成虛構的「示範達人」，任意輸入帳號即可登入。',
     cover: 'assets/img/works/digitalmaster.svg',
-    links: [{ label: '原始碼', href: 'https://github.com/duicn187532/DigitalMaster' }]
+    links: [
+      { label: '線上示範', href: 'demos/digitalmaster/' },
+      { label: '原始碼', href: 'https://github.com/duicn187532/DigitalMaster' }
+    ]
   },
   {
     id: 'seatdraw',

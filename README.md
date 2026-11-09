@@ -25,16 +25,28 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 | 公開 Email | `assets/js/site.js` 最上方的 `SITE.email`（留空時只顯示 GitHub） |
 | 文案 | `index.html`、`works.html` |
 | 顏色、字體 | `assets/css/style.css` 最上方的 `:root` |
-| 作品封面 | `python3 tools/gen_covers.py` 重新產生 `assets/img/works/*.svg`，或直接換成真實截圖 |
+| 作品封面 | `python3 tools/gen_covers.py` 重新產生 `assets/img/works/*.svg`；`*-shot.webp` 是示範版截圖 |
 
-## 關於 MeetBook（正式營運中）
+## 線上示範（demos/）
 
-MeetBook 是正式營運中的系統，本網站**不使用任何正式環境資源**：
+不能公開正式入口或原始碼的作品，提供「原本介面＋虛構資料」的離線示範版。示範版都不發出任何 API 請求，資料只存在瀏覽者自己的瀏覽器。
 
-- 不放正式站網址、不嵌入（iframe）、不呼叫正式 API，也沒有正式站截圖。
-- 作品卡片只連到原始碼 repo，封面是 `tools/gen_covers.py` 手繪的示意圖，會議室名稱與預約內容都是虛構的。
+| 示範 | 來源 | 做法 |
+| --- | --- | --- |
+| `demos/meetbook/` | MeetBook 前端（`demos-src/meetbook`） | 複製原本的 React 前端；`src/api/meetingApi.ts` 換成瀏覽器內的虛構預約資料，`backend.ts` 改為一律拒絕連線 |
+| `demos/avalon/` | avalon（私人 repo，`demos-src/avalon`） | 複製原本的頁面與遊戲邏輯；`src/mockServer.ts` 在瀏覽器內模擬 `/api/*`，只能開單人測試房 |
+| `demos/digitalmaster/` | DigitalMaster 前端（`demos-src/digitalmaster`） | 複製原本的前端；`src/api/api.ts` 回傳虛構的「示範達人」，問卷改為本機頁面 |
+| `demos/tongling/` | tongling-prototype v16 | 靜態原型直接複製 |
 
-其他作品的封面也都是示意圖，畫面中的人名、資料與數字均為虛構。
+重新建置某個示範（輸出會覆蓋 `demos/<名稱>/`）：
+
+```bash
+cd demos-src/meetbook && npm ci && npx vite build
+```
+
+### 關於 MeetBook（正式營運中）
+
+MeetBook 是正式營運中的系統，本網站**不使用任何正式環境資源**：不放正式站網址、不嵌入、不呼叫正式 API，也沒有正式站截圖。示範版的封面截圖來自上面的離線示範，會議與預約者都是虛構的。
 
 ## 素材授權
 

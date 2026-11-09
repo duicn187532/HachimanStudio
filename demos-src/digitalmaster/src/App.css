@@ -1,0 +1,25 @@
+/* Ensure full viewport height with scroll preservation */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+#root {
+  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+  overscroll-behavior-y: none; /* Prevent bounce effect on iOS */
+}
+
+/* Additional iOS Chrome specific normalization */
+@supports (-webkit-touch-callout: none) {
+  #root {
+      height: -webkit-fill-available;
+      min-height: -webkit-fill-available;
+      max-height: -webkit-fill-available;
+  }
+}
