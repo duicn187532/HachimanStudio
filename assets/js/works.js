@@ -117,7 +117,7 @@ window.HS_WORKS = [
   {
     id: 'research',
     date: '2026-10',
-    access: 'none',
+    access: 'live',
     growth: '建立讀論文的方法：分層解釋、逐符號拆公式，並清楚標示哪些是推導、哪些是作者結論。',
     title: '論文精讀室',
     year: '2026',
@@ -133,7 +133,10 @@ window.HS_WORKS = [
       '附原文核對卡與來源清單，清楚標示推導與作者結論的界線。'
     ],
     cover: 'assets/img/works/research.svg',
-    links: [{ label: '原始碼', href: 'https://github.com/duicn187532/self-research' }]
+    links: [
+      { label: '開啟網站', href: 'https://duicn187532.github.io/self-research/' },
+      { label: '原始碼', href: 'https://github.com/duicn187532/self-research' }
+    ]
   },
   {
     id: 'walk',
