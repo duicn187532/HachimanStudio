@@ -9,7 +9,7 @@
     /* 訪客統計（GoatCounter）：填入在 goatcounter.com 註冊的代碼，例如 'hachiman'（對應 https://hachiman.goatcounter.com）。
        留空就不統計、頁尾也不顯示瀏覽數。頁尾的累計瀏覽數需要在 GoatCounter 設定中開啟
        「Allow adding visitor counts on your website」。 */
-    goatcounter: ''
+    goatcounter: 'duicn187532'
   };
 
   document.documentElement.classList.remove('no-js');
