@@ -176,7 +176,7 @@
       '<p>' + esc(w.summary) + '</p>' +
       '<h3>重點</h3><ul class="points">' + w.highlights.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>' +
       '<h3>技術</h3><ul class="tags">' + w.stack.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
-      (hasNote ? '<div class="dlg-note"><img src="assets/img/brand/orei-portrait.webp" alt=""><span>' + esc(w.note) + '</span></div>' : '') +
+      (hasNote ? '<div class="dlg-note"><img src="assets/img/brand/olleh-portrait.webp" alt=""><span>' + esc(w.note) + '</span></div>' : '') +
       (w.links.length ? '<div class="dlg-links">' + w.links.map(function (l, i) {
         return '<a class="btn ' + (i === 0 ? 'btn-primary' : 'btn-ghost') + ' btn-sm" href="' + esc(l.href) + '" target="_blank" rel="noopener">' + esc(l.label) + ' ↗</a>';
       }).join('') + '</div>' : '<div class="dlg-note"><img src="assets/img/brand/hachiman-peek.webp" alt=""><span>此專案為非公開專案，歡迎來信詢問細節。</span></div>') +

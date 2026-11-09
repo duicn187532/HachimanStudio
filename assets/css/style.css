@@ -139,7 +139,7 @@ section { padding: 96px 0; }
 .cat-card h3 { font-size: 22px; margin-bottom: 4px; }
 .cat-card .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; margin-bottom: 8px; }
 .cat-card.hachiman .tag { background: #F7DCC6; color: var(--ginger-dark); }
-.cat-card.orei .tag { background: var(--sage-soft); color: #556043; }
+.cat-card.olleh .tag { background: var(--sage-soft); color: #556043; }
 .cat-card p { color: var(--muted); font-size: 15px; margin: 0; }
 @media (max-width: 760px) { .cats { grid-template-columns: 1fr; } .cat-card { grid-template-columns: 88px 1fr; padding: 20px; } .cat-card .avatar { width: 88px; height: 88px; border-radius: 22px; } .cat-card .avatar img { width: 84px; } }
 
