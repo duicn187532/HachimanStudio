@@ -1,6 +1,8 @@
 # HACHIMAN STUDIO 八萬工作室 · 品牌形象網站
 
-八萬工作室的品牌形象網站：首頁（關於、吉祥物、服務、精選作品、合作流程、歷程、聯絡與 FAQ）、作品集頁（標示可實際使用／線上示範／僅介紹與是否附原始碼，可篩選）、成長時間線（越往下越早），以及 404 頁。
+八萬爸的個人介紹網站，以「HACHIMAN STUDIO 八萬工作室」的品牌形象呈現（品牌名與吉祥物來自家裡的兩隻貓八萬與歐雷）。以業餘、不收費的概念諮詢為主，不是商業公司。
+
+內容：首頁（關於、靈感來源、概念諮詢與範圍說明、精選作品、諮詢方式、歷程、聯絡與 FAQ）、作品集頁（標示可實際使用／線上示範／僅介紹與是否附原始碼，可篩選）、成長時間線（越往下越早），以及 404 頁。
 
 純靜態網站，不需要建置，也沒有任何後端或第三方追蹤。
 
@@ -23,8 +25,8 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 | --- | --- |
 | 新增／修改作品 | `assets/js/works.js`（每件作品一筆資料；`featured: true` 會出現在首頁；`date` 決定在成長時間線的位置；`access` 決定「可實際使用／線上示範／僅介紹」標示） |
 | 成長時間線的年度標題與里程碑 | `assets/js/site.js` 的 `ERAS`、`MILESTONES` |
-| 公開 Email | `assets/js/site.js` 最上方的 `SITE.email`（留空時只顯示 GitHub） |
-| 文案 | `index.html`、`works.html`、`growth.html` |
+| 公開 Email（概念諮詢的來信信箱） | `assets/js/site.js` 最上方的 `SITE.email`（留空時「寄信諮詢」按鈕會隱藏，只顯示 GitHub） |
+| 文案（含概念諮詢的範圍說明與 FAQ） | `index.html`、`works.html`、`growth.html` |
 | 顏色、字體 | `assets/css/style.css` 最上方的 `:root` |
 | 作品封面 | `python3 tools/gen_covers.py` 重新產生 `assets/img/works/*.svg`；`*-shot.webp` 是示範版截圖 |
 
@@ -61,5 +63,5 @@ MeetBook 是正式營運中的系統，本網站**不使用任何正式環境資
 
 ## 素材授權
 
-- 八萬、歐雷角色、標誌與插圖：© HACHIMAN STUDIO / 八萬工作室，未經同意請勿重製（來源：AutoML repo 的 `src/assets/brand/`）。
+- 八萬、歐雷角色、標誌與插圖：© 八萬爸 / HACHIMAN STUDIO 八萬工作室，未經同意請勿重製（來源：AutoML repo 的 `src/assets/brand/`）。
 - Lato 字型：SIL Open Font License 1.1（`assets/fonts/OFL-Lato.txt`）。

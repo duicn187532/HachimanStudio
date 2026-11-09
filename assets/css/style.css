@@ -154,6 +154,11 @@ section { padding: 96px 0; }
 .service li { font-size: 12px; padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, .08); color: var(--cream); }
 @media (max-width: 1000px) { .services { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .services { grid-template-columns: 1fr; } }
+.scope { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.scope li { border-left: 3px solid var(--ginger); padding: 4px 0 4px 18px; }
+.scope strong { display: block; color: var(--cream); font-size: 17px; margin-bottom: 6px; }
+.scope span { color: #CFC3B6; font-size: 15px; }
+@media (max-width: 860px) { .scope { grid-template-columns: 1fr; } }
 
 /* ---------- works ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }

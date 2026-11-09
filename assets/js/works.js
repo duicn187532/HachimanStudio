@@ -294,7 +294,7 @@ window.HS_WORKS = [
     summary: '從爬蟲出發：抓取股價、用 Flask 發 API、前端 AJAX 排版，再加上 MongoDB 會員與員工後台。',
     role: '自學專案',
     stack: ['Python', 'Flask', 'MongoDB', 'AJAX'],
-    highlights: ['完整記錄從 0 開始的開發歷程，是工作室的起點。'],
+    highlights: ['完整記錄從 0 開始的開發歷程，是我寫程式的起點。'],
     cover: 'assets/img/works/crawler.svg',
     links: [
       { label: 'Crawler', href: 'https://github.com/duicn187532/Crawler' },

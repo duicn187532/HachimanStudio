@@ -171,7 +171,7 @@
       }).join('') + '</div>' : '') +
       '<div class="dlg-body">' +
       '<h2 id="dlg-title">' + esc(w.title) + '</h2>' +
-      '<div class="meta"><span class="' + statusClass(w) + '">' + esc(w.status) + '</span><span>' + esc(CATS[w.category] || '') + '</span><span>' + esc(w.year) + '</span><span>角色：' + esc(w.role) + '</span></div>' +
+      '<div class="meta"><span class="' + statusClass(w) + '">' + esc(w.status) + '</span><span>' + esc(CATS[w.category] || '') + '</span><span>' + esc(w.year) + '</span><span>我的角色：' + esc(w.role) + '</span></div>' +
       badges(w) +
       '<p>' + esc(w.summary) + '</p>' +
       '<h3>重點</h3><ul class="points">' + w.highlights.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>' +
@@ -217,7 +217,7 @@
     '2023': { title: '從零開始自學', text: '一支爬蟲、一個 Flask 網站、一個計時器——寫程式的起點。' }
   };
   var MILESTONES = [
-    { date: '2026-11', title: 'HACHIMAN STUDIO 成立', text: '以八萬與歐雷為品牌，整理三年來的作品，開始對外介紹。', icon: 'brand' }
+    { date: '2026-11', title: 'HACHIMAN STUDIO 成立', text: '以家裡的兩隻貓八萬與歐雷為品牌，整理三年來個人與合作的作品，也開始提供概念諮詢。', icon: 'brand' }
   ];
   function monthLabel(d) { var p = d.split('-'); return p[0] + ' 年 ' + Number(p[1]) + ' 月'; }
   function renderTimeline() {
