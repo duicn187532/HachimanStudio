@@ -107,7 +107,7 @@ const LoginPage: React.FC = () => {
       
       {/* Bank Logo */}
       {/* <div className="mt-auto p-5 flex justify-center"> */}
-        {/* <img src={bankLogo || "/placeholder.svg"} alt="上海商業儲蓄銀行" className="h-12" /> */}
+        {/* <img src={bankLogo || "/placeholder.svg"} alt="示範銀行" className="h-12" /> */}
       {/* </div> */}
     </div>
   );

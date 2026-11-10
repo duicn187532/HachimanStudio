@@ -24,7 +24,7 @@ window.HS_WORKS = [
     category: 'product',
     status: '營運中',
     featured: true,
-    summary: '部門每天在用的會議室預約服務：網頁、LINE 官方帳號、AI 助理（MCP）三個入口共用同一套衝突檢查。',
+    summary: '部門 60 人每天在用的會議室預約服務：網頁、LINE 官方帳號、AI 助理（MCP）三個入口共用同一套衝突檢查。',
     role: '產品規劃、全端開發、維運',
     stack: ['React 19', 'Vite', 'Tailwind', 'Cloudflare Workers', 'D1', 'LINE Messaging API', 'MCP'],
     highlights: [
@@ -58,7 +58,8 @@ window.HS_WORKS = [
       'k-fold OOF bagging、TPE + successive halving、Caruana ensemble selection。',
       '資料品質報告與 target leakage 偵測——由八萬負責抓問題、歐雷負責守隱私。'
     ],
-    cover: 'assets/img/works/automl.svg',
+    cover: 'assets/img/works/automl-shot-1.webp',
+    gallery: ['assets/img/works/automl-shot-1.webp', 'assets/img/works/automl-shot-2.webp', 'assets/img/works/automl-shot-3.webp'],
     links: [
       { label: '線上試用', href: 'https://duicn187532.github.io/AutoML/' },
       { label: '原始碼', href: 'https://github.com/duicn187532/AutoML' }
@@ -152,7 +153,7 @@ window.HS_WORKS = [
     status: 'MVP',
     featured: true,
     summary: '飼主與遛狗者的雙向媒合平台 MVP，從單檔靜態 mockup 重構成可完整操作的全端應用。',
-    role: '產品設計、全端開發',
+    role: '課程專案：產品設計、全端開發',
     stack: ['React', 'Express', 'SQLite', 'Ollama'],
     highlights: [
       '角色可兼任：同一帳號能切換「飼主／遛狗者」。',
@@ -185,7 +186,9 @@ window.HS_WORKS = [
       '保留官方 API connector 的服務邊界，示範模式可完全離線。',
       'Monorepo：backend / web / mobile / shared。'
     ],
-    cover: 'assets/img/works/garmin.svg',
+    note: '截圖是在本機用專案內建的示範資料（DEMO_MODE）啟動，不是我的真實健康資料。',
+    cover: 'assets/img/works/garmin-shot-1.webp',
+    gallery: ['assets/img/works/garmin-shot-1.webp', 'assets/img/works/garmin-shot-2.webp'],
     links: [{ label: '原始碼', href: 'https://github.com/duicn187532/garmin-dashboard' }]
   },
   {
@@ -206,7 +209,8 @@ window.HS_WORKS = [
       '語音轉逐字稿，遊戲結束後由 AI 協助復盤。'
     ],
     note: '原始碼為私人專案，不公開。「線上示範」使用原本的介面與遊戲邏輯，後端改在瀏覽器內模擬，只能開「單人測試房」（你＋機器人），沒有連線、登入與語音。',
-    cover: 'assets/img/works/avalon-shot.webp',
+    cover: 'assets/img/works/avalon-phone-1.webp',
+    gallery: ['assets/img/works/avalon-phone-1.webp', 'assets/img/works/avalon-phone-2.webp', 'assets/img/works/avalon-shot.webp'],
     links: [{ label: '線上示範', href: 'demos/avalon/' }]
   },
   {
@@ -219,12 +223,13 @@ window.HS_WORKS = [
     category: 'product',
     status: '內部專案',
     featured: false,
-    summary: '數位學習激勵平台：出席、課程、互動、案例等任務累積星數，升級並解鎖徽章。',
+    summary: '70 人使用的數位學習激勵平台：出席、課程、互動、案例等任務累積星數，升級並解鎖徽章。',
     role: '前後端開發',
     stack: ['React', 'TypeScript', 'Python', 'MongoDB', 'Docker'],
     highlights: ['等級、徽章與兌換機制，前台＋後台管理。'],
     note: '「線上示範」為原本的前端畫面，資料換成虛構的「示範達人」，任意輸入帳號即可登入。',
-    cover: 'assets/img/works/digitalmaster.svg',
+    cover: 'assets/img/works/digitalmaster-phone-1.webp',
+    gallery: ['assets/img/works/digitalmaster-phone-1.webp', 'assets/img/works/digitalmaster-phone-2.webp'],
     links: [
       { label: '線上示範', href: 'demos/digitalmaster/' },
       { label: '原始碼', href: 'https://github.com/duicn187532/DigitalMaster' }
@@ -244,7 +249,9 @@ window.HS_WORKS = [
     role: '開發',
     stack: ['React', 'TypeScript', 'Go', 'Docker'],
     highlights: ['輸入座位數即可開抽，已分配狀態即時更新。'],
-    cover: 'assets/img/works/seatdraw.svg',
+    note: '截圖用的是線上的前端，後端回應在瀏覽器內模擬，沒有真的抽座位。',
+    cover: 'assets/img/works/seatdraw-phone-1.webp',
+    gallery: ['assets/img/works/seatdraw-phone-1.webp', 'assets/img/works/seatdraw-shot-2.webp'],
     links: [{ label: '原始碼', href: 'https://github.com/duicn187532/SeatDraw' }]
   },
   {
@@ -261,7 +268,8 @@ window.HS_WORKS = [
     role: '開發',
     stack: ['HTML', 'CSS', 'Chart.js', 'Python'],
     highlights: ['測驗結果以雷達圖呈現，管理端彙整分組。'],
-    cover: 'assets/img/works/classhat.svg',
+    cover: 'assets/img/works/classhat-shot-1.webp',
+    gallery: ['assets/img/works/classhat-shot-1.webp', 'assets/img/works/classhat-shot-2.webp', 'assets/img/works/classhat-phone-1.webp'],
     links: [{ label: '原始碼', href: 'https://github.com/duicn187532/ClassHat' }]
   },
   {
@@ -277,8 +285,9 @@ window.HS_WORKS = [
     summary: '把電子報新聞整理成可搜尋的時間軸，快速回顧產業與公司動態。',
     role: '資料整理與開發',
     stack: ['HTML', 'JavaScript', 'JSON'],
-    highlights: ['文件轉 JSON，依日期與關鍵字瀏覽。'],
-    cover: 'assets/img/works/news.svg',
+    highlights: ['文件轉 JSON，依日期與關鍵字瀏覽，並標出標題與內文的情緒分數。'],
+    note: '截圖中的銀行名稱已改為「示範銀行」。',
+    cover: 'assets/img/works/news-shot-1.webp',
     links: [{ label: '原始碼', href: 'https://github.com/duicn187532/newsStorage' }]
   },
   {
@@ -291,11 +300,11 @@ window.HS_WORKS = [
     category: 'ai',
     status: '內部專案',
     featured: false,
-    summary: '分三個階段打造的輿情分析工具：從單機版的關鍵字情緒分析，到熱搜關鍵字與報告申請表單，再到自動蒐集各大新聞的輿情資料庫。',
+    summary: '20 人使用、分三個階段打造的輿情分析工具：從單機版的關鍵字情緒分析，到熱搜關鍵字與報告申請表單，再到自動蒐集各大新聞的輿情資料庫。',
     role: '團隊合作：負責全端工程',
-    stack: ['Python', 'FastAPI', '地端情感模型', 'GPT API', '新聞資料庫'],
+    stack: ['Python', 'FastAPI', 'RoBERTa', 'GPT API', '新聞資料庫'],
     highlights: [
-      '第一階段（2025 年 1 月）：單機版，使用者輸入關鍵字搜尋，串接地端情感模型與 GPT API 做分析。',
+      '第一階段（2025 年 1 月）：單機版，使用者輸入關鍵字搜尋，串接地端 RoBERTa 情感模型與 GPT API 做分析。',
       '第二階段（2025 年 6 月）：加入熱搜關鍵字與輿情報告申請表單。',
       '第三階段（2025 年 7 月）：建立輿情資料庫，依設定的關鍵字自動蒐集各大新聞。'
     ],
@@ -342,8 +351,8 @@ window.HS_WORKS = [
       '作答結果存進 MongoDB，最後以圓餅圖與完整政見對照呈現。'
     ],
     note: '「線上示範」是原本頁面的靜態版：題庫取自原專案，候選人改以 A／B／C 匿名，不載入廣告與 Facebook，作答不會送出或儲存。',
-    cover: 'assets/img/works/voteright-shot.webp',
-    gallery: ['assets/img/works/voteright-shot.webp', 'assets/img/works/voteright-shot-2.webp', 'assets/img/works/voteright-shot-1.webp'],
+    cover: 'assets/img/works/voteright-phone-1.webp',
+    gallery: ['assets/img/works/voteright-phone-1.webp', 'assets/img/works/voteright-shot.webp'],
     links: [
       { label: '線上示範', href: 'demos/voteright/' },
       { label: '原始碼', href: 'https://github.com/Magenga/VoteRight' }
@@ -363,28 +372,13 @@ window.HS_WORKS = [
     role: '自學專案',
     stack: ['Python', 'Flask', 'MongoDB', 'AJAX'],
     highlights: ['完整記錄從 0 開始的開發歷程，是我寫程式的起點。'],
-    cover: 'assets/img/works/crawler.svg',
+    note: '截圖是在本機重新啟動當年的 Flask 網站，股價為 2023 年存下的資料；背景照片就是八萬和歐雷。',
+    cover: 'assets/img/works/crawler-shot-1.webp',
+    gallery: ['assets/img/works/crawler-shot-1.webp', 'assets/img/works/crawler-shot-2.webp'],
     links: [
       { label: 'Crawler', href: 'https://github.com/duicn187532/Crawler' },
       { label: 'websiteResume', href: 'https://github.com/duicn187532/websiteResume' }
     ]
-  },
-  {
-    id: 'skuld',
-    date: '2023-08',
-    access: 'none',
-    growth: '寫程式的起點：做一個讓自己生活更順的小工具。',
-    title: 'Operation Skuld',
-    year: '2023',
-    category: 'early',
-    status: '早期作品',
-    featured: false,
-    summary: '管理日常時間的計時器程式，命名取自命運三女神中掌管未來的詩寇蒂。',
-    role: '自學專案',
-    stack: ['Python'],
-    highlights: ['第一個想「讓自己的生活更順」的小工具。'],
-    cover: 'assets/img/works/skuld.svg',
-    links: [{ label: '原始碼', href: 'https://github.com/duicn187532/Operation_Skuld' }]
   }
 ];
 

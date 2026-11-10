@@ -2,9 +2,23 @@
 
 HACHIMAN STUDIO 八萬工作室是八萬爸的個人品牌（品牌名與吉祥物來自家裡的兩隻貓八萬與歐雷），目前沒有登記營業、不以營利為目的；以業餘、不收費的概念諮詢為主。
 
+提供繁體中文與英文（`en/`）兩種語系，導覽列右上角可切換。
+
 內容：首頁（關於、靈感來源、概念諮詢與範圍說明、精選作品、諮詢方式、歷程、聯絡與 FAQ）、作品集頁（標示可實際使用／線上示範／僅介紹與是否附原始碼，可篩選）、成長時間線（越往下越早），以及 404 頁。
 
 純靜態網站，不需要建置，也沒有任何後端或第三方追蹤。
+
+## 修改後要執行的建置步驟
+
+改完任何頁面、CSS 或 JS 之後執行：
+
+```bash
+python3 tools/build_site.py
+```
+
+- **版本號**：所有頁面引用 `style.css`、`works.js`、`works.en.js`、`site.js` 時都帶 `?v=<內容雜湊>`；檔案一改，版本號就跟著變，瀏覽器會重新下載，不會卡在舊的快取。
+- **英文版**：`en/index.html`、`en/works.html`、`en/growth.html` 由中文頁面自動產生，不要直接改。翻譯對照表在 `tools/build_site.py` 的 `TEXT`；中文頁面有沒翻到的文字時，腳本會停下來並列出，把對應的英文加進 `TEXT` 再執行一次。
+- 作品的英文說明在 `assets/js/works.en.js`（依作品 `id` 對應；沒翻譯的欄位會顯示中文）。在 `works.js` 新增或修改作品時，記得一起更新。
 
 ## 本機預覽
 
@@ -23,12 +37,12 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 
 | 想改什麼 | 改哪裡 |
 | --- | --- |
-| 新增／修改作品 | `assets/js/works.js`（每件作品一筆資料；`featured: true` 會出現在首頁；`date` 決定在成長時間線的位置；`access` 決定「可實際使用／線上示範／僅介紹」標示） |
+| 新增／修改作品 | `assets/js/works.js`（英文說明在 `assets/js/works.en.js`）（每件作品一筆資料；`featured: true` 會出現在首頁；`date` 決定在成長時間線的位置；`access` 決定「可實際使用／線上示範／僅介紹」標示） |
 | 成長時間線的年度標題與里程碑 | `assets/js/site.js` 的 `ERAS`、`MILESTONES` |
 | 公開 Email（概念諮詢的來信信箱） | `assets/js/site.js` 最上方的 `SITE.email`（留空時「寄信諮詢」按鈕會隱藏，只顯示 GitHub） |
 | 文案（含概念諮詢的範圍說明與 FAQ） | `index.html`、`works.html`、`growth.html` |
 | 顏色、字體 | `assets/css/style.css` 最上方的 `:root` |
-| 作品封面 | `python3 tools/gen_covers.py` 重新產生 `assets/img/works/*.svg`；`*-shot.webp` 是示範版截圖 |
+| 作品封面 | 多數作品用實際畫面截圖（`*-shot*.webp`、手機框 `*-phone-*.webp`）；沒有公開畫面的抽獎與輿情用 `python3 tools/gen_covers.py` 產生的示意圖（`lottery.svg`、`sentiment.svg`） |
 
 ## 訪客統計（GoatCounter）
 
@@ -56,6 +70,7 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 
 ```bash
 cd demos-src/meetbook && npm ci && npx vite build
+# vite.config.ts 會拿掉字型的 .woff 備援檔，只留 woff2
 ```
 
 ### 關於 MeetBook（正式營運中）
