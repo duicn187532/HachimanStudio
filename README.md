@@ -6,25 +6,50 @@ HACHIMAN STUDIO 八萬工作室是八萬爸的個人品牌（品牌名與吉祥�
 
 內容：首頁（關於、靈感來源、概念諮詢與範圍說明、精選作品、諮詢方式、歷程、聯絡與 FAQ）、作品集頁（標示可實際使用／線上示範／僅介紹與是否附原始碼，可篩選）、成長時間線（越往下越早），以及 404 頁。
 
-純靜態網站，不需要建置，也沒有任何後端或第三方追蹤。
+純靜態網站：訪客打開的是已經產生好的 HTML、CSS 與一支資料 JS，沒有後端、不需要額外的 API 請求。
 
-## 修改後要執行的建置步驟
+## 內容後台（admin/）
 
-改完任何頁面、CSS 或 JS 之後執行：
+網址：`https://duicn187532.github.io/HachimanStudio/admin/`（不在導覽列上，也不會被搜尋引擎收錄）。
+
+可以修改首頁每個區塊（主視覺、關於我、兩隻貓、概念諮詢、精選作品、諮詢流程、歷程、聯絡與 FAQ）、作品集頁、成長時間線（年度標題、里程碑）、網站設定（Email、GitHub、GoatCounter、搜尋與分享描述），以及新增、修改、排序、隱藏作品與上傳圖片。中文與英文並排編輯，英文留空時英文版會先顯示中文。
+
+運作方式（沒有後端伺服器）：
+
+1. 後台本身也是靜態網頁，用你的 GitHub 權杖直接呼叫 GitHub API，把修改提交到 `main`：只會改 `content/site.json`、`content/works.json` 與新上傳的 `assets/img/works/*.webp`。
+2. 上傳的圖片在瀏覽器裡就縮到 1600px 寬並轉成 WebP，不會把手機原圖放上網站。
+3. `.github/workflows/build.yml` 偵測到提交後執行 `tools/build_site.py` 產生頁面，提交回 `main` 並請 GitHub Pages 重新部署，大約 1–2 分鐘上線。
+4. 還沒發布的修改會自動存成這台電腦的草稿，不小心關掉分頁也不會不見（新上傳的圖片除外）。
+
+第一次使用：到 GitHub → Settings → Developer settings → [Fine-grained tokens](https://github.com/settings/personal-access-tokens/new) 產生權杖，Repository access 只選 `HachimanStudio`，Repository permissions 的 **Contents** 設為 Read and write（想在後台看到上線進度，再把 **Actions** 設為 Read-only）。權杖只會送到 api.github.com；沒勾「記住」時關掉分頁就會忘記。
+
+## 檔案分工
+
+| 想改什麼 | 改哪裡 |
+| --- | --- |
+| 網站文字、作品、時間線、聯絡方式 | 用後台，或直接改 `content/site.json`、`content/works.json`（每個文字欄位是 `{"zh": …, "en": …}`） |
+| 版面與 HTML 結構 | `templates/*.html`（Jinja2） |
+| 導覽列、按鈕等固定介面文字 | `tools/build_site.py` 的 `UI` |
+| 圖示（關於我的特點、諮詢範圍） | `templates/icons.json` |
+| 互動行為（作品卡片、篩選、詳細視窗、時間線） | `assets/js/site.js` |
+| 顏色、字體 | `assets/css/style.css` 最上方的 `:root` |
+| 作品封面 | 後台上傳，或放在 `assets/img/works/`；多數是實際畫面截圖（`*-shot*.webp`、手機框 `*-phone-*.webp`），抽獎與輿情用 `python3 tools/gen_covers.py` 產生的示意圖 |
+
+以下檔案由建置產生，**不要直接修改**（會被覆蓋）：`index.html`、`works.html`、`growth.html`、`en/*.html`、`assets/js/works.js`、`assets/js/works.en.js`。
+
+作品欄位：`featured` 會出現在首頁；`hidden` 先不公開；`date`（YYYY-MM）決定在成長時間線的位置；`access` 是可實際使用（live）、線上示範（demo）或僅介紹（none）；連到 github.com 的連結會自動標示「附原始碼」。作品在 `works.json` 裡的順序就是作品集頁的順序。
+
+## 在自己電腦上修改
 
 ```bash
-python3 tools/build_site.py
+pip install -r tools/requirements.txt   # 只需要 jinja2
+python3 tools/build_site.py             # 改完 content/、templates/、CSS 或 JS 後執行
+python3 -m http.server 8000             # 預覽：http://localhost:8000（後台：/admin/，可選「不登入，只看看」）
 ```
 
-- **版本號**：所有頁面引用 `style.css`、`works.js`、`works.en.js`、`site.js` 時都帶 `?v=<內容雜湊>`；檔案一改，版本號就跟著變，瀏覽器會重新下載，不會卡在舊的快取。
-- **英文版**：`en/index.html`、`en/works.html`、`en/growth.html` 由中文頁面自動產生，不要直接改。翻譯對照表在 `tools/build_site.py` 的 `TEXT`；中文頁面有沒翻到的文字時，腳本會停下來並列出，把對應的英文加進 `TEXT` 再執行一次。
-- 作品的英文說明在 `assets/js/works.en.js`（依作品 `id` 對應；沒翻譯的欄位會顯示中文）。在 `works.js` 新增或修改作品時，記得一起更新。
-
-## 本機預覽
-
-```bash
-python3 -m http.server 8000   # 打開 http://localhost:8000
-```
+- 建置會列出沒填英文的欄位（warning），不會中斷。
+- 所有頁面引用 `style.css`、`works.js`、`works.en.js`、`site.js` 時都帶 `?v=<內容雜湊>`，檔案一改，瀏覽器就會重新下載。
+- 推到 `main` 後 GitHub Action 也會自動建置一次，忘了在本機建置也沒關係。
 
 ## 部署（GitHub Pages）
 
@@ -33,23 +58,12 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 
 改用自訂網域時，把 `404.html` 裡的 `<base href="/HachimanStudio/">` 改成 `<base href="/">`。
 
-## 常見修改
-
-| 想改什麼 | 改哪裡 |
-| --- | --- |
-| 新增／修改作品 | `assets/js/works.js`（英文說明在 `assets/js/works.en.js`）（每件作品一筆資料；`featured: true` 會出現在首頁；`date` 決定在成長時間線的位置；`access` 決定「可實際使用／線上示範／僅介紹」標示） |
-| 成長時間線的年度標題與里程碑 | `assets/js/site.js` 的 `ERAS`、`MILESTONES` |
-| 公開 Email（概念諮詢的來信信箱） | `assets/js/site.js` 最上方的 `SITE.email`（留空時「寄信諮詢」按鈕會隱藏，只顯示 GitHub） |
-| 文案（含概念諮詢的範圍說明與 FAQ） | `index.html`、`works.html`、`growth.html` |
-| 顏色、字體 | `assets/css/style.css` 最上方的 `:root` |
-| 作品封面 | 多數作品用實際畫面截圖（`*-shot*.webp`、手機框 `*-phone-*.webp`）；沒有公開畫面的抽獎與輿情用 `python3 tools/gen_covers.py` 產生的示意圖（`lottery.svg`、`sentiment.svg`） |
-
 ## 訪客統計（GoatCounter）
 
 使用 [GoatCounter](https://www.goatcounter.com/)：免費、不使用 cookie，不需要隱私同意視窗。統計首頁、作品集、成長時間線與 404 頁；線上示範（`demos/`）不統計。
 
 1. 到 goatcounter.com 註冊，設定一個代碼（例如 `hachiman`，後台網址就是 `https://hachiman.goatcounter.com`）。
-2. 把代碼填進 `assets/js/site.js` 最上方的 `SITE.goatcounter`。
+2. 在後台「網站設定」填入代碼（或改 `content/site.json` 的 `settings.goatcounter`）。
 3. 要在頁尾顯示「累計瀏覽 N 次」：GoatCounter 後台 → Settings → 勾選「Allow adding visitor counts on your website」。沒開啟時頁尾不會顯示數字，但統計照常進行。
 
 留空代碼時完全不統計。本機預覽（localhost）不會被計入。

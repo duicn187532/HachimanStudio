@@ -1,0 +1,59 @@
+# 內容後台（admin/）或任何人修改 content/、templates/ 等檔案並推到 main 後，
+# 自動執行 tools/build_site.py 重新產生頁面，把結果提交回 main，再請 GitHub Pages 重新部署。
+name: Build site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "templates/**"
+      - "tools/build_site.py"
+      - "assets/css/**"
+      - "assets/js/site.js"
+      - "404.html"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: build-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r tools/requirements.txt
+      - run: python3 tools/build_site.py
+      - name: Commit generated pages
+        id: commit
+        run: |
+          git add -A index.html works.html growth.html 404.html en assets/js/works.js assets/js/works.en.js
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Rebuild site from content"
+          # 後台可能剛好又發布了一次：先接上最新的 main 再推
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            sleep 3
+          done
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Ask GitHub Pages to redeploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # 用 GITHUB_TOKEN 推送的提交不一定會觸發 Pages 部署，這裡明確要求一次；失敗不影響網站內容
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages build request failed; it will deploy on the next push."

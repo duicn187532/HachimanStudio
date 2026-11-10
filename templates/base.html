@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="{{ 'en' if lang == 'en' else 'zh-Hant-TW' }}" class="no-js"{% if lang == 'en' %} data-root="../"{% endif %}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ t(meta.title) }}</title>
+  <meta name="description" content="{{ attr(meta.description) }}">
+  <link rel="alternate" hreflang="zh-Hant" href="{{ base }}{{ path }}">
+  <link rel="alternate" hreflang="en" href="{{ base }}en/{{ path }}">
+  <meta name="theme-color" content="#C86A2D">
+  <link rel="icon" type="image/png" href="{{ r }}assets/img/brand/favicon.png">
+  <link rel="apple-touch-icon" href="{{ r }}assets/img/brand/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ ui.studio }}">
+  <meta property="og:title" content="{{ ui.studio }}">
+  <meta property="og:description" content="{{ attr(site.pages.og_description) }}">
+  <meta property="og:image" content="{{ r }}assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="{{ r }}assets/fonts/lato-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+  <script type="application/ld+json">
+  {{ ld_json }}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">{{ ui.skip }}</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="paw" viewBox="0 0 24 24"><ellipse cx="12" cy="16" rx="5.2" ry="4.3"/><circle cx="6.3" cy="10.3" r="2.1"/><circle cx="10" cy="6.6" r="2.2"/><circle cx="14.2" cy="6.6" r="2.2"/><circle cx="17.8" cy="10.3" r="2.1"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="./" aria-label="{{ ui.home_aria }}">
+        <img src="{{ r }}assets/img/brand/logo-icon.webp" alt="" width="44" height="44">
+        <span class="brand-text"><strong>HACHIMAN</strong><span>八萬工作室</span></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="{{ ui.menu_aria }}">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="{{ home }}#about">{{ ui.nav_about }}</a></li>
+        <li><a href="{{ home }}#consult">{{ ui.nav_consult }}</a></li>
+        <li><a href="works.html">{{ ui.nav_works }}</a></li>
+        <li><a href="growth.html">{{ ui.nav_growth }}</a></li>
+        {% if lang == 'en' %}<li><a class="lang-switch" href="../{{ path }}" lang="zh-Hant" hreflang="zh-Hant">中文</a></li>{% else %}<li><a class="lang-switch" href="en/{{ path }}" lang="en" hreflang="en">EN</a></li>{% endif %}
+        <li><a class="btn btn-primary btn-sm" href="{{ home }}#contact">{{ ui.nav_cta }}</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+{% block main %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <a class="brand" href="./"><img src="{{ r }}assets/img/brand/logo-icon.webp" alt="" width="44" height="44"><span class="brand-text"><strong>HACHIMAN STUDIO</strong><span>八萬工作室</span></span></a>
+        <nav aria-label="{{ ui.footer_aria }}"><ul><li><a href="{{ home }}#about">{{ ui.nav_about }}</a></li><li><a href="{{ home }}#consult">{{ ui.nav_consult }}</a></li><li><a href="works.html">{{ ui.nav_works }}</a></li><li><a href="growth.html">{{ ui.nav_growth }}</a></li><li><a href="{{ home }}#contact">{{ ui.nav_contact }}</a></li><li><a data-contact="github" href="{{ site.settings.github }}" target="_blank" rel="noopener">GitHub</a></li></ul></nav>
+      </div>
+      <div class="copy"><span>{{ ui.copyright|safe }}</span><span class="copy-right"><span class="visits" data-visits hidden>{{ ui.visits|safe }}</span><span>Made with 🐾</span></span></div>
+    </div>
+  </footer>
+
+  <dialog class="work-dialog" aria-labelledby="dlg-title">
+    <button class="dlg-close" type="button" aria-label="{{ ui.close_aria }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="dlg-content"></div>
+  </dialog>
+
+  <script src="{{ asset(data_js) }}"></script>
+  <script src="{{ asset('assets/js/site.js') }}"></script>
+</body>
+</html>

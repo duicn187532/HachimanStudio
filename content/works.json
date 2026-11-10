@@ -1,0 +1,1087 @@
+[
+  {
+    "id": "meetbook",
+    "title": {
+      "zh": "MeetBook 會議室預約系統",
+      "en": "MeetBook meeting-room booking"
+    },
+    "date": "2025-02",
+    "year": "2025 – 2026",
+    "category": "product",
+    "status": "營運中",
+    "access": "demo",
+    "featured": true,
+    "cover": "assets/img/works/meetbook-shot.webp",
+    "gallery": [],
+    "summary": {
+      "zh": "部門 60 人每天在用的會議室預約服務：網頁、LINE 官方帳號、AI 助理（MCP）三個入口共用同一套衝突檢查。",
+      "en": "A meeting-room booking service 60 people in a department use daily. The web app, a LINE official account and an AI assistant (MCP) share one conflict check."
+    },
+    "role": {
+      "zh": "產品規劃、全端開發、維運",
+      "en": "Product planning, full-stack development, operations"
+    },
+    "growth": {
+      "zh": "第一次把作品交給整個部門每天使用：學會處理真實使用者的回饋、資料遷移與維運，並把同一套預約規則延伸到 LINE 與 AI 助理。",
+      "en": "The first thing I built that a whole department uses every day: real user feedback, data migration and operations, then the same booking rules extended to LINE and an AI assistant."
+    },
+    "note": {
+      "zh": "此系統為正式營運服務，不公開正式站入口。「線上示範」是複製原本前端程式碼、把後端換成瀏覽器內虛構資料的離線版本，不會連到正式環境。",
+      "en": "This is a live production service, so its real site is not linked. The demo is the original frontend code with the backend replaced by made-up data inside your browser; it never contacts the real system."
+    },
+    "highlights": {
+      "zh": [
+        "一次預約多間會議室，任一間衝突即整筆不寫入，避免半套預約。",
+        "LINE 官方帳號可快速查詢／預約；AI 助理可透過 /ai 文字頁或 MCP 連接器查空檔並產生預約連結。",
+        "管理後台：使用率、熱門時段、部門統計、使用者名單與公告管理。",
+        "從 Deno + MongoDB 平滑遷移到 Cloudflare Workers + D1，並以中繼模式處理公司網路限制。"
+      ],
+      "en": [
+        "Book several rooms at once; if any room conflicts, nothing is written, so there are no half-made bookings.",
+        "The LINE account handles quick lookups and bookings; AI assistants can find free slots and create booking links through an /ai text page or an MCP connector.",
+        "Admin dashboard: usage, peak hours, department stats, user list and announcements.",
+        "Migrated smoothly from Deno + MongoDB to Cloudflare Workers + D1, with a relay mode for the company network."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "React 19",
+        "Vite",
+        "Tailwind",
+        "Cloudflare Workers",
+        "D1",
+        "LINE Messaging API",
+        "MCP"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "線上示範",
+          "en": "Demo"
+        },
+        "href": "demos/meetbook/"
+      },
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/MeetBook"
+      }
+    ]
+  },
+  {
+    "id": "automl",
+    "title": {
+      "zh": "AutoML Workbench",
+      "en": "AutoML Workbench"
+    },
+    "date": "2025-08",
+    "year": "2025 – 2026",
+    "category": "ai",
+    "status": "開源",
+    "access": "live",
+    "featured": true,
+    "cover": "assets/img/works/automl-shot-1.webp",
+    "gallery": [
+      "assets/img/works/automl-shot-1.webp",
+      "assets/img/works/automl-shot-2.webp",
+      "assets/img/works/automl-shot-3.webp"
+    ],
+    "summary": {
+      "zh": "瀏覽器裡的 ML / DL 工作台：無後端、可離線，資料不離開電腦；解壓縮後雙擊 index.html 就能用。",
+      "en": "An ML / DL workbench in the browser: no backend, works offline, and your data never leaves your computer. Unzip it and double-click index.html."
+    },
+    "role": {
+      "zh": "設計與開發",
+      "en": "Design and development"
+    },
+    "growth": {
+      "zh": "把機器學習流程搬進瀏覽器：WebAssembly、Web Worker 與離線打包，讓沒有環境的人也能訓練模型。",
+      "en": "Bringing a machine-learning workflow into the browser with WebAssembly, Web Workers and offline packaging, so people without a Python setup can train models."
+    },
+    "note": {
+      "zh": "",
+      "en": ""
+    },
+    "highlights": {
+      "zh": [
+        "六大模組：資料、自動訓練、模型庫、實驗管理、網路設計、Live Script。",
+        "k-fold OOF bagging、TPE + successive halving、Caruana ensemble selection。",
+        "資料品質報告與 target leakage 偵測——由八萬負責抓問題、歐雷負責守隱私。"
+      ],
+      "en": [
+        "Six modules: data, auto-training, model library, experiments, network design and Live Script.",
+        "k-fold OOF bagging, TPE + successive halving, Caruana ensemble selection.",
+        "Data-quality report and target-leakage detection: Hachiman finds the problems, Olleh guards the privacy."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "TypeScript",
+        "React",
+        "TensorFlow.js",
+        "Pyodide",
+        "XGBoost / LightGBM",
+        "ECharts"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "線上試用",
+          "en": "Try it"
+        },
+        "href": "https://duicn187532.github.io/AutoML/"
+      },
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/AutoML"
+      }
+    ]
+  },
+  {
+    "id": "tongling",
+    "title": {
+      "zh": "彤靈談心 TongLing",
+      "en": "TongLing"
+    },
+    "date": "2026-10",
+    "year": "2026",
+    "category": "ai",
+    "status": "Alpha",
+    "access": "demo",
+    "featured": true,
+    "cover": "assets/img/works/tongling-shot.webp",
+    "gallery": [],
+    "summary": {
+      "zh": "本機優先的金融需求整理與 PRD 工作台：知識檢索、來源追溯、Agent 輔助、人工決策與 IT 交付檢查串成一條流程。",
+      "en": "A local-first workspace for turning financial-services requirements into PRDs: knowledge search, source tracing, agent help, human decisions and IT hand-off checks in one flow."
+    },
+    "role": {
+      "zh": "產品設計、原型、開發",
+      "en": "Product design, prototyping, development"
+    },
+    "growth": {
+      "zh": "從原型到正式版：本機優先的架構、Agent 工作流程與「AI 只給建議、人來決策」的產品原則。",
+      "en": "From prototype to a real release: a local-first architecture, agent workflows, and the rule that AI only suggests while people decide."
+    },
+    "note": {
+      "zh": "「線上示範」是正式版（Alpha）介面：在本機用正式版後端載入虛構的範例專案、操作一輪後錄下資料，在瀏覽器內重播。可以瀏覽各頁面與切換 Agent／手動流程，但不會執行 AI 或儲存變更。",
+      "en": "The demo is the real Alpha interface. I loaded a made-up sample project into the real backend on my own machine, recorded one session, and the demo replays it in your browser. You can browse every page and switch between agent and manual mode, but no AI runs and nothing is saved."
+    },
+    "highlights": {
+      "zh": [
+        "PM 專案總覽：依待處理程度排序，一眼看到每個需求卡在哪一步。",
+        "Agent 模式自動跑完檢索、分析與 PRD 草稿，只在需要人決策時跳出來；也可隨時切回手動流程。",
+        "AI 產出一律是「待審建議」，每條需求都能追溯到來源文件；PRD 品質檢查、缺口補齊與 IT 交付包。",
+        "主機／客戶端分離，資料、模型與金鑰只留在執行主機。"
+      ],
+      "en": [
+        "PM project overview, sorted by what needs attention, shows where each requirement is stuck.",
+        "Agent mode runs search, analysis and the PRD draft on its own and only stops when a person needs to decide; you can switch back to the manual flow at any time.",
+        "Everything the AI produces is a suggestion awaiting review, and every requirement traces back to its source documents; includes PRD quality checks, gap filling and an IT hand-off pack.",
+        "Host and client are separate; data, models and keys stay on the host machine."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "Python",
+        "FastAPI",
+        "SQLite",
+        "React",
+        "TypeScript",
+        "Mermaid",
+        "Ollama（選用）"
+      ],
+      "en": [
+        "Python",
+        "FastAPI",
+        "SQLite",
+        "React",
+        "TypeScript",
+        "Mermaid",
+        "Ollama (optional)"
+      ]
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "線上示範",
+          "en": "Demo"
+        },
+        "href": "demos/tongling/"
+      },
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/tongling-alpha"
+      },
+      {
+        "label": {
+          "zh": "Prototype 原始碼",
+          "en": "Prototype source"
+        },
+        "href": "https://github.com/duicn187532/tongling-prototype"
+      }
+    ]
+  },
+  {
+    "id": "cslab",
+    "title": {
+      "zh": "CS LAB 資工互動自學",
+      "en": "CS LAB interactive self-study"
+    },
+    "date": "2026-10",
+    "year": "2026",
+    "category": "edu",
+    "status": "開源",
+    "access": "live",
+    "featured": true,
+    "cover": "assets/img/works/cslab-shot-1.webp",
+    "gallery": [
+      "assets/img/works/cslab-shot-1.webp",
+      "assets/img/works/cslab-shot-2.webp",
+      "assets/img/works/cslab-shot-3.webp"
+    ],
+    "summary": {
+      "zh": "九門資工課的互動教材入口，主課程 OS LAB 有 29 章、29 個專屬模擬器與 174 題測驗。",
+      "en": "A hub for nine interactive computer-science courses. The main course, OS LAB, has 29 chapters, 29 dedicated simulators and 174 quiz questions."
+    },
+    "role": {
+      "zh": "教材設計與開發",
+      "en": "Course design and development"
+    },
+    "growth": {
+      "zh": "把自學資工的筆記做成互動教材：用模擬器把抽象機制變成可以操作、可以預測的東西。",
+      "en": "Turning my computer-science self-study notes into interactive lessons, where simulators make abstract mechanisms something you can play with and predict."
+    },
+    "note": {
+      "zh": "",
+      "en": ""
+    },
+    "highlights": {
+      "zh": [
+        "「先預測 → 生活類比 → 真實機制 → 模擬器 → 測驗 → 錯題複習」的學習節奏。",
+        "CPU 排程、分頁與 TLB、銀行家演算法、磁碟排程等都能動手操作。",
+        "NET LAB 擴充至 28 章、27 種互動實驗與四語言程式挑戰。"
+      ],
+      "en": [
+        "Each lesson goes: predict, everyday analogy, real mechanism, simulator, quiz, review of mistakes.",
+        "Hands-on CPU scheduling, paging and TLB, the banker's algorithm, disk scheduling and more.",
+        "NET LAB grew to 28 chapters, 27 interactive labs and coding challenges in four languages."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "HTML",
+        "JavaScript",
+        "MathML",
+        "純靜態"
+      ],
+      "en": [
+        "HTML",
+        "JavaScript",
+        "MathML",
+        "Static site"
+      ]
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "開啟課程",
+          "en": "Open the course"
+        },
+        "href": "https://duicn187532.github.io/os-lab/"
+      },
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/os-lab"
+      }
+    ]
+  },
+  {
+    "id": "research",
+    "title": {
+      "zh": "論文精讀室",
+      "en": "Paper Reading Room"
+    },
+    "date": "2026-10",
+    "year": "2026",
+    "category": "edu",
+    "status": "開源",
+    "access": "live",
+    "featured": true,
+    "cover": "assets/img/works/research-shot-1.webp",
+    "gallery": [
+      "assets/img/works/research-shot-1.webp",
+      "assets/img/works/research-shot-2.webp"
+    ],
+    "summary": {
+      "zh": "幫助精讀論文的靜態網站：同一段內容提供五歲／大學生／研究生三種解釋深度，公式逐符號拆解。",
+      "en": "A static site for close reading of papers. Each passage is explained at three depths (for a five-year-old, an undergraduate and a graduate student), and formulas are taken apart symbol by symbol."
+    },
+    "role": {
+      "zh": "設計與開發",
+      "en": "Design and development"
+    },
+    "growth": {
+      "zh": "建立讀論文的方法：分層解釋、逐符號拆公式，並清楚標示哪些是推導、哪些是作者結論。",
+      "en": "Building a method for reading papers: layered explanations, formulas broken down symbol by symbol, and a clear line between derivation and the authors' conclusions."
+    },
+    "note": {
+      "zh": "",
+      "en": ""
+    },
+    "highlights": {
+      "zh": [
+        "Problem／Method／Benchmark／Contribution／Gap 五維導航。",
+        "每節附自我檢測、筆記欄與閱讀進度，搭配遊戲化任務。",
+        "附原文核對卡與來源清單，清楚標示推導與作者結論的界線。"
+      ],
+      "en": [
+        "Five-way navigation: Problem, Method, Benchmark, Contribution, Gap.",
+        "Each section has self-checks, a notes field and reading progress, plus game-like quests.",
+        "Source-check cards and a reference list mark where derivation ends and the authors' claims begin."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "HTML",
+        "JavaScript",
+        "localStorage"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "開啟網站",
+          "en": "Open the site"
+        },
+        "href": "https://duicn187532.github.io/self-research/"
+      },
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/self-research"
+      }
+    ]
+  },
+  {
+    "id": "walk",
+    "title": {
+      "zh": "Walk 我可遛",
+      "en": "Walk"
+    },
+    "date": "2026-10",
+    "year": "2026",
+    "category": "product",
+    "status": "MVP",
+    "access": "demo",
+    "featured": true,
+    "cover": "assets/img/works/walk-shot-1.webp",
+    "gallery": [
+      "assets/img/works/walk-shot-1.webp",
+      "assets/img/works/walk-shot-2.webp",
+      "assets/img/works/walk-shot-3.webp"
+    ],
+    "summary": {
+      "zh": "飼主與遛狗者的雙向媒合平台 MVP，從單檔靜態 mockup 重構成可完整操作的全端應用。",
+      "en": "An MVP that matches dog owners with dog walkers both ways, rebuilt from a single static mockup into a working full-stack app."
+    },
+    "role": {
+      "zh": "課程專案：產品設計、全端開發",
+      "en": "Course project: product design, full-stack development"
+    },
+    "growth": {
+      "zh": "把單檔 mockup 重構成可完整操作的全端 MVP，第一次用 ADR 記錄架構決策。",
+      "en": "Rebuilt a single-file mockup into a fully working full-stack MVP, and recorded architecture decisions in ADRs for the first time."
+    },
+    "note": {
+      "zh": "「線上示範」是放在 GitHub Pages 的互動原型（UI Concept），資料皆為示範用；完整的全端 MVP（React＋Express＋SQLite）需要在本機啟動。",
+      "en": "The demo is an interactive UI concept on GitHub Pages with sample data. The full-stack MVP (React + Express + SQLite) runs locally."
+    },
+    "highlights": {
+      "zh": [
+        "角色可兼任：同一帳號能切換「飼主／遛狗者」。",
+        "AI 推薦理由與照片判讀；沒有 AI 時自動改用規則模板。",
+        "附架構決策紀錄（ADR）與一鍵啟動腳本，方便實際體驗測試。"
+      ],
+      "en": [
+        "One account can switch between owner and walker.",
+        "AI explains recommendations and reads photos; without AI it falls back to rule-based templates.",
+        "Comes with architecture decision records (ADRs) and a one-command start script for hands-on testing."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "React",
+        "Express",
+        "SQLite",
+        "Ollama"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "線上示範",
+          "en": "Demo"
+        },
+        "href": "https://duicn187532.github.io/walk6/"
+      },
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/walk6"
+      }
+    ]
+  },
+  {
+    "id": "garmin",
+    "title": {
+      "zh": "Garmin Insight",
+      "en": "Garmin Insight"
+    },
+    "date": "2026-07",
+    "year": "2026",
+    "category": "ai",
+    "status": "MVP",
+    "access": "none",
+    "featured": false,
+    "cover": "assets/img/works/garmin-shot-1.webp",
+    "gallery": [
+      "assets/img/works/garmin-shot-1.webp",
+      "assets/img/works/garmin-shot-2.webp"
+    ],
+    "summary": {
+      "zh": "個人 Garmin 資料的搜尋、健康趨勢、訓練負荷與有根據的 AI 分析，Web PWA 與 iOS App 共用 API。",
+      "en": "Search, health trends, training load and grounded AI analysis for my own Garmin data. A web PWA and an iOS app share one API."
+    },
+    "role": {
+      "zh": "全端開發",
+      "en": "Full-stack development"
+    },
+    "growth": {
+      "zh": "第一次做 Web＋iOS 的 monorepo，練習讓 AI 回答只根據實際數據。",
+      "en": "My first web + iOS monorepo, and practice making AI answer only from real data."
+    },
+    "note": {
+      "zh": "截圖是在本機用專案內建的示範資料（DEMO_MODE）啟動，不是我的真實健康資料。",
+      "en": "The screenshots come from running the app locally with its built-in demo data (DEMO_MODE), not my real health data."
+    },
+    "highlights": {
+      "zh": [
+        "資料先正規化存到自己的資料庫，AI 回答只引用實際數據。",
+        "保留官方 API connector 的服務邊界，示範模式可完全離線。",
+        "Monorepo：backend / web / mobile / shared。"
+      ],
+      "en": [
+        "Data is normalised into my own database first, and AI answers cite only real numbers.",
+        "Keeps the official API connector behind a clear service boundary; demo mode runs fully offline.",
+        "Monorepo: backend / web / mobile / shared."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "FastAPI",
+        "SQLAlchemy",
+        "React",
+        "Expo React Native",
+        "Gemini"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/garmin-dashboard"
+      }
+    ]
+  },
+  {
+    "id": "avalon",
+    "title": {
+      "zh": "阿瓦隆 · 手機多人連線",
+      "en": "Avalon for phones"
+    },
+    "date": "2026-10",
+    "year": "2026",
+    "category": "fun",
+    "status": "私人專案",
+    "access": "demo",
+    "featured": false,
+    "cover": "assets/img/works/avalon-phone-1.webp",
+    "gallery": [
+      "assets/img/works/avalon-phone-1.webp",
+      "assets/img/works/avalon-phone-2.webp",
+      "assets/img/works/avalon-shot.webp"
+    ],
+    "summary": {
+      "zh": "手機多人連線的阿瓦隆桌遊：擴充角色、語音通話、逐字稿與 AI 復盤匯出。",
+      "en": "The Avalon board game played together on phones, with extra roles, voice chat, transcripts and an exportable AI game review."
+    },
+    "role": {
+      "zh": "設計與開發",
+      "en": "Design and development"
+    },
+    "growth": {
+      "zh": "即時多人連線、WebRTC 語音與 AI 復盤：把朋友聚會的需求做成完整的線上產品。",
+      "en": "Real-time multiplayer, WebRTC voice and AI game reviews: turning a friends' game night into a complete online product."
+    },
+    "note": {
+      "zh": "原始碼為私人專案，不公開。「線上示範」使用原本的介面與遊戲邏輯，後端改在瀏覽器內模擬，只能開「單人測試房」（你＋機器人），沒有連線、登入與語音。",
+      "en": "The source code is private. The demo uses the original interface and game logic with the backend simulated in your browser. It only opens a solo test room (you plus bots), with no networking, sign-in or voice."
+    },
+    "highlights": {
+      "zh": [
+        "朋友聚會時只要手機就能開局。",
+        "語音轉逐字稿，遊戲結束後由 AI 協助復盤。"
+      ],
+      "en": [
+        "Start a game at a get-together with nothing but phones.",
+        "Voice is transcribed, and after the game AI helps review what happened."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "React",
+        "Next.js（vinext）",
+        "Cloudflare Workers",
+        "D1",
+        "WebRTC 語音"
+      ],
+      "en": [
+        "React",
+        "Next.js (vinext)",
+        "Cloudflare Workers",
+        "D1",
+        "WebRTC voice"
+      ]
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "線上示範",
+          "en": "Demo"
+        },
+        "href": "demos/avalon/"
+      }
+    ]
+  },
+  {
+    "id": "digitalmaster",
+    "title": {
+      "zh": "數位達人",
+      "en": "Digital Master"
+    },
+    "date": "2025-03",
+    "year": "2025 – 2026",
+    "category": "product",
+    "status": "內部專案",
+    "access": "demo",
+    "featured": false,
+    "cover": "assets/img/works/digitalmaster-phone-1.webp",
+    "gallery": [
+      "assets/img/works/digitalmaster-phone-1.webp",
+      "assets/img/works/digitalmaster-phone-2.webp"
+    ],
+    "summary": {
+      "zh": "70 人使用的數位學習激勵平台：出席、課程、互動、案例等任務累積星數，升級並解鎖徽章。",
+      "en": "A digital-learning rewards platform used by 70 people: attending, taking courses, joining in and sharing cases earn stars that level you up and unlock badges."
+    },
+    "role": {
+      "zh": "前後端開發",
+      "en": "Frontend and backend development"
+    },
+    "growth": {
+      "zh": "用遊戲化設計推動內部數位學習：等級、徽章與後台管理。",
+      "en": "Using game design to encourage internal digital learning: levels, badges and an admin back office."
+    },
+    "note": {
+      "zh": "「線上示範」為原本的前端畫面，資料換成虛構的「示範達人」，任意輸入帳號即可登入。",
+      "en": "The demo is the original frontend with made-up data for a sample learner. Sign in with any ID."
+    },
+    "highlights": {
+      "zh": [
+        "等級、徽章與兌換機制，前台＋後台管理。"
+      ],
+      "en": [
+        "Levels, badges and rewards, with a member site and an admin back office."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "React",
+        "TypeScript",
+        "Python",
+        "MongoDB",
+        "Docker"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "線上示範",
+          "en": "Demo"
+        },
+        "href": "demos/digitalmaster/"
+      },
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/DigitalMaster"
+      }
+    ]
+  },
+  {
+    "id": "seatdraw",
+    "title": {
+      "zh": "SeatDraw 派對抽座位",
+      "en": "SeatDraw party seating"
+    },
+    "date": "2025-04",
+    "year": "2025",
+    "category": "fun",
+    "status": "開源",
+    "access": "none",
+    "featured": false,
+    "cover": "assets/img/works/seatdraw-phone-1.webp",
+    "gallery": [
+      "assets/img/works/seatdraw-phone-1.webp",
+      "assets/img/works/seatdraw-shot-2.webp"
+    ],
+    "summary": {
+      "zh": "活動與尾牙用的抽座位小工具，伺服器端確保座位不重複分配。",
+      "en": "A seat-drawing tool for events and year-end parties. The server makes sure no seat is assigned twice."
+    },
+    "role": {
+      "zh": "開發",
+      "en": "Development"
+    },
+    "growth": {
+      "zh": "第一次用 Go 寫後端，練習用伺服器保證抽籤結果不重複。",
+      "en": "My first Go backend, practising how a server can guarantee that no seat is drawn twice."
+    },
+    "note": {
+      "zh": "截圖用的是線上的前端，後端回應在瀏覽器內模擬，沒有真的抽座位。",
+      "en": "The screenshots use the live frontend with backend responses simulated in the browser; no real seat was drawn."
+    },
+    "highlights": {
+      "zh": [
+        "輸入座位數即可開抽，已分配狀態即時更新。"
+      ],
+      "en": [
+        "Enter the number of seats and start drawing; taken seats update live."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "React",
+        "TypeScript",
+        "Go",
+        "Docker"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/SeatDraw"
+      }
+    ]
+  },
+  {
+    "id": "classhat",
+    "title": {
+      "zh": "ClassHat MBTI 分組",
+      "en": "ClassHat MBTI groups"
+    },
+    "date": "2025-08",
+    "year": "2025",
+    "category": "fun",
+    "status": "開源",
+    "access": "none",
+    "featured": false,
+    "cover": "assets/img/works/classhat-shot-1.webp",
+    "gallery": [
+      "assets/img/works/classhat-shot-1.webp",
+      "assets/img/works/classhat-shot-2.webp",
+      "assets/img/works/classhat-phone-1.webp"
+    ],
+    "summary": {
+      "zh": "內部活動用的 MBTI 測驗與雷達圖結果，搭配管理頁協助分組。",
+      "en": "An MBTI quiz with radar-chart results for internal events, plus an admin page that helps form groups."
+    },
+    "role": {
+      "zh": "開發",
+      "en": "Development"
+    },
+    "growth": {
+      "zh": "小而快的內部活動工具：從問卷到雷達圖，一個週末上線。",
+      "en": "A small, fast tool for an internal event: from questionnaire to radar chart, live in one weekend."
+    },
+    "note": {
+      "zh": "",
+      "en": ""
+    },
+    "highlights": {
+      "zh": [
+        "測驗結果以雷達圖呈現，管理端彙整分組。"
+      ],
+      "en": [
+        "Results are shown as a radar chart, and the admin page collects them into groups."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "HTML",
+        "CSS",
+        "Chart.js",
+        "Python"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/ClassHat"
+      }
+    ]
+  },
+  {
+    "id": "news",
+    "title": {
+      "zh": "新聞時間軸",
+      "en": "News timeline"
+    },
+    "date": "2025-08",
+    "year": "2025",
+    "category": "ai",
+    "status": "開源",
+    "access": "none",
+    "featured": false,
+    "cover": "assets/img/works/news-shot-1.webp",
+    "gallery": [],
+    "summary": {
+      "zh": "把電子報新聞整理成可搜尋的時間軸，快速回顧產業與公司動態。",
+      "en": "Newsletter stories organised into a searchable timeline, for a quick look back at industry and company news."
+    },
+    "role": {
+      "zh": "資料整理與開發",
+      "en": "Data preparation and development"
+    },
+    "growth": {
+      "zh": "把散落的電子報整理成資料，再做成可以瀏覽的時間軸。",
+      "en": "Turning scattered newsletters into data, then into a timeline you can browse."
+    },
+    "note": {
+      "zh": "截圖中的銀行名稱已改為「示範銀行」。",
+      "en": "The bank name in the screenshot is replaced with \"示範銀行\" (sample bank)."
+    },
+    "highlights": {
+      "zh": [
+        "文件轉 JSON，依日期與關鍵字瀏覽，並標出標題與內文的情緒分數。"
+      ],
+      "en": [
+        "Documents converted to JSON and browsable by date and keyword, with sentiment scores for headlines and body text."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "HTML",
+        "JavaScript",
+        "JSON"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/duicn187532/newsStorage"
+      }
+    ]
+  },
+  {
+    "id": "sentiment",
+    "title": {
+      "zh": "輿情分析儀表板",
+      "en": "Public-opinion dashboard"
+    },
+    "date": "2025-01",
+    "year": "2025",
+    "category": "ai",
+    "status": "內部專案",
+    "access": "none",
+    "featured": false,
+    "cover": "assets/img/works/sentiment.svg",
+    "gallery": [],
+    "summary": {
+      "zh": "20 人使用、分三個階段打造的輿情分析工具：從單機版的關鍵字情緒分析，到熱搜關鍵字與報告申請表單，再到自動蒐集各大新聞的輿情資料庫。",
+      "en": "A public-opinion analysis tool used by 20 people and built in three phases: standalone keyword sentiment analysis, then trending keywords and a report request form, then an opinion database that collects stories from major news outlets automatically."
+    },
+    "role": {
+      "zh": "團隊合作：負責全端工程",
+      "en": "Team project: I did the full-stack engineering"
+    },
+    "growth": {
+      "zh": "同一個產品做了三個階段：從單機搜尋，到申請表單，再到自動蒐集新聞的資料庫。",
+      "en": "One product in three phases: from a standalone search tool, to a request form, to a database that collects news automatically."
+    },
+    "note": {
+      "zh": "團隊的內部專案，原始碼不公開，也不提供試用入口。封面是示意畫面，數字與關鍵字均為虛構。",
+      "en": "An internal team project. The source code is private and there is no public demo. The cover is an illustration with made-up numbers and keywords."
+    },
+    "highlights": {
+      "zh": [
+        "第一階段（2025 年 1 月）：單機版，使用者輸入關鍵字搜尋，串接地端 RoBERTa 情感模型與 GPT API 做分析。",
+        "第二階段（2025 年 6 月）：加入熱搜關鍵字與輿情報告申請表單。",
+        "第三階段（2025 年 7 月）：建立輿情資料庫，依設定的關鍵字自動蒐集各大新聞。"
+      ],
+      "en": [
+        "Phase 1 (January 2025): a standalone version where users search by keyword, connected to an on-premise RoBERTa sentiment model and the GPT API.",
+        "Phase 2 (June 2025): trending keywords and a form for requesting opinion reports.",
+        "Phase 3 (July 2025): an opinion database that collects major news stories for the configured keywords automatically."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "Python",
+        "FastAPI",
+        "RoBERTa",
+        "GPT API",
+        "新聞資料庫"
+      ],
+      "en": [
+        "Python",
+        "FastAPI",
+        "RoBERTa",
+        "GPT API",
+        "News database"
+      ]
+    },
+    "links": []
+  },
+  {
+    "id": "lottery",
+    "title": {
+      "zh": "園遊會抽獎",
+      "en": "Fair prize draw"
+    },
+    "date": "2025-03",
+    "year": "2025",
+    "category": "fun",
+    "status": "私人專案",
+    "access": "none",
+    "featured": false,
+    "cover": "assets/img/works/lottery.svg",
+    "gallery": [],
+    "summary": {
+      "zh": "園遊會用的抽獎工具：在後台輸入獎品後，就可以在前台抽獎。有純前端與前後端兩個版本，共用同一套介面。",
+      "en": "A prize-draw tool for a fun fair: enter the prizes in the back office, then draw on the front page. There are two versions, frontend-only and full-stack, sharing one interface."
+    },
+    "role": {
+      "zh": "純前端版本的開發（前後端版本由同事開發，兩版共用同一套 UI）",
+      "en": "Built the frontend-only version (a colleague built the full-stack version; both share one UI)"
+    },
+    "growth": {
+      "zh": "和同事各做一個版本、共用同一套 UI：第一次體會到介面與資料層分開的好處。",
+      "en": "A colleague and I each built a version on one shared UI, which showed me why separating the interface from the data layer pays off."
+    },
+    "note": {
+      "zh": "原始碼放在合作夥伴的私人 repo，不公開；封面是示意畫面，獎品為虛構。",
+      "en": "The source code is in a collaborator's private repository. The cover is an illustration and the prizes are made up."
+    },
+    "highlights": {
+      "zh": [
+        "後台輸入獎品，前台直接抽獎，攤位現場不用另外準備籤筒。",
+        "雙版本：純前端版打開就能用、不需要伺服器；前後端版由同事開發，搭配伺服器運作。兩版共用同一套 UI。"
+      ],
+      "en": [
+        "Enter prizes in the back office and draw on the front page, so the booth needs no paper lots.",
+        "Two versions: the frontend-only one works as soon as you open it, with no server; the full-stack one, built by a colleague, runs with a server. Both share one UI."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "純前端版",
+        "前後端版（同事）",
+        "共用 UI"
+      ],
+      "en": [
+        "Frontend-only version",
+        "Full-stack version (colleague)",
+        "Shared UI"
+      ]
+    },
+    "links": []
+  },
+  {
+    "id": "voteright",
+    "title": {
+      "zh": "VoteRight 2024 政見的選擇",
+      "en": "VoteRight: 2024 policy match"
+    },
+    "date": "2023-12",
+    "year": "2023 – 2024",
+    "category": "fun",
+    "status": "開源",
+    "access": "demo",
+    "featured": false,
+    "cover": "assets/img/works/voteright-phone-1.webp",
+    "gallery": [
+      "assets/img/works/voteright-phone-1.webp",
+      "assets/img/works/voteright-shot.webp"
+    ],
+    "summary": {
+      "zh": "2024 總統大選的政見配對測驗：10 個議題、三位候選人的政見隨機排序，選完後用圓餅圖看看你支持的政見偏向誰。",
+      "en": "A policy-matching quiz for Taiwan's 2024 presidential election: 10 issues, each with the three candidates' policies in random order, and a pie chart at the end showing whose policies you lean towards."
+    },
+    "role": {
+      "zh": "與夥伴合作：Flask 後端、MongoDB 題庫、結果圖表與介面",
+      "en": "With a partner: Flask backend, MongoDB question bank, result chart and interface"
+    },
+    "growth": {
+      "zh": "第一次和夥伴分工、用 Git 協作，兩週內在選前上線，給陌生人使用。",
+      "en": "My first time splitting work with a partner and collaborating in Git; it went live before the election within two weeks, used by strangers."
+    },
+    "note": {
+      "zh": "「線上示範」是原本頁面的靜態版：題庫取自原專案，候選人改以 A／B／C 匿名，不載入廣告與 Facebook，作答不會送出或儲存。",
+      "en": "The demo is a static copy of the original page, in Chinese. The questions come from the original project, the candidates are anonymised as A, B and C, no ads or Facebook load, and your answers are never sent or saved."
+    },
+    "highlights": {
+      "zh": [
+        "政見選項不顯示候選人、每題隨機排序，降低先入為主的影響。",
+        "作答結果存進 MongoDB，最後以圓餅圖與完整政見對照呈現。"
+      ],
+      "en": [
+        "Options never show the candidate and are shuffled each question, to reduce bias.",
+        "Answers were saved to MongoDB, and the result is a pie chart plus the full policy comparison."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "Python",
+        "Flask",
+        "MongoDB",
+        "Chart.js",
+        "Render"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "線上示範",
+          "en": "Demo"
+        },
+        "href": "demos/voteright/"
+      },
+      {
+        "label": {
+          "zh": "原始碼",
+          "en": "Source code"
+        },
+        "href": "https://github.com/Magenga/VoteRight"
+      }
+    ]
+  },
+  {
+    "id": "crawler",
+    "title": {
+      "zh": "股價爬蟲 × Flask 網站",
+      "en": "Stock crawler × Flask site"
+    },
+    "date": "2023-08",
+    "year": "2023",
+    "category": "early",
+    "status": "早期作品",
+    "access": "none",
+    "featured": false,
+    "cover": "assets/img/works/crawler-shot-1.webp",
+    "gallery": [
+      "assets/img/works/crawler-shot-1.webp",
+      "assets/img/works/crawler-shot-2.webp"
+    ],
+    "summary": {
+      "zh": "從爬蟲出發：抓取股價、用 Flask 發 API、前端 AJAX 排版，再加上 MongoDB 會員與員工後台。",
+      "en": "Starting from a crawler: scraping stock prices, serving them through a Flask API, laying them out with AJAX, then adding MongoDB members and a staff back office."
+    },
+    "role": {
+      "zh": "自學專案",
+      "en": "Self-study project"
+    },
+    "growth": {
+      "zh": "從零開始：第一支爬蟲、第一個 Flask 網站、第一次接資料庫。",
+      "en": "Starting from zero: my first crawler, my first Flask site, my first database."
+    },
+    "note": {
+      "zh": "截圖是在本機重新啟動當年的 Flask 網站，股價為 2023 年存下的資料；背景照片就是八萬和歐雷。",
+      "en": "The screenshots come from running the original Flask site again on my machine, with stock prices saved in 2023. The background photos are Hachiman and Olleh."
+    },
+    "highlights": {
+      "zh": [
+        "完整記錄從 0 開始的開發歷程，是我寫程式的起點。"
+      ],
+      "en": [
+        "A full record of development from scratch, and where my programming started."
+      ]
+    },
+    "stack": {
+      "zh": [
+        "Python",
+        "Flask",
+        "MongoDB",
+        "AJAX"
+      ],
+      "en": []
+    },
+    "links": [
+      {
+        "label": {
+          "zh": "Crawler",
+          "en": "Crawler"
+        },
+        "href": "https://github.com/duicn187532/Crawler"
+      },
+      {
+        "label": {
+          "zh": "websiteResume",
+          "en": "websiteResume"
+        },
+        "href": "https://github.com/duicn187532/websiteResume"
+      }
+    ]
+  }
+]

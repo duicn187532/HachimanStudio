@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block main %}
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow"><svg><use href="#paw"/></svg>HACHIMAN STUDIO</span>
+          <h1 id="hero-title">{{ t(c.hero.title) }}</h1>
+          <p class="lead">{{ t(c.hero.lead) }}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="works.html">{{ ui.see_works }}</a>
+            <a class="btn btn-ghost" href="#consult">{{ ui.talk }}</a>
+          </div>
+          <ul class="hero-stats">
+            {%- for s in c.hero.stats %}
+            <li><strong>{{ s.num }}</strong><span>{{ t(s.label) }}</span></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        <div class="hero-art">
+          <svg class="energy" viewBox="0 0 70 60" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path d="M10 40 L24 30"/><path d="M28 50 L44 44"/><path d="M22 18 L32 6"/></svg>
+          <div class="frame"><img src="{{ r }}assets/img/brand/hero-two-cats.webp" alt="{{ ui.hero_alt }}" width="746" height="346"></div>
+          <div class="badge">
+            <img src="{{ r }}assets/img/brand/hachiman-alert.webp" alt="">
+            <div><strong>{{ t(c.hero.badge_title) }}</strong><span>{{ t(c.hero.badge_text) }}</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div class="about-art reveal">
+          <svg class="paws" aria-hidden="true"><use href="#paw" x="20" y="20" width="40" height="40"/><use href="#paw" x="70" y="56" width="28" height="28"/><use href="#paw" x="85%" y="30" width="36" height="36"/></svg>
+          <img src="{{ r }}assets/img/brand/cats-hug.webp" alt="{{ ui.hug_alt }}" width="323" height="157">
+        </div>
+        <div class="reveal">
+          <span class="eyebrow"><svg><use href="#paw"/></svg>About</span>
+          <h2 id="about-title">{{ t(c.about.heading) }}</h2>
+          <p>{{ t(c.about.intro) }}</p>
+          <p class="muted">{{ t(c.about.background) }}</p>
+          <ul class="values">
+            {%- for v in c.about['values'] %}
+            <li><span class="ic">{{ icon(v.icon) }}</span><div><strong>{{ t(v.title) }}</strong><span>{{ t(v.text) }}</span></div></li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="wrap profile">
+        <article class="profile-card reveal">
+          <h3>{{ t(c.about.education_title) }}</h3>
+          <ul>
+            {%- for e in c.about.education %}
+            <li><strong>{{ t(e.name) }}</strong><span>{{ t(e.note) }}</span></li>
+            {%- endfor %}
+          </ul>
+        </article>
+        <article class="profile-card reveal">
+          <h3>{{ t(c.about.experience_title) }}</h3>
+          <ul>
+            {%- for e in c.about.experience %}
+            <li><strong>{{ t(e.name) }}</strong><span>{{ t(e.note) }}</span></li>
+            {%- endfor %}
+          </ul>
+        </article>
+        <article class="profile-card reveal">
+          <h3>{{ t(c.about.skills_title) }}</h3>
+          <dl>
+            {%- for s in c.about.skills %}
+            <dt>{{ t(s.label) }}</dt><dd>{{ t(s.text) }}</dd>
+            {%- endfor %}
+          </dl>
+        </article>
+        <article class="profile-card research reveal">
+          <h3>{{ t(c.about.research_title) }}</h3>
+          {%- for p in c.about.research %}
+          <p>{{ t(p) }}</p>
+          {%- endfor %}
+          <ul class="tags paper-tags">{% for tag in c.about.research_tags %}<li>{{ tag }}</li>{% endfor %}</ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ MASCOTS ============ -->
+    <section class="alt" aria-labelledby="cats-title" style="padding-top:72px;padding-bottom:72px">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow"><svg><use href="#paw"/></svg>Inspired by</span><h2 id="cats-title">{{ t(c.cats.heading) }}</h2></div><p>{{ t(c.cats.intro) }}</p></div>
+        <div class="cats">
+          {%- set h, o = c.cats.cards[0], c.cats.cards[1] %}
+          <article class="cat-card hachiman reveal">
+            <div class="avatar"><img src="{{ r }}assets/img/brand/hachiman-pounce.webp" alt="{{ attr(h.alt) }}" width="273" height="159" style="width:116px;margin-bottom:6px"></div>
+            <div><span class="tag">{{ t(h.tag) }}</span><h3>{{ t(h.name) }}</h3><p>{{ t(h.text) }}</p></div>
+          </article>
+          <article class="cat-card olleh reveal">
+            <div class="avatar"><img src="{{ r }}assets/img/brand/olleh-portrait.webp" alt="{{ attr(o.alt) }}" width="155" height="139"></div>
+            <div><span class="tag">{{ t(o.tag) }}</span><h3>{{ t(o.name) }}</h3><p>{{ t(o.text) }}</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="consult" class="dark" aria-labelledby="consult-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow"><svg><use href="#paw"/></svg>Concept consulting</span><h2 id="consult-title">{{ t(c.consult.heading) }}</h2></div>
+          <p>{{ t(c.consult.intro) }}</p>
+        </div>
+        <div class="services">
+          {%- for s in c.consult.services %}
+          <article class="service reveal">
+            <div class="ic">{{ icon(s.icon) }}</div>
+            <h3>{{ t(s.title) }}</h3>
+            <p>{{ t(s.text) }}</p>
+            <ul>{% for tag in s.tags %}<li>{{ t(tag) }}</li>{% endfor %}</ul>
+          </article>
+          {%- endfor %}
+        </div>
+        <ul class="scope">
+          {%- for s in c.consult.scope %}
+          <li class="reveal"><strong>{{ t(s.title) }}</strong><span>{{ t(s.text) }}</span></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ WORKS ============ -->
+    <section id="works" aria-labelledby="works-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow"><svg><use href="#paw"/></svg>Selected works</span><h2 id="works-title">{{ t(c.featured.heading) }}</h2></div>
+          <p>{{ t(c.featured.intro) }}</p>
+        </div>
+        <ul class="legend" aria-label="{{ ui.legend_aria }}">
+          {%- for k, label, text in ui.legend_short %}
+          <li><span class="av av-{{ k }}">{{ label }}</span><br>{{ text|safe }}</li>
+          {%- endfor %}
+        </ul>
+        <ul class="works" data-works="featured"></ul>
+        <div class="works-more"><a class="btn btn-ghost" href="works.html">{{ ui.see_all }}</a></div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section id="process" class="alt" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow"><svg><use href="#paw"/></svg>How it works</span><h2 id="process-title">{{ t(c.process.heading) }}</h2></div>
+          <p>{{ t(c.process.intro) }}</p>
+        </div>
+        <ol class="steps">
+          {%- for s in c.process.steps %}
+          <li class="step reveal"><div class="num"><svg><use href="#paw"/></svg>STEP {{ '%02d' % loop.index }}</div><h3>{{ t(s.title) }}</h3><p>{{ t(s.text) }}</p></li>
+          {%- endfor %}
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ JOURNEY ============ -->
+    <section id="journey" aria-labelledby="journey-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow"><svg><use href="#paw"/></svg>Journey</span><h2 id="journey-title">{{ t(c.journey.heading) }}</h2></div>
+          <a class="btn btn-ghost" href="growth.html">{{ ui.see_growth }}</a>
+        </div>
+        <ol class="timeline">
+          {%- for j in c.journey['items'] %}
+          <li class="reveal"><div class="yr">{{ j.year }}</div><div><h3>{{ t(j.title) }}</h3><p>{{ t(j.text) }}</p></div></li>
+          {%- endfor %}
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="alt" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact reveal">
+          <div>
+            <span class="eyebrow"><svg><use href="#paw"/></svg>Contact</span>
+            <h2 id="contact-title">{{ t(c.contact.heading) }}</h2>
+            <p>{{ t(c.contact.text) }}</p>
+            <div class="actions">
+              <a class="btn btn-primary" data-contact="email" href="{{ 'mailto:' ~ site.settings.email if site.settings.email else '#' }}"{% if not site.settings.email %} hidden{% endif %}>{{ ui.email_btn }}</a>
+              <a class="btn btn-ghost" data-contact="github" href="{{ site.settings.github }}" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+          <div class="contact-art"><img src="{{ r }}assets/img/brand/hachiman-peek.webp" alt="{{ ui.peek_alt }}" width="233" height="121"></div>
+        </div>
+
+        <div class="faq">
+          {%- for f in c.faq %}
+          <details class="reveal"><summary>{{ t(f.q) }}</summary><p>{{ t(f.a) }}</p></details>
+          {%- endfor %}
+        </div>
+      </div>
+    </section>
+{% endblock %}

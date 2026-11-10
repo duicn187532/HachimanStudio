@@ -1,0 +1,806 @@
+{
+  "settings": {
+    "email": "duicn187532@gmail.com",
+    "github": "https://github.com/duicn187532",
+    "goatcounter": "duicn187532"
+  },
+  "pages": {
+    "index": {
+      "title": {
+        "zh": "HACHIMAN STUDIO 八萬工作室｜八萬爸的作品與概念諮詢",
+        "en": "HACHIMAN STUDIO | Hachiman's Dad: works and concept consulting"
+      },
+      "description": {
+        "zh": "HACHIMAN STUDIO 八萬工作室是八萬爸的個人品牌：收錄個人或合作完成的作品（內部系統、AI 工具、互動教材），也提供不收費的概念諮詢。",
+        "en": "HACHIMAN STUDIO is the personal brand of Hachiman's Dad: solo and collaborative work on internal tools, AI tools and interactive learning, plus free concept consulting."
+      }
+    },
+    "works": {
+      "title": {
+        "zh": "作品集｜HACHIMAN STUDIO 八萬工作室",
+        "en": "Portfolio | HACHIMAN STUDIO"
+      },
+      "description": {
+        "zh": "八萬爸（HACHIMAN STUDIO 八萬工作室）的作品集，個人或合作完成：會議室預約系統、AutoML Workbench、彤靈談心、CS LAB 互動教材等。",
+        "en": "Portfolio of Hachiman's Dad (HACHIMAN STUDIO), solo and collaborative: a meeting-room booking system, AutoML Workbench, TongLing, CS LAB interactive lessons and more."
+      }
+    },
+    "growth": {
+      "title": {
+        "zh": "成長時間線｜HACHIMAN STUDIO 八萬工作室",
+        "en": "Growth timeline | HACHIMAN STUDIO"
+      },
+      "description": {
+        "zh": "從 2023 年的第一支爬蟲到現在：依時間排列的作品與成長紀錄，越往下越早。",
+        "en": "From my first crawler in 2023 to today: works and what I learned, newest first."
+      }
+    },
+    "og_description": {
+      "zh": "八萬爸的個人作品集：把日常的麻煩做成好用的小工具。有想法卻不知道怎麼做，歡迎來信聊聊。",
+      "en": "Hachiman's Dad's portfolio: turning everyday hassles into handy little tools. Have an idea but not sure how to build it? Drop me an email."
+    }
+  },
+  "hero": {
+    "title": {
+      "zh": "把日常的麻煩，<br>做成<em>好用的小工具</em>。",
+      "en": "Turning everyday hassles<br>into <em>handy little tools</em>."
+    },
+    "lead": {
+      "zh": "HACHIMAN STUDIO 八萬工作室是<strong>八萬爸</strong>的個人品牌。這裡收錄我在工作之餘，自己或和夥伴一起完成的作品——會議室搶不到、需求文件寫不完、教材讀不懂——把這些日常的麻煩，做成大家願意打開的小工具。",
+      "en": "HACHIMAN STUDIO is the personal brand of <strong>Hachiman's Dad</strong>. Here is what I have built outside my day job, on my own or with partners: meeting rooms nobody can book, requirement documents that never end, course material nobody understands. I turn everyday hassles like these into small tools people actually want to open."
+    },
+    "stats": [
+      {
+        "num": "16",
+        "label": {
+          "zh": "件作品",
+          "en": "works"
+        }
+      },
+      {
+        "num": "3",
+        "label": {
+          "zh": "預約入口：網頁・LINE・AI",
+          "en": "booking channels: web, LINE, AI"
+        }
+      },
+      {
+        "num": "9",
+        "label": {
+          "zh": "門互動資工課程",
+          "en": "interactive CS courses"
+        }
+      },
+      {
+        "num": "2023",
+        "label": {
+          "zh": "從一支爬蟲開始",
+          "en": "started with one crawler"
+        }
+      }
+    ],
+    "badge_title": {
+      "zh": "八萬發現了新點子！",
+      "en": "Hachiman spotted a new idea!"
+    },
+    "badge_text": {
+      "zh": "有想法不知道怎麼做？歡迎來信",
+      "en": "Not sure how to build yours? Email me"
+    }
+  },
+  "about": {
+    "heading": {
+      "zh": "嗨，我是八萬爸。",
+      "en": "Hi, I'm Hachiman's Dad."
+    },
+    "intro": {
+      "zh": "HACHIMAN STUDIO 八萬工作室是我的個人品牌，目前沒有登記營業，也不以營利為目的。工作室只有我一個人：網站上的作品有些是我獨立完成，有些是和同事、朋友合作，每件作品都寫著我負責的部分。",
+      "en": "HACHIMAN STUDIO is my personal brand. It is not a registered business and not run for profit. The studio is just me: some works here I built alone and some with colleagues and friends, and each one says which part was mine."
+    },
+    "background": {
+      "zh": "從銀行臨櫃起步，做過分行企業金融，現在在數位金融部規劃企業金融的數位產品。2023 年開始自學寫程式，2025 年進入資訊工程碩士在職專班，研究 LLM Agent 的長期記憶。",
+      "en": "I started at a bank counter, moved into branch corporate banking, and now plan digital products for corporate banking in the digital finance department. I began teaching myself to code in 2023, and in 2025 started a part-time master's in computer science, researching long-term memory for LLM agents."
+    },
+    "values": [
+      {
+        "icon": "shield",
+        "title": {
+          "zh": "懂金融業的限制，也能自己做出來",
+          "en": "I know finance's constraints, and I can build within them"
+        },
+        "text": {
+          "zh": "熟悉法遵、資安與跨部門流程，主導過 3 項企業金融系統上線；能從法規與業務需求寫到 PRD 與系統分析，也能用 Python、React 親手做出原型。",
+          "en": "I know compliance, security and cross-department processes, and have led 3 corporate banking system launches. I can go from regulations and business needs to PRDs and systems analysis, and build the prototype myself in Python and React."
+        }
+      },
+      {
+        "icon": "star",
+        "title": {
+          "zh": "自學三年，16 件作品",
+          "en": "Three years self-taught, 16 works"
+        },
+        "text": {
+          "zh": "2023 年從一支爬蟲開始，現在有 3 套內部工具每天在用（合計約 150 人），也在部門裡開 JavaScript 與 Python 課。",
+          "en": "I started with one crawler in 2023. Now 3 internal tools I helped build are used every day by about 150 people in total, and I teach JavaScript and Python classes at work."
+        }
+      },
+      {
+        "icon": "book",
+        "title": {
+          "zh": "邊做產品，邊讀論文",
+          "en": "Building products while reading papers"
+        },
+        "text": {
+          "zh": "在職攻讀資工碩士，精讀 Agent 記憶相關論文並做成論文精讀室；做產品時也守同一套標準：AI 只給建議、來源要能追溯。",
+          "en": "I am studying for a CS master's while working, and turn the agent-memory papers I read closely into the Paper Reading Room. My products follow the same rule: AI only suggests, and every source must be traceable."
+        }
+      }
+    ],
+    "education_title": {
+      "zh": "學歷",
+      "en": "Education"
+    },
+    "education": [
+      {
+        "name": {
+          "zh": "輔仁大學 資訊工程學系碩士在職專班",
+          "en": "M.S. in Computer Science and Information Engineering (part-time), Fu Jen Catholic University"
+        },
+        "note": {
+          "zh": "2025 – 在學",
+          "en": "2025 – present"
+        }
+      },
+      {
+        "name": {
+          "zh": "淡江大學 財務金融學系",
+          "en": "B.B.A. in Banking and Finance, Tamkang University"
+        },
+        "note": {
+          "zh": "學士",
+          "en": "Bachelor's degree"
+        }
+      }
+    ],
+    "experience_title": {
+      "zh": "經歷",
+      "en": "Experience"
+    },
+    "experience": [
+      {
+        "name": {
+          "zh": "金融業・數位金融部",
+          "en": "Financial services · Digital finance department"
+        },
+        "note": {
+          "zh": "2024 – 現在｜企業金融數位產品規劃，主導 3 項系統上線；UAT 自動化（150 個測試模組）；內部講師",
+          "en": "2024 – present · Corporate banking digital product planning; led 3 system launches; UAT automation (150 test modules); internal instructor"
+        }
+      },
+      {
+        "name": {
+          "zh": "金融業・分行企業金融",
+          "en": "Financial services · Branch corporate banking"
+        },
+        "note": {
+          "zh": "2022 – 2024｜企業授信報告、KYC 與洗錢防制審查",
+          "en": "2022 – 2024 · Corporate credit reports, KYC and anti-money-laundering reviews"
+        }
+      },
+      {
+        "name": {
+          "zh": "金融業・分行存匯",
+          "en": "Financial services · Branch deposits and remittances"
+        },
+        "note": {
+          "zh": "2021 – 2022｜臨櫃存匯與開戶法遵審核",
+          "en": "2021 – 2022 · Counter service and account-opening compliance checks"
+        }
+      }
+    ],
+    "skills_title": {
+      "zh": "技能",
+      "en": "Skills"
+    },
+    "skills": [
+      {
+        "label": {
+          "zh": "AI／LLM",
+          "en": "AI / LLM"
+        },
+        "text": {
+          "zh": "RAG（BM25 + FAISS 混合檢索）、GraphRAG、AI Agent（ReAct、Tool／Skill）、Ollama 本機部署、RoBERTa、GCN",
+          "en": "RAG (hybrid BM25 + FAISS), GraphRAG, AI agents (ReAct, tools and skills), local models with Ollama, RoBERTa, GCN"
+        }
+      },
+      {
+        "label": {
+          "zh": "開發",
+          "en": "Development"
+        },
+        "text": {
+          "zh": "Python（FastAPI、Flask）、JavaScript／TypeScript（React、Node.js、Deno）、Java（Spring Boot）、SQL、MongoDB、SQLite",
+          "en": "Python (FastAPI, Flask), JavaScript / TypeScript (React, Node.js, Deno), Java (Spring Boot), SQL, MongoDB, SQLite"
+        }
+      },
+      {
+        "label": {
+          "zh": "自動化",
+          "en": "Automation"
+        },
+        "text": {
+          "zh": "UAT 測試自動化、UiPath RPA、VBA",
+          "en": "UAT test automation, UiPath RPA, VBA"
+        }
+      },
+      {
+        "label": {
+          "zh": "產品",
+          "en": "Product"
+        },
+        "text": {
+          "zh": "需求訪談、PRD、系統分析、營運計畫書、法規審查文件",
+          "en": "Requirements interviews, PRDs, systems analysis, operations plans, regulatory filings"
+        }
+      }
+    ],
+    "research_title": {
+      "zh": "研究領域",
+      "en": "Research"
+    },
+    "research": [
+      {
+        "zh": "<strong>LLM Agent 的長期記憶</strong>：選擇性遺忘、記憶圖譜、跨情境的記憶干擾。",
+        "en": "<strong>Long-term memory for LLM agents</strong>: selective forgetting, memory graphs and interference between contexts."
+      },
+      {
+        "zh": "我關心的問題是：當對話中斷、記憶過期或互相干擾時，Agent 怎麼還能記得對的事。讀過的論文都整理在<a href=\"https://duicn187532.github.io/self-research/\" rel=\"noopener\" target=\"_blank\">論文精讀室</a>。",
+        "en": "The question I care about: when a conversation breaks off, or memories go stale or interfere with each other, how can an agent still remember the right things? The papers I have read are in the <a href=\"https://duicn187532.github.io/self-research/\" rel=\"noopener\" target=\"_blank\">Paper Reading Room</a> (in Chinese)."
+      }
+    ],
+    "research_tags": [
+      "FadeMem",
+      "Zep",
+      "STALE",
+      "Memora",
+      "CASK",
+      "APEX-MEM",
+      "Always-On Agents",
+      "StateMem",
+      "ATMS (de Kleer 1986)"
+    ]
+  },
+  "cats": {
+    "heading": {
+      "zh": "靈感來自家裡的兩隻貓",
+      "en": "Inspired by my two cats"
+    },
+    "intro": {
+      "zh": "八萬和歐雷是我養的兩隻貓。牠們的個性剛好是我做東西時的兩種狀態，於是就成了這個品牌的名字與吉祥物。",
+      "en": "Hachiman and Olleh are my two cats. Their personalities match the two moods I am in when I build things, so they became the brand's name and mascots."
+    },
+    "cards": [
+      {
+        "tag": {
+          "zh": "行動派・橘色虎斑",
+          "en": "The doer · orange tabby"
+        },
+        "name": {
+          "zh": "八萬 Hachiman",
+          "en": "Hachiman"
+        },
+        "text": {
+          "zh": "家裡的橘色虎斑，好奇心旺盛，看到新東西就想撲上去。就像我一想到點子，總是忍不住先動手做出原型再說。",
+          "en": "My orange tabby, endlessly curious, pounces on anything new. Just like me: when I get an idea, I can't help building a prototype first."
+        },
+        "alt": {
+          "zh": "八萬伏低身體準備撲擊",
+          "en": "Hachiman crouching, ready to pounce"
+        }
+      },
+      {
+        "tag": {
+          "zh": "守護派・白色長毛",
+          "en": "The guardian · white long-hair"
+        },
+        "name": {
+          "zh": "歐雷 Olleh",
+          "en": "Olleh"
+        },
+        "text": {
+          "zh": "家裡的白色長毛貓，冷靜細心，什麼都要先聞過一遍才放心。提醒我上線前，把資料、隱私與細節再檢查一次。",
+          "en": "My white long-haired cat, calm and careful, sniffs everything before trusting it. She reminds me to check data, privacy and details once more before launch."
+        },
+        "alt": {
+          "zh": "白貓歐雷抬頭微笑",
+          "en": "Olleh, a white cat, looking up and smiling"
+        }
+      }
+    ]
+  },
+  "consult": {
+    "heading": {
+      "zh": "概念諮詢：有想法，卻不知道怎麼做？",
+      "en": "Concept consulting: got an idea but not sure how to build it?"
+    },
+    "intro": {
+      "zh": "手上有個點子，或是工作上有個麻煩，不知道能不能、該怎麼用程式解決？歡迎來信。我會用自己的經驗幫你想想可行的做法。下面是我比較熟悉、能給出具體建議的範圍。",
+      "en": "Have an idea, or a problem at work, and wonder whether code could solve it, and how? Email me. I will use my experience to help you think through what could work. These are the areas I know well enough to give concrete advice."
+    },
+    "services": [
+      {
+        "icon": "calendar",
+        "title": {
+          "zh": "內部系統與流程工具",
+          "en": "Internal systems and workflow tools"
+        },
+        "text": {
+          "zh": "預約、排班、簽核、統計後台——Excel 和群組訊息，能不能換成一個好用的網頁？",
+          "en": "Bookings, rotas, approvals, stats dashboards: could those spreadsheets and group chats become one good web page?"
+        },
+        "tags": [
+          {
+            "zh": "全端開發",
+            "en": "Full-stack"
+          },
+          {
+            "zh": "LINE Bot",
+            "en": "LINE Bot"
+          },
+          {
+            "zh": "管理後台",
+            "en": "Admin dashboards"
+          }
+        ]
+      },
+      {
+        "icon": "ai",
+        "title": {
+          "zh": "AI 工具導入",
+          "en": "Bringing in AI tools"
+        },
+        "text": {
+          "zh": "AI 能不能接上你的流程？MCP 連接器、知識檢索、本機模型，以及哪裡該保留人工確認。",
+          "en": "Can AI plug into your workflow? MCP connectors, knowledge search, local models, and where a human should still confirm."
+        },
+        "tags": [
+          {
+            "zh": "MCP",
+            "en": "MCP"
+          },
+          {
+            "zh": "RAG",
+            "en": "RAG"
+          },
+          {
+            "zh": "Ollama",
+            "en": "Ollama"
+          },
+          {
+            "zh": "AutoML",
+            "en": "AutoML"
+          }
+        ]
+      },
+      {
+        "icon": "document",
+        "title": {
+          "zh": "需求整理與原型",
+          "en": "Requirements and prototypes"
+        },
+        "text": {
+          "zh": "把模糊的想法整理成需求、流程圖與可點擊的原型，先看清楚要做什麼、不做什麼。",
+          "en": "Turn a fuzzy idea into requirements, flowcharts and a clickable prototype, so it is clear what to build and what not to."
+        },
+        "tags": [
+          {
+            "zh": "PRD",
+            "en": "PRD"
+          },
+          {
+            "zh": "Prototype",
+            "en": "Prototype"
+          },
+          {
+            "zh": "UX",
+            "en": "UX"
+          }
+        ]
+      },
+      {
+        "icon": "cap",
+        "title": {
+          "zh": "互動教材與學習網站",
+          "en": "Interactive lessons and learning sites"
+        },
+        "text": {
+          "zh": "難懂的知識，怎麼用模擬器、測驗與遊戲化設計，變成可以「玩」懂的內容？",
+          "en": "How can simulators, quizzes and game design turn hard topics into something you learn by playing?"
+        },
+        "tags": [
+          {
+            "zh": "模擬器",
+            "en": "Simulators"
+          },
+          {
+            "zh": "測驗",
+            "en": "Quizzes"
+          },
+          {
+            "zh": "靜態網站",
+            "en": "Static sites"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "title": {
+          "zh": "以不收費、業餘為主",
+          "en": "Free, and a hobby"
+        },
+        "text": {
+          "zh": "概念諮詢是我的個人興趣，以分享經驗、幫你釐清方向為主，不收費。我會在下班時間回信，可能需要幾天。",
+          "en": "Concept consulting is a personal interest: I share experience and help you find a direction, free of charge. I reply after work hours, so it may take a few days."
+        }
+      },
+      {
+        "title": {
+          "zh": "超出範圍，歡迎一起合作",
+          "en": "Beyond my scope? Let's team up"
+        },
+        "text": {
+          "zh": "諮詢會限制在上面我熟悉的技術範疇；超過的部分我會直接說明，也很歡迎有相關專長的人來一起合作。",
+          "en": "Consulting stays within the technical areas above. If something goes beyond them I will say so plainly, and people with the right skills are very welcome to collaborate."
+        }
+      },
+      {
+        "title": {
+          "zh": "想談商業合作也可以",
+          "en": "Paid work is possible too"
+        },
+        "text": {
+          "zh": "但請留意這是個人，不是公司：時間與規模都有一定上限，比較適合小型工具或原型，無法承接需要全職投入或長期保固的專案。",
+          "en": "But this is one person, not a company: time and scale are limited. It suits small tools or prototypes, not projects that need full-time work or long-term support."
+        }
+      }
+    ]
+  },
+  "featured": {
+    "heading": {
+      "zh": "精選作品",
+      "en": "Selected works"
+    },
+    "intro": {
+      "zh": "點開卡片看詳細內容；部分作品提供可以實際操作的線上示範（資料皆為虛構）。",
+      "en": "Open a card for details. Some works have a demo you can try, with made-up data. Demos and linked sites are in Chinese."
+    }
+  },
+  "process": {
+    "heading": {
+      "zh": "諮詢怎麼進行",
+      "en": "How consulting works"
+    },
+    "intro": {
+      "zh": "不用準備完整的文件，幾句話的描述就夠了。",
+      "en": "No need for a full document; a few sentences are enough."
+    },
+    "steps": [
+      {
+        "title": {
+          "zh": "來信說說想法",
+          "en": "Tell me your idea"
+        },
+        "text": {
+          "zh": "想解決什麼、誰會用、現在怎麼做。三五句話就可以。",
+          "en": "What you want to solve, who would use it, how it is done today. A few sentences will do."
+        }
+      },
+      {
+        "title": {
+          "zh": "一起釐清",
+          "en": "Clarify together"
+        },
+        "text": {
+          "zh": "我會回信問幾個問題，幫你把想法整理成比較清楚的需求與範圍。",
+          "en": "I reply with a few questions to help shape the idea into clearer requirements and scope."
+        }
+      },
+      {
+        "title": {
+          "zh": "給你方向",
+          "en": "Get a direction"
+        },
+        "text": {
+          "zh": "建議可行的做法、適合的工具或技術，以及可以先試的最小版本。",
+          "en": "Suggested approaches, suitable tools or technology, and the smallest version worth trying first."
+        }
+      },
+      {
+        "title": {
+          "zh": "需要的話再合作",
+          "en": "Build together if needed"
+        },
+        "text": {
+          "zh": "剛好是我做得來又有興趣的，可以一起做原型；超出範圍就找夥伴一起來。",
+          "en": "If it is something I can do and enjoy, we can build a prototype together; if it is beyond me, we bring in partners."
+        }
+      }
+    ]
+  },
+  "journey": {
+    "heading": {
+      "zh": "我的歷程",
+      "en": "My journey"
+    },
+    "items": [
+      {
+        "year": "2023",
+        "title": {
+          "zh": "從一支爬蟲開始",
+          "en": "It started with a crawler"
+        },
+        "text": {
+          "zh": "用 Python 抓股價、Flask 發 API、MongoDB 做會員系統，一步步把網站做起來。",
+          "en": "Scraping stock prices with Python, serving an API with Flask, a MongoDB member system: building a website step by step."
+        }
+      },
+      {
+        "year": "2025",
+        "title": {
+          "zh": "走進辦公室的小工具",
+          "en": "Small tools for the office"
+        },
+        "text": {
+          "zh": "派對抽座位、MBTI 分組、數位達人激勵平台，以及第一版會議室預約系統。",
+          "en": "Party seat draws, MBTI grouping, a learning-rewards platform and the first meeting-room booking system."
+        }
+      },
+      {
+        "year": "2026",
+        "title": {
+          "zh": "AI 工具與互動教材",
+          "en": "AI tools and interactive lessons"
+        },
+        "text": {
+          "zh": "MeetBook 加入 LINE 與 AI 助理入口並遷移到 Cloudflare；AutoML Workbench、彤靈談心、CS LAB 陸續推出。",
+          "en": "MeetBook added LINE and AI-assistant access and moved to Cloudflare; AutoML Workbench, TongLing and CS LAB followed."
+        }
+      },
+      {
+        "year": "Now",
+        "title": {
+          "zh": "HACHIMAN STUDIO 成立",
+          "en": "HACHIMAN STUDIO founded"
+        },
+        "text": {
+          "zh": "以家裡的兩隻貓八萬與歐雷為品牌，整理過去的作品，也開始提供概念諮詢。",
+          "en": "Named after my two cats, Hachiman and Olleh, gathering past work and starting concept consulting."
+        }
+      }
+    ]
+  },
+  "contact": {
+    "heading": {
+      "zh": "有想法，卻不知道該怎麼做？",
+      "en": "Got an idea but not sure how to build it?"
+    },
+    "text": {
+      "zh": "不管是一個還沒成形的點子、一個想解決的麻煩，或是好奇 AI 能不能幫上忙，都歡迎來信聊聊。這是我的業餘時間，回覆可能需要幾天，請多包涵。",
+      "en": "A half-formed idea, a hassle you want gone, or curiosity about whether AI could help: all welcome. Write in English or Chinese. This is my spare time, so replies may take a few days."
+    }
+  },
+  "faq": [
+    {
+      "q": {
+        "zh": "概念諮詢要收費嗎？",
+        "en": "Does concept consulting cost anything?"
+      },
+      "a": {
+        "zh": "不收費。這是我的個人興趣，以分享經驗、幫你釐清方向為主，不會提供正式的報價或合約。",
+        "en": "No. It is a personal interest: sharing experience and helping you find a direction. There are no formal quotes or contracts."
+      }
+    },
+    {
+      "q": {
+        "zh": "可以請你直接幫我做嗎？",
+        "en": "Can you just build it for me?"
+      },
+      "a": {
+        "zh": "看情況。小型工具或原型、又剛好在我熟悉的範疇內，可以討論一起做。想談正式的商業合作也可以，但這是個人，時間與規模有一定上限，無法像公司一樣承接大型或需要長期保固的專案。",
+        "en": "It depends. For a small tool or prototype within the areas I know, we can talk about building it together. Formal paid work is possible too, but I am one person with limited time and scale, so I cannot take on large projects or long-term support the way a company can."
+      }
+    },
+    {
+      "q": {
+        "zh": "超出你熟悉的範圍怎麼辦？",
+        "en": "What if it is outside what you know?"
+      },
+      "a": {
+        "zh": "我會直接告訴你，盡量提供可以找的方向；也很歡迎有相關專長的人來一起合作。",
+        "en": "I will tell you plainly and point you in a useful direction where I can. People with the right skills are very welcome to collaborate."
+      }
+    },
+    {
+      "q": {
+        "zh": "作品都是你一個人做的嗎？",
+        "en": "Did you build all of these alone?"
+      },
+      "a": {
+        "zh": "有些是我獨立完成，有些是和同事、朋友合作。每件作品的介紹裡都寫著「我的角色」，就是我負責的部分。",
+        "en": "Some alone, some with colleagues and friends. Each work's details include \"My role\", the part I was responsible for."
+      }
+    }
+  ],
+  "works_page": {
+    "heading": {
+      "zh": "作品集",
+      "en": "Portfolio"
+    },
+    "intro": {
+      "zh": "從 2023 年的第一支爬蟲，到每天有人在用的預約系統。有些是我獨立完成，有些是和同事、朋友合作；點開卡片可以看到每件作品的重點、技術、連結，以及「我的角色」。",
+      "en": "From my first crawler in 2023 to a booking system people use every day. Some I built alone, some with colleagues and friends. Open a card for highlights, tech, links and \"My role\". Demos and linked sites are in Chinese."
+    },
+    "footnote": {
+      "zh": "※ 封面為我繪製的示意圖或示範版截圖，畫面中的人名、資料與數字均為虛構。標示「線上示範」的作品是原本介面搭配虛構資料的離線版本，不會連到任何正式環境。",
+      "en": "※ Covers are my own illustrations or screenshots of the demos; all names, data and numbers in them are made up. Works marked \"Demo\" are offline versions of the original interface with made-up data and never connect to a live system."
+    }
+  },
+  "growth_page": {
+    "heading": {
+      "zh": "成長時間線",
+      "en": "Growth timeline"
+    },
+    "intro": {
+      "zh": "最新的作品在最上面，往下滑會一路回到起點。每件作品旁邊寫著它讓我學到的事（不論是個人還是合作完成）；點開卡片可以看詳細內容與試用連結。",
+      "en": "The newest work is at the top; scroll down to go all the way back to the start. Next to each work is what it taught me, whether I built it alone or with others. Open a card for details and links."
+    },
+    "end_text": {
+      "zh": "一切從一支爬蟲開始。",
+      "en": "It all began with one crawler."
+    },
+    "eras": [
+      {
+        "year": "2026",
+        "title": {
+          "zh": "AI 工具與產品化",
+          "en": "AI tools, made into products"
+        },
+        "text": {
+          "zh": "把 AI 接進真實流程，同時把作品做成別人也能用的產品：本機優先、可追溯、可維運。",
+          "en": "Connecting AI to real workflows while turning my work into products other people can use: local-first, traceable and maintainable."
+        }
+      },
+      {
+        "year": "2025",
+        "title": {
+          "zh": "走進辦公室",
+          "en": "Into the office"
+        },
+        "text": {
+          "zh": "開始替同事解決每天的麻煩：預約、活動、學習激勵，第一次有人每天在用我做的東西。",
+          "en": "Solving my colleagues' everyday problems: bookings, events and learning rewards. For the first time, people used something I built every day."
+        }
+      },
+      {
+        "year": "2023",
+        "title": {
+          "zh": "從零開始自學",
+          "en": "Teaching myself from zero"
+        },
+        "text": {
+          "zh": "一支爬蟲、一個 Flask 網站——寫程式的起點；年底第一次和夥伴分工，做出選前上線的政見測驗。",
+          "en": "A crawler and a Flask site: where programming started. At the end of the year I first split work with a partner and shipped a policy quiz before the election."
+        }
+      }
+    ],
+    "milestones": [
+      {
+        "date": "2026-11",
+        "title": {
+          "zh": "HACHIMAN STUDIO 成立",
+          "en": "HACHIMAN STUDIO founded"
+        },
+        "text": {
+          "zh": "以家裡的兩隻貓八萬與歐雷為品牌，整理三年來個人與合作的作品，也開始提供概念諮詢。",
+          "en": "Named after my two cats, Hachiman and Olleh. I gathered three years of solo and collaborative work and started offering concept consultations."
+        }
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "product",
+      "label": {
+        "zh": "產品服務",
+        "en": "Products"
+      }
+    },
+    {
+      "key": "ai",
+      "label": {
+        "zh": "AI 與資料",
+        "en": "AI & data"
+      }
+    },
+    {
+      "key": "edu",
+      "label": {
+        "zh": "互動教材",
+        "en": "Interactive learning"
+      }
+    },
+    {
+      "key": "fun",
+      "label": {
+        "zh": "活動與娛樂",
+        "en": "Events & fun"
+      }
+    },
+    {
+      "key": "early",
+      "label": {
+        "zh": "早期作品",
+        "en": "Early work"
+      }
+    }
+  ],
+  "statuses": [
+    {
+      "key": "營運中",
+      "label": {
+        "zh": "營運中",
+        "en": "In production"
+      },
+      "live": true
+    },
+    {
+      "key": "開源",
+      "label": {
+        "zh": "開源",
+        "en": "Open source"
+      },
+      "live": false
+    },
+    {
+      "key": "Alpha",
+      "label": {
+        "zh": "Alpha",
+        "en": "Alpha"
+      },
+      "live": false
+    },
+    {
+      "key": "MVP",
+      "label": {
+        "zh": "MVP",
+        "en": "MVP"
+      },
+      "live": false
+    },
+    {
+      "key": "內部專案",
+      "label": {
+        "zh": "內部專案",
+        "en": "Internal project"
+      },
+      "live": false
+    },
+    {
+      "key": "私人專案",
+      "label": {
+        "zh": "私人專案",
+        "en": "Private project"
+      },
+      "live": false
+    },
+    {
+      "key": "早期作品",
+      "label": {
+        "zh": "早期作品",
+        "en": "Early work"
+      },
+      "live": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block main %}
+    <section class="page-hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow"><svg><use href="#paw"/></svg>Portfolio</span>
+          <h1>{{ t(c.works_page.heading) }}</h1>
+          <p>{{ t(c.works_page.intro) }}</p>
+        </div>
+        <img src="{{ r }}assets/img/brand/hachiman-pounce.webp" alt="" width="273" height="159">
+      </div>
+    </section>
+    <section style="padding-top:56px">
+      <div class="wrap">
+        <ul class="legend" aria-label="{{ ui.legend_aria }}">
+          {%- for k, label, text in ui.legend_long %}
+          <li><span class="av av-{{ k }}">{{ label }}</span><br>{{ text|safe }}</li>
+          {%- endfor %}
+        </ul>
+        <div class="filter-row"><span class="label">{{ ui.filter_avail }}</span><div class="filters" data-avail-filters role="group" aria-label="{{ ui.filter_avail_aria }}"></div></div>
+        <div class="filter-row"><span class="label">{{ ui.filter_cat }}</span><div class="filters" data-filters role="group" aria-label="{{ ui.filter_cat_aria }}"></div></div>
+        <ul class="works" data-works="all"></ul>
+        <p class="works-empty" data-works-empty hidden>{{ ui.empty }}</p>
+        <p class="muted" style="margin-top:32px;font-size:14px;color:var(--muted)">{{ t(c.works_page.footnote) }}</p>
+      </div>
+    </section>
+{% endblock %}
