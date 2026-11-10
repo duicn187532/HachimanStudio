@@ -89,10 +89,10 @@ p { margin: 0 0 1em; }
 .hero h1 em::after { content: ''; position: absolute; left: 0; right: 0; bottom: .06em; height: .22em; background: var(--ginger-soft); opacity: .35; border-radius: 4px; z-index: -1; }
 .hero .lead { font-size: 18px; color: var(--muted); max-width: 34em; margin-bottom: 28px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero-art { position: relative; }
+.hero-art { position: relative; margin-bottom: 48px; }
 .hero-art .frame { background: var(--white); padding: 12px; border-radius: 28px; box-shadow: var(--shadow); transform: rotate(1.5deg); }
 .hero-art .frame img { border-radius: 18px; width: 100%; height: auto; }
-.hero-art .badge { position: absolute; left: -18px; bottom: -22px; background: var(--charcoal); color: #fff; border-radius: 18px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); transform: rotate(-2deg); }
+.hero-art .badge { position: absolute; left: -18px; top: calc(100% - 10px); background: var(--charcoal); color: #fff; border-radius: 18px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); transform: rotate(-2deg); }
 .hero-art .badge img { width: 44px; height: 44px; border-radius: 50%; background: var(--cream); object-fit: cover; }
 .hero-art .badge strong { display: block; font-size: 14px; }
 .hero-art .badge span { font-size: 12px; opacity: .75; }
