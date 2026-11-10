@@ -7,8 +7,8 @@
   "pages": {
     "index": {
       "title": {
-        "zh": "HACHIMAN STUDIO 八萬工作室｜八萬爸的作品與概念諮詢",
-        "en": "HACHIMAN STUDIO | Hachiman's Dad: works and concept consulting"
+        "zh": "HACHIMAN STUDIO 八萬工作室",
+        "en": "HACHIMAN STUDIO"
       },
       "description": {
         "zh": "HACHIMAN STUDIO 八萬工作室是八萬爸的個人品牌：收錄個人或合作完成的作品（內部系統、AI 工具、互動教材），也提供不收費的概念諮詢。",
@@ -42,7 +42,7 @@
   },
   "hero": {
     "title": {
-      "zh": "把日常的麻煩，<br>做成<em>好用的小工具</em>。",
+      "zh": "想到什麼就<br><em>先做看看</em>。",
       "en": "Turning everyday hassles<br>into <em>handy little tools</em>."
     },
     "lead": {
@@ -55,13 +55,6 @@
         "label": {
           "zh": "件作品",
           "en": "works"
-        }
-      },
-      {
-        "num": "3",
-        "label": {
-          "zh": "預約入口：網頁・LINE・AI",
-          "en": "booking channels: web, LINE, AI"
         }
       },
       {
@@ -98,8 +91,8 @@
       "en": "HACHIMAN STUDIO is my personal brand. It is not a registered business and not run for profit. The studio is just me: some works here I built alone and some with colleagues and friends, and each one says which part was mine."
     },
     "background": {
-      "zh": "從銀行臨櫃起步，做過分行企業金融，現在在數位金融部規劃企業金融的數位產品。2023 年開始自學寫程式，2025 年進入資訊工程碩士在職專班，研究 LLM Agent 的長期記憶。",
-      "en": "I started at a bank counter, moved into branch corporate banking, and now plan digital products for corporate banking in the digital finance department. I began teaching myself to code in 2023, and in 2025 started a part-time master's in computer science, researching long-term memory for LLM agents."
+      "zh": "從銀行臨櫃起步，做過分行企業金融，現在在數位金融部規劃企業金融的數位產品(非技術職)。2023 年開始自學寫程式，2025 年進入資訊工程碩士在職專班，研究 LLM Agent 的記憶。",
+      "en": "I started at a bank counter, moved into branch corporate banking, and now plan digital products for corporate banking in the digital finance department. I began teaching myself to code in 2023, and in 2025 started a part-time master's in computer science, researching memory for LLM agents."
     },
     "values": [
       {
@@ -173,18 +166,8 @@
           "en": "Financial services · Digital finance department"
         },
         "note": {
-          "zh": "2024 – 現在｜企業金融數位產品規劃，主導 3 項系統上線；UAT 自動化（150 個測試模組）；內部講師",
-          "en": "2024 – present · Corporate banking digital product planning; led 3 system launches; UAT automation (150 test modules); internal instructor"
-        }
-      },
-      {
-        "name": {
-          "zh": "金融業・分行企業金融",
-          "en": "Financial services · Branch corporate banking"
-        },
-        "note": {
-          "zh": "2022 – 2024｜企業授信報告、KYC 與洗錢防制審查",
-          "en": "2022 – 2024 · Corporate credit reports, KYC and anti-money-laundering reviews"
+          "zh": "2024 – 現在｜企業金融數位產品規劃，主導 3 項系統上線；UAT 自動化（150 個測試模組）；讀書會講師",
+          "en": "2024 – present · Corporate banking digital product planning; led 3 system launches; UAT automation (150 test modules); book club instructor"
         }
       },
       {
@@ -195,6 +178,16 @@
         "note": {
           "zh": "2021 – 2022｜臨櫃存匯與開戶法遵審核",
           "en": "2021 – 2022 · Counter service and account-opening compliance checks"
+        }
+      },
+      {
+        "name": {
+          "zh": "金融業・分行企業金融",
+          "en": "Financial services · Branch corporate banking"
+        },
+        "note": {
+          "zh": "2022 – 2024｜企業授信報告、KYC 與洗錢防制審查",
+          "en": "2022 – 2024 · Corporate credit reports, KYC and anti-money-laundering reviews"
         }
       }
     ],
@@ -209,7 +202,7 @@
           "en": "AI / LLM"
         },
         "text": {
-          "zh": "RAG（BM25 + FAISS 混合檢索）、GraphRAG、AI Agent（ReAct、Tool／Skill）、Ollama 本機部署、RoBERTa、GCN",
+          "zh": "RAG（BM25 + FAISS 混合檢索）、GraphRAG、AI Agent（ReAct、Tool／Skill）、Ollama 本機部署、RoBERTa、GCN、CNN",
           "en": "RAG (hybrid BM25 + FAISS), GraphRAG, AI agents (ReAct, tools and skills), local models with Ollama, RoBERTa, GCN"
         }
       },
@@ -272,12 +265,12 @@
   },
   "cats": {
     "heading": {
-      "zh": "靈感來自家裡的兩隻貓",
-      "en": "Inspired by my two cats"
+      "zh": "品牌の兩隻貓",
+      "en": "Brand from my two cats"
     },
     "intro": {
-      "zh": "八萬和歐雷是我養的兩隻貓。牠們的個性剛好是我做東西時的兩種狀態，於是就成了這個品牌的名字與吉祥物。",
-      "en": "Hachiman and Olleh are my two cats. Their personalities match the two moods I am in when I build things, so they became the brand's name and mascots."
+      "zh": "八萬和歐雷是我家的貓。牠們的個性剛好是我做東西時的兩種狀態，於是就成了這個品牌的名字與吉祥物。",
+      "en": "Hachiman and Olleh are my cats. Their personalities match the two moods I am in when I build things, so they became the brand's name and mascots."
     },
     "cards": [
       {
@@ -290,8 +283,8 @@
           "en": "Hachiman"
         },
         "text": {
-          "zh": "家裡的橘色虎斑，好奇心旺盛，看到新東西就想撲上去。就像我一想到點子，總是忍不住先動手做出原型再說。",
-          "en": "My orange tabby, endlessly curious, pounces on anything new. Just like me: when I get an idea, I can't help building a prototype first."
+          "zh": "家裡的橘色虎斑，好奇心旺盛，看到新東西就想撲上去。一想到點子，總是忍不住先動手做出原型再說。",
+          "en": "My orange tabby, endlessly curious, pounces on anything new. When I get an idea, I can't help building a prototype first."
         },
         "alt": {
           "zh": "八萬伏低身體準備撲擊",
@@ -300,7 +293,7 @@
       },
       {
         "tag": {
-          "zh": "守護派・白色長毛",
+          "zh": "守護派・白色短毛",
           "en": "The guardian · white long-hair"
         },
         "name": {
@@ -308,7 +301,7 @@
           "en": "Olleh"
         },
         "text": {
-          "zh": "家裡的白色長毛貓，冷靜細心，什麼都要先聞過一遍才放心。提醒我上線前，把資料、隱私與細節再檢查一次。",
+          "zh": "家裡的白色短毛貓，冷靜細心，什麼都要長時間適應後才放心。也代表我們的產品會循序導入直到接受。",
           "en": "My white long-haired cat, calm and careful, sniffs everything before trusting it. She reminds me to check data, privacy and details once more before launch."
         },
         "alt": {
