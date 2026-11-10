@@ -330,15 +330,6 @@ def crawler():
     return frame("crawler + flask · 2023", "".join(b), bg="#EFE3D3")
 
 
-def skuld():
-    b = [text(400, 112, "Operation Skuld", 22, CHAR, 900, "middle")]
-    b.append(f'<circle cx="400" cy="270" r="120" fill="#FBF5EE" stroke="{CREAM_D}" stroke-width="10"/>')
-    b.append(f'<path d="M400 150 A120 120 0 1 1 296 330" fill="none" stroke="{GINGER}" stroke-width="10" stroke-linecap="round"/>')
-    b.append(text(400, 282, "25:00", 40, CHAR, 900, "middle") + text(400, 312, "專注中", 14, CHAR_L, 400, "middle"))
-    b.append(rect(320, 410, 160, 40, GINGER, 20) + text(400, 436, "開始", 15, WHITE, 700, "middle"))
-    return frame("timer · python", "".join(b))
-
-
 def lottery():
     # Booth lottery: prizes set up in an admin page, drawn on the front page. Prizes are made up.
     b = [text(90, 116, "園遊會抽獎", 22, CHAR, 900)]
@@ -377,7 +368,7 @@ COVERS = {
     "meetbook": meetbook, "automl": automl, "tongling": tongling, "cslab": cslab,
     "research": research, "walk": walk, "garmin": garmin, "avalon": avalon,
     "digitalmaster": digitalmaster, "seatdraw": seatdraw, "classhat": classhat,
-    "news": news, "crawler": crawler, "skuld": skuld,
+    "news": news, "crawler": crawler,
     "lottery": lottery, "sentiment": sentiment,
 }
 

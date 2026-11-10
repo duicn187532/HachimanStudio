@@ -27,7 +27,7 @@ window.HS_I18N_EN = {
     meetbook: {
       title: 'MeetBook meeting-room booking',
       growth: 'The first thing I built that a whole department uses every day: real user feedback, data migration and operations, then the same booking rules extended to LINE and an AI assistant.',
-      summary: 'A meeting-room booking service a department uses daily. The web app, a LINE official account and an AI assistant (MCP) share one conflict check.',
+      summary: 'A meeting-room booking service 60 people in a department use daily. The web app, a LINE official account and an AI assistant (MCP) share one conflict check.',
       role: 'Product planning, full-stack development, operations',
       highlights: [
         'Book several rooms at once; if any room conflicts, nothing is written, so there are no half-made bookings.',
@@ -94,7 +94,7 @@ window.HS_I18N_EN = {
       title: 'Walk',
       growth: 'Rebuilt a single-file mockup into a fully working full-stack MVP, and recorded architecture decisions in ADRs for the first time.',
       summary: 'An MVP that matches dog owners with dog walkers both ways, rebuilt from a single static mockup into a working full-stack app.',
-      role: 'Product design, full-stack development',
+      role: 'Course project: product design, full-stack development',
       highlights: [
         'One account can switch between owner and walker.',
         'AI explains recommendations and reads photos; without AI it falls back to rule-based templates.',
@@ -113,6 +113,7 @@ window.HS_I18N_EN = {
         'Keeps the official API connector behind a clear service boundary; demo mode runs fully offline.',
         'Monorepo: backend / web / mobile / shared.'
       ],
+      note: 'The screenshots come from running the app locally with its built-in demo data (DEMO_MODE), not my real health data.',
       links: ['Source code']
     },
     avalon: {
@@ -131,7 +132,7 @@ window.HS_I18N_EN = {
     digitalmaster: {
       title: 'Digital Master',
       growth: 'Using game design to encourage internal digital learning: levels, badges and an admin back office.',
-      summary: 'A digital-learning rewards platform: attending, taking courses, joining in and sharing cases earn stars that level you up and unlock badges.',
+      summary: 'A digital-learning rewards platform used by 70 people: attending, taking courses, joining in and sharing cases earn stars that level you up and unlock badges.',
       role: 'Frontend and backend development',
       highlights: ['Levels, badges and rewards, with a member site and an admin back office.'],
       note: 'The demo is the original frontend with made-up data for a sample learner. Sign in with any ID.',
@@ -143,6 +144,7 @@ window.HS_I18N_EN = {
       summary: 'A seat-drawing tool for events and year-end parties. The server makes sure no seat is assigned twice.',
       role: 'Development',
       highlights: ['Enter the number of seats and start drawing; taken seats update live.'],
+      note: 'The screenshots use the live frontend with backend responses simulated in the browser; no real seat was drawn.',
       links: ['Source code']
     },
     classhat: {
@@ -158,17 +160,18 @@ window.HS_I18N_EN = {
       growth: 'Turning scattered newsletters into data, then into a timeline you can browse.',
       summary: 'Newsletter stories organised into a searchable timeline, for a quick look back at industry and company news.',
       role: 'Data preparation and development',
-      highlights: ['Documents converted to JSON and browsable by date and keyword.'],
+      highlights: ['Documents converted to JSON and browsable by date and keyword, with sentiment scores for headlines and body text.'],
+      note: 'The bank name in the screenshot is replaced with "示範銀行" (sample bank).',
       links: ['Source code']
     },
     sentiment: {
       title: 'Public-opinion dashboard',
       growth: 'One product in three phases: from a standalone search tool, to a request form, to a database that collects news automatically.',
-      summary: 'A public-opinion analysis tool built in three phases: standalone keyword sentiment analysis, then trending keywords and a report request form, then an opinion database that collects stories from major news outlets automatically.',
+      summary: 'A public-opinion analysis tool used by 20 people and built in three phases: standalone keyword sentiment analysis, then trending keywords and a report request form, then an opinion database that collects stories from major news outlets automatically.',
       role: 'Team project: I did the full-stack engineering',
-      stack: ['Python', 'FastAPI', 'On-premise sentiment model', 'GPT API', 'News database'],
+      stack: ['Python', 'FastAPI', 'RoBERTa', 'GPT API', 'News database'],
       highlights: [
-        'Phase 1 (January 2025): a standalone version where users search by keyword, connected to an on-premise sentiment model and the GPT API.',
+        'Phase 1 (January 2025): a standalone version where users search by keyword, connected to an on-premise RoBERTa sentiment model and the GPT API.',
         'Phase 2 (June 2025): trending keywords and a form for requesting opinion reports.',
         'Phase 3 (July 2025): an opinion database that collects major news stories for the configured keywords automatically.'
       ],
@@ -204,15 +207,8 @@ window.HS_I18N_EN = {
       summary: 'Starting from a crawler: scraping stock prices, serving them through a Flask API, laying them out with AJAX, then adding MongoDB members and a staff back office.',
       role: 'Self-study project',
       highlights: ['A full record of development from scratch, and where my programming started.'],
+      note: 'The screenshots come from running the original Flask site again on my machine, with stock prices saved in 2023. The background photos are Hachiman and Olleh.',
       links: ['Crawler', 'websiteResume']
-    },
-    skuld: {
-      title: 'Operation Skuld',
-      growth: 'Where programming started: a small tool to make my own days run smoother.',
-      summary: 'A timer for managing everyday time, named after Skuld, the Norn who governs the future.',
-      role: 'Self-study project',
-      highlights: ['The first tool I built to make my own life run smoother.'],
-      links: ['Source code']
     }
   }
 };

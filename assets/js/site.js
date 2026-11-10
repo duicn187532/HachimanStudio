@@ -256,11 +256,11 @@
   var ERAS = LANG === 'en' ? {
     '2026': { title: 'AI tools, made into products', text: 'Connecting AI to real workflows while turning my work into products other people can use: local-first, traceable and maintainable.' },
     '2025': { title: 'Into the office', text: 'Solving my colleagues\' everyday problems: bookings, events and learning rewards. For the first time, people used something I built every day.' },
-    '2023': { title: 'Teaching myself from zero', text: 'A crawler, a Flask site and a timer: where programming started. At the end of the year I first split work with a partner and shipped a policy quiz before the election.' }
+    '2023': { title: 'Teaching myself from zero', text: 'A crawler and a Flask site: where programming started. At the end of the year I first split work with a partner and shipped a policy quiz before the election.' }
   } : {
     '2026': { title: 'AI 工具與產品化', text: '把 AI 接進真實流程，同時把作品做成別人也能用的產品：本機優先、可追溯、可維運。' },
     '2025': { title: '走進辦公室', text: '開始替同事解決每天的麻煩：預約、活動、學習激勵，第一次有人每天在用我做的東西。' },
-    '2023': { title: '從零開始自學', text: '一支爬蟲、一個 Flask 網站、一個計時器——寫程式的起點；年底第一次和夥伴分工，做出選前上線的政見測驗。' }
+    '2023': { title: '從零開始自學', text: '一支爬蟲、一個 Flask 網站——寫程式的起點；年底第一次和夥伴分工，做出選前上線的政見測驗。' }
   };
   var MILESTONES = LANG === 'en' ? [
     { date: '2026-11', title: 'HACHIMAN STUDIO founded', text: 'Named after my two cats, Hachiman and Olleh. I gathered three years of solo and collaborative work and started offering concept consultations.', icon: 'brand' }
