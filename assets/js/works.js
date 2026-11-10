@@ -209,7 +209,8 @@ window.HS_WORKS = [
       '語音轉逐字稿，遊戲結束後由 AI 協助復盤。'
     ],
     note: '原始碼為私人專案，不公開。「線上示範」使用原本的介面與遊戲邏輯，後端改在瀏覽器內模擬，只能開「單人測試房」（你＋機器人），沒有連線、登入與語音。',
-    cover: 'assets/img/works/avalon-shot.webp',
+    cover: 'assets/img/works/avalon-phone-1.webp',
+    gallery: ['assets/img/works/avalon-phone-1.webp', 'assets/img/works/avalon-phone-2.webp', 'assets/img/works/avalon-shot.webp'],
     links: [{ label: '線上示範', href: 'demos/avalon/' }]
   },
   {
@@ -227,7 +228,8 @@ window.HS_WORKS = [
     stack: ['React', 'TypeScript', 'Python', 'MongoDB', 'Docker'],
     highlights: ['等級、徽章與兌換機制，前台＋後台管理。'],
     note: '「線上示範」為原本的前端畫面，資料換成虛構的「示範達人」，任意輸入帳號即可登入。',
-    cover: 'assets/img/works/digitalmaster-shot-1.webp',
+    cover: 'assets/img/works/digitalmaster-phone-1.webp',
+    gallery: ['assets/img/works/digitalmaster-phone-1.webp', 'assets/img/works/digitalmaster-phone-2.webp'],
     links: [
       { label: '線上示範', href: 'demos/digitalmaster/' },
       { label: '原始碼', href: 'https://github.com/duicn187532/DigitalMaster' }
@@ -248,8 +250,8 @@ window.HS_WORKS = [
     stack: ['React', 'TypeScript', 'Go', 'Docker'],
     highlights: ['輸入座位數即可開抽，已分配狀態即時更新。'],
     note: '截圖用的是線上的前端，後端回應在瀏覽器內模擬，沒有真的抽座位。',
-    cover: 'assets/img/works/seatdraw-shot-1.webp',
-    gallery: ['assets/img/works/seatdraw-shot-1.webp', 'assets/img/works/seatdraw-shot-2.webp'],
+    cover: 'assets/img/works/seatdraw-phone-1.webp',
+    gallery: ['assets/img/works/seatdraw-phone-1.webp', 'assets/img/works/seatdraw-shot-2.webp'],
     links: [{ label: '原始碼', href: 'https://github.com/duicn187532/SeatDraw' }]
   },
   {
@@ -267,7 +269,7 @@ window.HS_WORKS = [
     stack: ['HTML', 'CSS', 'Chart.js', 'Python'],
     highlights: ['測驗結果以雷達圖呈現，管理端彙整分組。'],
     cover: 'assets/img/works/classhat-shot-1.webp',
-    gallery: ['assets/img/works/classhat-shot-1.webp', 'assets/img/works/classhat-shot-2.webp', 'assets/img/works/classhat-shot-3.webp'],
+    gallery: ['assets/img/works/classhat-shot-1.webp', 'assets/img/works/classhat-shot-2.webp', 'assets/img/works/classhat-phone-1.webp'],
     links: [{ label: '原始碼', href: 'https://github.com/duicn187532/ClassHat' }]
   },
   {
@@ -349,8 +351,8 @@ window.HS_WORKS = [
       '作答結果存進 MongoDB，最後以圓餅圖與完整政見對照呈現。'
     ],
     note: '「線上示範」是原本頁面的靜態版：題庫取自原專案，候選人改以 A／B／C 匿名，不載入廣告與 Facebook，作答不會送出或儲存。',
-    cover: 'assets/img/works/voteright-shot.webp',
-    gallery: ['assets/img/works/voteright-shot.webp', 'assets/img/works/voteright-shot-2.webp', 'assets/img/works/voteright-shot-1.webp'],
+    cover: 'assets/img/works/voteright-phone-1.webp',
+    gallery: ['assets/img/works/voteright-phone-1.webp', 'assets/img/works/voteright-shot.webp'],
     links: [
       { label: '線上示範', href: 'demos/voteright/' },
       { label: '原始碼', href: 'https://github.com/Magenga/VoteRight' }
