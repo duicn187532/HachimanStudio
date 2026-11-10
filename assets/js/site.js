@@ -14,6 +14,33 @@
 
   document.documentElement.classList.remove('no-js');
 
+  /* ---------- 語系：<html lang="en"> 的頁面（en/）使用英文；data-root 是回到網站根目錄的相對路徑 ---------- */
+  var LANG = /^en/i.test(document.documentElement.lang) ? 'en' : 'zh';
+  var ROOT = document.documentElement.getAttribute('data-root') || '';
+  function u(p) { return /^([a-z]+:|\/|#)/i.test(p) ? p : ROOT + p; }
+  var STR = {
+    zh: {
+      live: ['可實際使用', '公開上線，任何人都能直接使用'],
+      demo: ['線上示範', '原本的介面搭配虛構資料，可以操作但不會儲存'],
+      none: ['僅介紹', '目前沒有公開的試用入口'],
+      availAria: '可用性', src: '附原始碼', srcTip: '可以在 GitHub 看到原始碼', nosrc: '原始碼未公開', nosrcTip: '原始碼不公開',
+      all: '全部', shot: ' 畫面', more: '更多畫面', nth: function (n) { return '第 ' + n + ' 張畫面'; },
+      role: '我的角色：', points: '重點', stack: '技術', privateNote: '此專案為非公開專案，歡迎來信詢問細節。',
+      growth: '成長', sep: '・',
+      month: function (d) { var p = d.split('-'); return p[0] + ' 年 ' + Number(p[1]) + ' 月'; }
+    },
+    en: {
+      live: ['Live', 'Publicly available; anyone can use it'],
+      demo: ['Demo', 'The original interface with made-up data; you can use it, but nothing is saved'],
+      none: ['Overview only', 'No public version to try'],
+      availAria: 'Availability', src: 'Source code', srcTip: 'Source code is on GitHub', nosrc: 'Private source', nosrcTip: 'Source code is not public',
+      all: 'All', shot: ' screenshot', more: 'More screenshots', nth: function (n) { return 'Screenshot ' + n; },
+      role: 'My role: ', points: 'Highlights', stack: 'Tech', privateNote: 'This project is not public. Feel free to email me for details.',
+      growth: 'Growth', sep: ' · ',
+      month: function (d) { var p = d.split('-'); return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][Number(p[1]) - 1] + ' ' + p[0]; }
+    }
+  }[LANG];
+
   /* ---------- header ---------- */
   var header = document.querySelector('.site-header');
   var toggle = document.querySelector('.nav-toggle');
@@ -66,6 +93,21 @@
   /* ---------- works ---------- */
   var WORKS = window.HS_WORKS || [];
   var CATS = window.HS_CATEGORIES || {};
+  var EN = LANG === 'en' ? window.HS_I18N_EN : null;
+  if (EN) {
+    // 英文頁：以 works.en.js 的文字覆蓋，沒翻譯的欄位保留中文
+    CATS = EN.categories || CATS;
+    WORKS = WORKS.map(function (w) {
+      var tr = (EN.works || {})[w.id] || {};
+      var o = {};
+      Object.keys(w).forEach(function (k) { o[k] = w[k]; });
+      ['title', 'growth', 'summary', 'role', 'stack', 'highlights', 'note'].forEach(function (k) { if (tr[k]) o[k] = tr[k]; });
+      o.statusKey = w.status;
+      o.status = (EN.status || {})[w.status] || w.status;
+      if (tr.links) o.links = w.links.map(function (l, i) { return { label: tr.links[i] || l.label, href: l.href }; });
+      return o;
+    });
+  }
   var grid = document.querySelector('[data-works]');
 
   function esc(s) {
@@ -73,27 +115,27 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
-  function statusClass(w) { return w.status === '營運中' ? 'status live' : 'status'; }
+  function statusClass(w) { return (w.statusKey || w.status) === '營運中' ? 'status live' : 'status'; }
 
   /* 可用性標示：可實際使用／線上示範／僅介紹，以及是否附原始碼 */
   var ACCESS = {
-    live: { label: '可實際使用', tip: '公開上線，任何人都能直接使用' },
-    demo: { label: '線上示範', tip: '原本的介面搭配虛構資料，可以操作但不會儲存' },
-    none: { label: '僅介紹', tip: '目前沒有公開的試用入口' }
+    live: { label: STR.live[0], tip: STR.live[1] },
+    demo: { label: STR.demo[0], tip: STR.demo[1] },
+    none: { label: STR.none[0], tip: STR.none[1] }
   };
   function hasSource(w) { return w.links.some(function (l) { return /github\.com/.test(l.href); }); }
   function badges(w) {
     var a = ACCESS[w.access] || ACCESS.none;
-    return '<ul class="avail" aria-label="可用性">' +
+    return '<ul class="avail" aria-label="' + STR.availAria + '">' +
       '<li class="av av-' + esc(w.access || 'none') + '" title="' + esc(a.tip) + '">' + esc(a.label) + '</li>' +
-      (hasSource(w) ? '<li class="av av-src" title="可以在 GitHub 看到原始碼">附原始碼</li>' : '<li class="av av-nosrc" title="原始碼不公開">原始碼未公開</li>') +
+      (hasSource(w) ? '<li class="av av-src" title="' + STR.srcTip + '">' + STR.src + '</li>' : '<li class="av av-nosrc" title="' + STR.nosrcTip + '">' + STR.nosrc + '</li>') +
       '</ul>';
   }
   window.HS_BADGES = { badges: badges, hasSource: hasSource, ACCESS: ACCESS, esc: esc };
 
   function card(w) {
     return '<li><button type="button" class="work reveal" data-id="' + esc(w.id) + '" aria-haspopup="dialog">' +
-      '<div class="thumb"><img src="' + esc(w.cover) + '" alt="" loading="lazy" width="800" height="500"></div>' +
+      '<div class="thumb"><img src="' + esc(u(w.cover)) + '" alt="" loading="lazy" width="800" height="500"></div>' +
       '<div class="body">' +
       '<div class="meta"><span>' + esc(CATS[w.category] || '') + ' · ' + esc(w.year) + '</span><span class="' + statusClass(w) + '">' + esc(w.status) + '</span></div>' +
       '<h3>' + esc(w.title) + '</h3>' +
@@ -140,10 +182,10 @@
   }
   var availFilters = document.querySelector('[data-avail-filters]');
   if (availFilters) {
-    var opts = [['all', '全部', WORKS.length],
-      ['live', '可實際使用', WORKS.filter(function (w) { return w.access === 'live'; }).length],
-      ['demo', '線上示範', WORKS.filter(function (w) { return w.access === 'demo'; }).length],
-      ['source', '附原始碼', WORKS.filter(hasSource).length]];
+    var opts = [['all', STR.all, WORKS.length],
+      ['live', STR.live[0], WORKS.filter(function (w) { return w.access === 'live'; }).length],
+      ['demo', STR.demo[0], WORKS.filter(function (w) { return w.access === 'demo'; }).length],
+      ['source', STR.src, WORKS.filter(hasSource).length]];
     availFilters.innerHTML = opts.map(function (o) {
       return '<button type="button" class="chip chip-' + o[0] + '" data-avail="' + o[0] + '" aria-pressed="' + (o[0] === 'all') + '">' +
         esc(o[1]) + '<span class="count">' + o[2] + '</span></button>';
@@ -165,21 +207,21 @@
     if (!w || !dlg) return;
     var hasNote = !!w.note;
     dlg.querySelector('.dlg-content').innerHTML =
-      '<div class="dlg-cover"><img data-dlg-main src="' + esc(w.cover) + '" alt="' + esc(w.title) + ' 畫面"></div>' +
-      (w.gallery && w.gallery.length > 1 ? '<div class="dlg-gallery" role="group" aria-label="更多畫面">' + w.gallery.map(function (g, i) {
-        return '<button type="button" class="dlg-thumb" data-src="' + esc(g) + '" aria-pressed="' + (i === 0) + '" aria-label="第 ' + (i + 1) + ' 張畫面"><img src="' + esc(g) + '" alt="" loading="lazy"></button>';
+      '<div class="dlg-cover"><img data-dlg-main src="' + esc(u(w.cover)) + '" alt="' + esc(w.title + STR.shot) + '"></div>' +
+      (w.gallery && w.gallery.length > 1 ? '<div class="dlg-gallery" role="group" aria-label="' + STR.more + '">' + w.gallery.map(function (g, i) {
+        return '<button type="button" class="dlg-thumb" data-src="' + esc(u(g)) + '" aria-pressed="' + (i === 0) + '" aria-label="' + STR.nth(i + 1) + '"><img src="' + esc(u(g)) + '" alt="" loading="lazy"></button>';
       }).join('') + '</div>' : '') +
       '<div class="dlg-body">' +
       '<h2 id="dlg-title">' + esc(w.title) + '</h2>' +
-      '<div class="meta"><span class="' + statusClass(w) + '">' + esc(w.status) + '</span><span>' + esc(CATS[w.category] || '') + '</span><span>' + esc(w.year) + '</span><span>我的角色：' + esc(w.role) + '</span></div>' +
+      '<div class="meta"><span class="' + statusClass(w) + '">' + esc(w.status) + '</span><span>' + esc(CATS[w.category] || '') + '</span><span>' + esc(w.year) + '</span><span>' + STR.role + esc(w.role) + '</span></div>' +
       badges(w) +
       '<p>' + esc(w.summary) + '</p>' +
-      '<h3>重點</h3><ul class="points">' + w.highlights.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>' +
-      '<h3>技術</h3><ul class="tags">' + w.stack.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
-      (hasNote ? '<div class="dlg-note"><img src="assets/img/brand/olleh-portrait.webp" alt=""><span>' + esc(w.note) + '</span></div>' : '') +
+      '<h3>' + STR.points + '</h3><ul class="points">' + w.highlights.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>' +
+      '<h3>' + STR.stack + '</h3><ul class="tags">' + w.stack.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
+      (hasNote ? '<div class="dlg-note"><img src="' + u('assets/img/brand/olleh-portrait.webp') + '" alt=""><span>' + esc(w.note) + '</span></div>' : '') +
       (w.links.length ? '<div class="dlg-links">' + w.links.map(function (l, i) {
-        return '<a class="btn ' + (i === 0 ? 'btn-primary' : 'btn-ghost') + ' btn-sm" href="' + esc(l.href) + '" target="_blank" rel="noopener">' + esc(l.label) + ' ↗</a>';
-      }).join('') + '</div>' : '<div class="dlg-note"><img src="assets/img/brand/hachiman-peek.webp" alt=""><span>此專案為非公開專案，歡迎來信詢問細節。</span></div>') +
+        return '<a class="btn ' + (i === 0 ? 'btn-primary' : 'btn-ghost') + ' btn-sm" href="' + esc(u(l.href)) + '" target="_blank" rel="noopener">' + esc(l.label) + ' ↗</a>';
+      }).join('') + '</div>' : '<div class="dlg-note"><img src="' + u('assets/img/brand/hachiman-peek.webp') + '" alt=""><span>' + STR.privateNote + '</span></div>') +
       '</div>';
     lastFocus = document.activeElement;
     if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
@@ -211,15 +253,21 @@
   });
 
   /* ---------- growth timeline（新的在上，往下滑越舊） ---------- */
-  var ERAS = {
+  var ERAS = LANG === 'en' ? {
+    '2026': { title: 'AI tools, made into products', text: 'Connecting AI to real workflows while turning my work into products other people can use: local-first, traceable and maintainable.' },
+    '2025': { title: 'Into the office', text: 'Solving my colleagues\' everyday problems: bookings, events and learning rewards. For the first time, people used something I built every day.' },
+    '2023': { title: 'Teaching myself from zero', text: 'A crawler, a Flask site and a timer: where programming started. At the end of the year I first split work with a partner and shipped a policy quiz before the election.' }
+  } : {
     '2026': { title: 'AI 工具與產品化', text: '把 AI 接進真實流程，同時把作品做成別人也能用的產品：本機優先、可追溯、可維運。' },
     '2025': { title: '走進辦公室', text: '開始替同事解決每天的麻煩：預約、活動、學習激勵，第一次有人每天在用我做的東西。' },
     '2023': { title: '從零開始自學', text: '一支爬蟲、一個 Flask 網站、一個計時器——寫程式的起點；年底第一次和夥伴分工，做出選前上線的政見測驗。' }
   };
-  var MILESTONES = [
+  var MILESTONES = LANG === 'en' ? [
+    { date: '2026-11', title: 'HACHIMAN STUDIO founded', text: 'Named after my two cats, Hachiman and Olleh. I gathered three years of solo and collaborative work and started offering concept consultations.', icon: 'brand' }
+  ] : [
     { date: '2026-11', title: 'HACHIMAN STUDIO 成立', text: '以家裡的兩隻貓八萬與歐雷為品牌，整理三年來個人與合作的作品，也開始提供概念諮詢。', icon: 'brand' }
   ];
-  function monthLabel(d) { var p = d.split('-'); return p[0] + ' 年 ' + Number(p[1]) + ' 月'; }
+  function monthLabel(d) { return STR.month(d); }
   function renderTimeline() {
     var root = document.querySelector('[data-timeline]');
     if (!root) return;
@@ -234,17 +282,17 @@
         html += '<li class="tl-year reveal"><div class="tl-year-badge">' + y + '</div><div class="tl-era"><h2>' + esc(era.title) + '</h2><p>' + esc(era.text) + '</p></div></li>';
       }
       if (it.kind === 'milestone') {
-        html += '<li class="tl-item tl-milestone reveal"><span class="tl-dot"><img src="assets/img/brand/logo-icon.webp" alt=""></span>' +
+        html += '<li class="tl-item tl-milestone reveal"><span class="tl-dot"><img src="' + u('assets/img/brand/logo-icon.webp') + '" alt=""></span>' +
           '<div class="tl-card"><time>' + monthLabel(it.date) + '</time><h3>' + esc(it.m.title) + '</h3><p>' + esc(it.m.text) + '</p></div></li>';
         return;
       }
       var w = it.w;
       html += '<li class="tl-item reveal ' + (i % 2 ? 'tl-right' : 'tl-left') + '"><span class="tl-dot"></span>' +
         '<button type="button" class="tl-card work-link" data-id="' + esc(w.id) + '" aria-haspopup="dialog">' +
-        '<div class="tl-thumb"><img src="' + esc(w.cover) + '" alt="" loading="lazy" width="800" height="500"></div>' +
-        '<div class="tl-body"><time>' + monthLabel(w.date) + '・' + esc(CATS[w.category] || '') + '</time>' +
+        '<div class="tl-thumb"><img src="' + esc(u(w.cover)) + '" alt="" loading="lazy" width="800" height="500"></div>' +
+        '<div class="tl-body"><time>' + monthLabel(w.date) + STR.sep + esc(CATS[w.category] || '') + '</time>' +
         '<h3>' + esc(w.title) + '</h3>' + badges(w) +
-        '<p class="tl-growth"><span>成長</span>' + esc(w.growth || w.summary) + '</p>' +
+        '<p class="tl-growth"><span>' + STR.growth + '</span>' + esc(w.growth || w.summary) + '</p>' +
         '<ul class="tags">' + w.stack.slice(0, 4).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
         '</div></button></li>';
     });
