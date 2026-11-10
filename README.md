@@ -42,7 +42,7 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 | 公開 Email（概念諮詢的來信信箱） | `assets/js/site.js` 最上方的 `SITE.email`（留空時「寄信諮詢」按鈕會隱藏，只顯示 GitHub） |
 | 文案（含概念諮詢的範圍說明與 FAQ） | `index.html`、`works.html`、`growth.html` |
 | 顏色、字體 | `assets/css/style.css` 最上方的 `:root` |
-| 作品封面 | `python3 tools/gen_covers.py` 重新產生 `assets/img/works/*.svg`；`*-shot.webp` 是示範版截圖 |
+| 作品封面 | 多數作品用實際畫面截圖（`*-shot*.webp`、手機框 `*-phone-*.webp`）；沒有公開畫面的抽獎與輿情用 `python3 tools/gen_covers.py` 產生的示意圖（`lottery.svg`、`sentiment.svg`） |
 
 ## 訪客統計（GoatCounter）
 
@@ -70,6 +70,7 @@ Settings → Pages → Build and deployment → Source 選「Deploy from a branc
 
 ```bash
 cd demos-src/meetbook && npm ci && npx vite build
+# vite.config.ts 會拿掉字型的 .woff 備援檔，只留 woff2
 ```
 
 ### 關於 MeetBook（正式營運中）
