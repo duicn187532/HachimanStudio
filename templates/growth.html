@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block main %}
+    <section class="page-hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow"><svg><use href="#paw"/></svg>Growth</span>
+          <h1>{{ t(c.growth_page.heading) }}</h1>
+          <p>{{ t(c.growth_page.intro) }}</p>
+        </div>
+        <img src="{{ r }}assets/img/brand/hachiman-peek.webp" alt="" width="233" height="121">
+      </div>
+    </section>
+    <section style="padding-top:56px">
+      <div class="wrap">
+        <div class="tl-wrap">
+          <div class="tl-line" aria-hidden="true"></div>
+          <div class="tl-fill" aria-hidden="true"></div>
+          <ol class="timeline-v" data-timeline aria-label="{{ ui.timeline_aria }}"></ol>
+          <div class="tl-end reveal">
+            <img src="{{ r }}assets/img/brand/cats-hug.webp" alt="{{ ui.hug_alt }}" width="323" height="157">
+            <strong style="color:var(--text);font-size:16px">{{ ui.start }}<span data-timeline-start></span></strong>
+            <span>{{ t(c.growth_page.end_text) }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

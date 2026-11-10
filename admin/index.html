@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>內容後台｜HACHIMAN STUDIO</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/favicon.png">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <!-- 登入 -->
+  <section class="login" id="login" hidden>
+    <div class="login-card">
+      <img src="../assets/img/brand/logo-icon.webp" alt="" width="56" height="56">
+      <h1>內容後台</h1>
+      <p class="muted">在這裡修改網站文字、作品與圖片。按「儲存並發布」後，GitHub 會自動重新產生網站，約 1–2 分鐘後上線。</p>
+      <form id="login-form">
+        <label>GitHub 存取權杖（Fine-grained token）
+          <input type="password" id="token" autocomplete="off" spellcheck="false" placeholder="github_pat_…" required>
+        </label>
+        <label class="check"><input type="checkbox" id="remember"> 在這台電腦記住權杖</label>
+        <details class="repo-settings">
+          <summary>儲存庫設定</summary>
+          <label>擁有者 <input id="owner" value="duicn187532"></label>
+          <label>儲存庫 <input id="repo" value="HachimanStudio"></label>
+          <label>分支 <input id="branch" value="main"></label>
+        </details>
+        <p class="error" id="login-error" hidden></p>
+        <button class="btn primary" type="submit">登入</button>
+      </form>
+      <button class="btn link" type="button" id="local-mode">不登入，只看看（無法發布，可以下載 JSON）</button>
+      <details class="help">
+        <summary>怎麼取得權杖？</summary>
+        <ol>
+          <li>打開 <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Fine-grained tokens → Generate new token</a>。</li>
+          <li>Repository access 選「Only select repositories」，只勾 <b>HachimanStudio</b>。</li>
+          <li>Permissions → Repository permissions：<b>Contents</b> 設為 Read and write；想在後台看到上線進度，再把 <b>Actions</b> 設為 Read-only。</li>
+          <li>產生後複製貼到上面。權杖只會送到 api.github.com，不會經過其他伺服器。</li>
+        </ol>
+        <p class="muted">沒勾「記住」時，關掉分頁就會忘記權杖。這台電腦不是你自己的，就不要勾。</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 編輯器 -->
+  <div class="app" id="app" hidden>
+    <header class="topbar">
+      <a class="brand" href="../" target="_blank" rel="noopener"><img src="../assets/img/brand/logo-icon.webp" alt="" width="32" height="32"><span>內容後台</span></a>
+      <select id="nav-select" aria-label="切換區塊"></select>
+      <span class="status" id="status" role="status"></span>
+      <div class="top-actions">
+        <button class="btn" type="button" id="btn-download" hidden>下載 JSON</button>
+        <button class="btn" type="button" id="btn-discard" disabled>放棄修改</button>
+        <button class="btn primary" type="button" id="btn-save" disabled>儲存並發布</button>
+        <button class="btn link" type="button" id="btn-logout">登出</button>
+      </div>
+    </header>
+    <nav class="sidebar" id="nav" aria-label="區塊"></nav>
+    <main class="editor" id="editor"></main>
+  </div>
+
+  <dialog id="save-dialog">
+    <form method="dialog">
+      <h2>儲存並發布</h2>
+      <div id="save-summary"></div>
+      <label>這次修改的說明（會寫進 GitHub 的紀錄）
+        <input id="commit-msg" maxlength="120">
+      </label>
+      <div class="dialog-actions">
+        <button class="btn" value="cancel">取消</button>
+        <button class="btn primary" value="ok" id="save-confirm">發布</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="admin.js"></script>
+</body>
+</html>

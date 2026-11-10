@@ -2,15 +2,9 @@
 (function () {
   'use strict';
 
-  /* 聯絡設定：想公開 Email 時填入，例如 'hello@example.com'；留空則只顯示 GitHub。 */
-  var SITE = {
-    email: 'duicn187532@gmail.com',
-    github: 'https://github.com/duicn187532',
-    /* 訪客統計（GoatCounter）：填入在 goatcounter.com 註冊的代碼，例如 'hachiman'（對應 https://hachiman.goatcounter.com）。
-       留空就不統計、頁尾也不顯示瀏覽數。頁尾的累計瀏覽數需要在 GoatCounter 設定中開啟
-       「Allow adding visitor counts on your website」。 */
-    goatcounter: 'duicn187532'
-  };
+  /* 網站資料（聯絡方式、作品、時間線）由 tools/build_site.py 從 content/*.json 產生到 works.js／works.en.js。 */
+  var DATA = window.HS_DATA || {};
+  var SITE = DATA.site || {};
 
   document.documentElement.classList.remove('no-js');
 
@@ -64,11 +58,11 @@
   document.querySelectorAll('[data-contact="email"]').forEach(function (el) {
     if (SITE.email) { el.href = 'mailto:' + SITE.email; el.hidden = false; } else { el.hidden = true; }
   });
-  document.querySelectorAll('[data-contact="github"]').forEach(function (el) { el.href = SITE.github; });
+  document.querySelectorAll('[data-contact="github"]').forEach(function (el) { if (SITE.github) el.href = SITE.github; });
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
   /* ---------- 訪客統計（GoatCounter：不使用 cookie，不需要同意視窗） ---------- */
-  var GC_CODE = /^[a-z0-9-]+$/i.test(SITE.goatcounter) ? SITE.goatcounter.toLowerCase() : '';
+  var GC_CODE = /^[a-z0-9-]+$/i.test(SITE.goatcounter || '') ? SITE.goatcounter.toLowerCase() : '';
   var isLocal = /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname) || location.protocol === 'file:';
   if (GC_CODE && !isLocal) {
     var gc = document.createElement('script');
@@ -91,23 +85,8 @@
   });
 
   /* ---------- works ---------- */
-  var WORKS = window.HS_WORKS || [];
-  var CATS = window.HS_CATEGORIES || {};
-  var EN = LANG === 'en' ? window.HS_I18N_EN : null;
-  if (EN) {
-    // 英文頁：以 works.en.js 的文字覆蓋，沒翻譯的欄位保留中文
-    CATS = EN.categories || CATS;
-    WORKS = WORKS.map(function (w) {
-      var tr = (EN.works || {})[w.id] || {};
-      var o = {};
-      Object.keys(w).forEach(function (k) { o[k] = w[k]; });
-      ['title', 'growth', 'summary', 'role', 'stack', 'highlights', 'note'].forEach(function (k) { if (tr[k]) o[k] = tr[k]; });
-      o.statusKey = w.status;
-      o.status = (EN.status || {})[w.status] || w.status;
-      if (tr.links) o.links = w.links.map(function (l, i) { return { label: tr.links[i] || l.label, href: l.href }; });
-      return o;
-    });
-  }
+  var WORKS = DATA.works || [];
+  var CATS = DATA.categories || {};
   var grid = document.querySelector('[data-works]');
 
   function esc(s) {
@@ -115,7 +94,7 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
-  function statusClass(w) { return (w.statusKey || w.status) === '營運中' ? 'status live' : 'status'; }
+  function statusClass(w) { return w.live ? 'status live' : 'status'; }
 
   /* 可用性標示：可實際使用／線上示範／僅介紹，以及是否附原始碼 */
   var ACCESS = {
@@ -253,20 +232,8 @@
   });
 
   /* ---------- growth timeline（新的在上，往下滑越舊） ---------- */
-  var ERAS = LANG === 'en' ? {
-    '2026': { title: 'AI tools, made into products', text: 'Connecting AI to real workflows while turning my work into products other people can use: local-first, traceable and maintainable.' },
-    '2025': { title: 'Into the office', text: 'Solving my colleagues\' everyday problems: bookings, events and learning rewards. For the first time, people used something I built every day.' },
-    '2023': { title: 'Teaching myself from zero', text: 'A crawler and a Flask site: where programming started. At the end of the year I first split work with a partner and shipped a policy quiz before the election.' }
-  } : {
-    '2026': { title: 'AI 工具與產品化', text: '把 AI 接進真實流程，同時把作品做成別人也能用的產品：本機優先、可追溯、可維運。' },
-    '2025': { title: '走進辦公室', text: '開始替同事解決每天的麻煩：預約、活動、學習激勵，第一次有人每天在用我做的東西。' },
-    '2023': { title: '從零開始自學', text: '一支爬蟲、一個 Flask 網站——寫程式的起點；年底第一次和夥伴分工，做出選前上線的政見測驗。' }
-  };
-  var MILESTONES = LANG === 'en' ? [
-    { date: '2026-11', title: 'HACHIMAN STUDIO founded', text: 'Named after my two cats, Hachiman and Olleh. I gathered three years of solo and collaborative work and started offering concept consultations.', icon: 'brand' }
-  ] : [
-    { date: '2026-11', title: 'HACHIMAN STUDIO 成立', text: '以家裡的兩隻貓八萬與歐雷為品牌，整理三年來個人與合作的作品，也開始提供概念諮詢。', icon: 'brand' }
-  ];
+  var ERAS = DATA.eras || {};
+  var MILESTONES = DATA.milestones || [];
   function monthLabel(d) { return STR.month(d); }
   function renderTimeline() {
     var root = document.querySelector('[data-timeline]');
